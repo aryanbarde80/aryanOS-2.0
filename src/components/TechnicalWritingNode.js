@@ -13,7 +13,7 @@ export default function TechnicalWritingNode() {
     <OSWindow title="PUBLISH/TECH_BLOGS.BIN" icon={<BookOpen size={16} className="text-[#00f0ff] animate-pulse" />}>
       <div className="space-y-4">
         <p className="text-gray-400 text-[11px] mb-3 p-2 bg-gray-900/50 italic border-l-2 border-gray-700">
-          "Researched, authored, and published technical articles for Alfastack developer community."
+          &quot;Researched, authored, and published technical articles for Alfastack developer community.&quot;
         </p>
         
         {blogs.map((blog, idx) => (

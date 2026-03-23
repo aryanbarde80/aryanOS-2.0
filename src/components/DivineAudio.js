@@ -1,36 +1,33 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { Howl } from 'howler';
 
 export default function DivineAudio() {
   const [isMuted, setIsMuted] = useState(true);
-  const [ambientSound, setAmbientSound] = useState(null);
+  const ambientSoundRef = useRef(null);
 
   useEffect(() => {
     // Initialize ambient mantra audio loop
-    // Note for user: Place your chosen ambient track in public/audio/om_namah_shivaya.mp3
     const sound = new Howl({
       src: ['/audio/om_namah_shivaya.mp3'], // Placeholder path
       loop: true,
       volume: 0.3,
-      html5: true, // Force HTML5 Audio to allow play without downloading entire file
+      html5: true, 
       mute: true
     });
 
-    setAmbientSound(sound);
+    ambientSoundRef.current = sound;
     sound.play();
 
     // Setup global damru hover sound for all buttons
-    // Note for user: Place short damru sound in public/audio/damru_hover.mp3
     const hoverSound = new Howl({
       src: ['/audio/damru_hover.mp3'],
       volume: 0.4
     });
 
     const handleMouseOver = (e) => {
-      // Play damru sound if hovering over clickable elements (if not muted)
-      if (!sound.mute() && (e.target.closest('button') || e.target.closest('a') || e.target.closest('.cursor-pointer'))) {
+      if (ambientSoundRef.current && !ambientSoundRef.current.mute() && (e.target.closest('button') || e.target.closest('a') || e.target.closest('.cursor-pointer'))) {
         hoverSound.play();
       }
     };
@@ -45,13 +42,10 @@ export default function DivineAudio() {
   }, []);
 
   const toggleMute = () => {
-    if (ambientSound) {
-      if (isMuted) {
-        ambientSound.mute(false);
-      } else {
-        ambientSound.mute(true);
-      }
-      setIsMuted(!isMuted);
+    if (ambientSoundRef.current) {
+      const currentlyMuted = ambientSoundRef.current.mute();
+      ambientSoundRef.current.mute(!currentlyMuted);
+      setIsMuted(!currentlyMuted);
     }
   };
 

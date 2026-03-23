@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TerminalHero from "@/components/TerminalHero";
 import SkillsGrid from "@/components/SkillsGrid";
 import ExperienceList from "@/components/ExperienceList";
@@ -37,6 +37,11 @@ import { ShieldAlert, Terminal, Cpu, Zap, Activity, Info, Book } from "lucide-re
 export default function Home() {
   const [booted, setBooted] = useState(false);
   const [stabilityMode, setStabilityMode] = useState('stable');
+  const [currentDate, setCurrentDate] = useState("");
+
+  useEffect(() => {
+    setCurrentDate(new Date().toISOString().split('T')[0]);
+  }, []);
 
   const handleCLICommand = (cmd) => {
     if (cmd === 'show_skills') {
@@ -78,7 +83,7 @@ export default function Home() {
               </div>
               <div className="text-xs text-gray-400 mono hidden sm:flex items-center gap-2">
                 <Terminal size={14} className="text-[#00f0ff]" />
-                {new Date().toISOString().split('T')[0]} // LOC: JABALPUR, IND
+                {currentDate} {`// LOC: JABALPUR, IND`}
               </div>
             </div>
           </header>
@@ -150,7 +155,7 @@ export default function Home() {
           
           <footer className="mt-16 text-center border-t border-[#00f0ff]/20 pt-8 opacity-70 hover:opacity-100 transition-opacity">
             <p className="text-xs text-[#00f0ff] mono">
-              © {new Date().getFullYear()} ARYAN BARDE. All systems operational. 
+              © 2026 ARYAN BARDE. All systems operational. 
               <span className="ml-2 bg-[#ff003c] text-white px-1 py-0.5 rounded-sm">V. 9.3-DIVINE</span>
             </p>
           </footer>

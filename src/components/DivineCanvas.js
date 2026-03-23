@@ -10,7 +10,7 @@ function AvatarModel({ mousePosition, isInteracting, commandState }) {
   
   // High-fidelity fallback AI sprite if GLB missing
   // useTexture handles the loading state via Suspense automatically
-  const spriteTexture = useTexture('/real_avatar.png');
+  const spriteTexture = useTexture('/aryan-avatar.png');
   
   // ==========================================
   // 🔴 USER ACTION REQUIRED: ADD YOUR 3D AVATAR
