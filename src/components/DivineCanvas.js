@@ -1,13 +1,16 @@
 "use client";
-import React, { useRef, Suspense, useEffect } from 'react';
+import React, { useRef, useEffect, Suspense, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Stars, useGLTF, Environment } from '@react-three/drei';
+import { Stars, useGLTF, Environment, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Placeholder or actual Avatar model
 function AvatarModel({ mousePosition, isInteracting, commandState }) {
   const group = useRef();
-  const spriteTexture = THREE.ImageUtils.loadTexture('/aryan-avatar-3d.png');
+  
+  // High-fidelity fallback AI sprite if GLB missing
+  // useTexture handles the loading state via Suspense automatically
+  const spriteTexture = useTexture('/real_avatar.png');
   
   // ==========================================
   // 🔴 USER ACTION REQUIRED: ADD YOUR 3D AVATAR
@@ -145,7 +148,7 @@ function CursorLight({ mousePosition }) {
 
 export default function DivineCanvas({ commandState = 'stable' }) {
   const mousePosition = useRef({ x: 0, y: 0 });
-  const [isInteracting, setIsInteracting] = React.useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {

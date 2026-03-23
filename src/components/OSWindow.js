@@ -6,11 +6,10 @@ import { Activity, Cpu, Database, Hash } from 'lucide-react';
 export default function OSWindow({ title, children, width = "max-w-4xl", icon = "📁" }) {
   const [isHovered, setIsHovered] = useState(false);
   const [load, setLoad] = useState(12);
-  
-  // Unique ID for this window instance
-  const windowId = useMemo(() => `0x${Math.floor(Math.random() * 16777215).toString(16).toUpperCase()}`, []);
+  const [windowId, setWindowId] = useState("");
   
   useEffect(() => {
+    setWindowId(`0x${Math.floor(Math.random() * 16777215).toString(16).toUpperCase()}`);
     if (isHovered) {
       const interval = setInterval(() => {
         setLoad(prev => Math.min(Math.max(prev + (Math.random() * 10 - 5), 5), 95));
