@@ -40,29 +40,29 @@ export default function ProjectsShowcase() {
   }, []);
 
   return (
-    <OSWindow title="ARCHIVES/PROJECTS.BIN" icon={<FolderGit2 size={16} className="text-[#00f0ff] animate-pulse" />} width="max-w-5xl">
-      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+    <OSWindow title="ARCHIVES/PROJECTS.BIN" icon={<FolderGit2 size={18} className="text-[#00f0ff] animate-pulse" />} width="max-w-6xl">
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {projects.map((proj) => (
-          <div key={proj.id} className="proj-card group relative flex flex-col justify-between border-l-2 border-[#ff003c]/40 hover:border-[#ff003c] p-3 sm:p-4 bg-[#030712]/60 hover:bg-[#ff003c]/5 transition-all overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_25px_rgba(255,0,60,0.15)] rounded-r-lg">
+          <div key={proj.id} className="proj-card group relative flex flex-col justify-between border-l-4 border-[#ff003c]/20 hover:border-[#ff003c] p-5 sm:p-6 bg-[#030712]/70 hover:bg-[#ff003c]/5 transition-all duration-500 overflow-hidden shadow-[0_12px_45px_rgba(0,0,0,0.7)] hover:shadow-[0_12px_45px_rgba(255,0,60,0.2)] rounded-r-3xl">
             {/* Scanner Line */}
-            <div className="absolute inset-0 overflow-hidden rounded-r-lg">
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ff003c]/40 to-transparent translate-y-[-100%] group-hover:translate-y-[500%] transition-transform duration-1000 ease-linear" />
+            <div className="absolute inset-0 overflow-hidden rounded-r-3xl">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ff003c]/80 to-transparent translate-y-[-100%] group-hover:translate-y-[800%] transition-transform duration-1000 ease-linear shadow-[0_0_10px_#ff003c]" />
             </div>
             <div>
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-[9px] mono text-[#ff003c]/60 font-bold">[{proj.id}]</span>
+              <div className="flex justify-between items-start mb-4">
+                <span className="text-[11px] mono text-[#ff003c] font-black tracking-widest uppercase bg-[#ff003c]/10 px-2 py-0.5 rounded-sm">[{proj.id}]</span>
                 {proj.github && (
-                  <a href={proj.github} target="_blank" rel="noopener noreferrer" className="opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ExternalLink size={11} className="text-[#00f0ff]" />
+                  <a href={proj.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl bg-[#00f0ff]/10 border border-[#00f0ff]/20 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-[#00f0ff]/40 transform hover:scale-110">
+                    <ExternalLink size={14} className="text-[#00f0ff]" />
                   </a>
                 )}
               </div>
-              <h3 className="text-sm font-bold text-gray-200 group-hover:text-white mb-1 leading-snug">{proj.name}</h3>
-              <p className="text-[10px] text-gray-500 leading-relaxed mb-2">{proj.desc}</p>
+              <h3 className="text-lg sm:text-xl font-black text-gray-50 group-hover:text-white mb-3 leading-tight font-header tracking-tight">{proj.name}</h3>
+              <p className="text-sm sm:text-base text-gray-400 group-hover:text-gray-200 leading-relaxed mb-6 font-sans font-medium line-clamp-3">{proj.desc}</p>
             </div>
-            <div className="flex flex-wrap gap-1 mt-auto">
+            <div className="flex flex-wrap gap-2 mt-auto">
               {proj.tech.split(', ').map((t, i) => (
-                <span key={i} className="text-[8px] mono px-1.5 py-0.5 bg-[#ff003c]/10 border border-[#ff003c]/20 text-[#ff003c]/80 rounded-sm">{t}</span>
+                <span key={i} className="text-[10px] sm:text-xs mono px-3 py-1 bg-[#ff003c]/10 border border-[#ff003c]/30 text-[#ff003c] rounded-full font-bold uppercase tracking-wider">{t}</span>
               ))}
             </div>
           </div>

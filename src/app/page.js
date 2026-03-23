@@ -94,7 +94,7 @@ export default function Home() {
           <StatsCounter />
           
           {/* Main Content Grid (Structured Mosaic) */}
-          <div className="grid grid-cols-1 md:grid-cols-6 xl:grid-cols-12 gap-4 sm:gap-6 w-full mt-6 auto-rows-min">
+          <div className="grid grid-cols-1 md:grid-cols-6 xl:grid-cols-12 gap-8 sm:gap-10 w-full mt-10 auto-rows-min">
             
             {/* Row 1: Analytics & Monitor */}
             <div className="md:col-span-3 xl:col-span-6 flex flex-col"><AnalyticsDashboard /></div>

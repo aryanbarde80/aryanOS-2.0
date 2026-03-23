@@ -65,12 +65,12 @@ export default function OSWindow({ title, children, width = "max-w-4xl", icon = 
           <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
         </div>
         
-        <div className="flex flex-col items-center gap-0.5 sm:gap-1 text-[#00f0ff]/90 mono text-[9px] sm:text-xs tracking-widest uppercase font-bold truncate max-w-[50%] select-none">
-          <div className="flex items-center gap-1.5">
-            <span className="shrink-0 scale-90">{icon}</span> <span className="truncate">{title}</span>
+        <div className="flex flex-col items-center gap-1 text-[#00f0ff]/90 mono text-[11px] sm:text-xs tracking-widest uppercase font-bold truncate max-w-[70%] select-none header-font">
+          <div className="flex items-center gap-2">
+            <span className="shrink-0 scale-110">{icon}</span> <span className="truncate">{title}</span>
           </div>
           {/* Header Diagnostic Bar */}
-          <div className="w-24 h-1 bg-white/5 rounded-full overflow-hidden hidden md:block">
+          <div className="w-24 sm:w-32 h-1 bg-white/5 rounded-full overflow-hidden hidden md:block">
             <motion.div 
               animate={{ width: `${load}%` }}
               className={`h-full ${load > 80 ? 'bg-[#ff003c]' : 'bg-[#00f0ff]'} shadow-[0_0_10px_currentColor]`}
@@ -79,23 +79,25 @@ export default function OSWindow({ title, children, width = "max-w-4xl", icon = 
         </div>
 
         {/* Tail Diagnostic Stats */}
-        <div className="flex items-center gap-3 text-[8px] mono text-gray-500 hidden lg:flex">
-          <div className="flex items-center gap-1">
-            <Cpu size={10} className="text-[#ffaa44]" /> {load.toFixed(0)}%
+        <div className="flex items-center gap-4 text-[10px] mono text-gray-400 hidden lg:flex">
+          <div className="flex items-center gap-1.5 hover:text-[#ffaa44] transition-colors">
+            <Cpu size={12} className="text-[#ffaa44]" /> {load.toFixed(0)}%
           </div>
-          <div className="flex items-center gap-1">
-            <Database size={10} className="text-[#00f0ff]" /> {windowId.substring(0, 5)}
+          <div className="flex items-center gap-1.5 hover:text-[#00f0ff] transition-colors">
+            <Database size={12} className="text-[#00f0ff]" /> {windowId.substring(0, 6)}
           </div>
         </div>
       </div>
 
       {/* Body */}
-      <div className="p-3 sm:p-5 md:p-8 cursor-text relative z-10">
+      <div className="p-5 sm:p-8 md:p-10 cursor-text relative z-10 leading-relaxed font-sans text-sm sm:text-base selection:bg-[#00f0ff]/30">
         {/* Subtle background code leak noise */}
-        <div className="absolute inset-0 opacity-[0.02] pointer-events-none select-none font-mono text-[8px] p-2 leading-tight overflow-hidden">
-          {Array(10).fill(`async function initNode() { await core.uplink("${windowId}"); }`).join(' ')}
+        <div className="absolute inset-0 opacity-[0.015] pointer-events-none select-none font-mono text-[9px] p-4 leading-normal overflow-hidden">
+          {Array(15).fill(`// sys.init("${windowId}"); await uplink.verify();`).join(' ')}
         </div>
-        {children}
+        <div className="relative z-20">
+          {children}
+        </div>
       </div>
     </motion.div>
   );

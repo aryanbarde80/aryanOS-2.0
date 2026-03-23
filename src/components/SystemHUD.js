@@ -18,7 +18,7 @@ export default function SystemHUD() {
   }, []);
 
   return (
-    <div className="fixed top-4 right-4 z-50 glass-panel border border-[#00f0ff]/20 bg-[#030712]/60 backdrop-blur-md p-3 rounded text-xs mono text-[#00f0ff] hidden md:flex flex-col gap-2 w-52 shadow-[0_0_15px_rgba(0,240,255,0.1)] transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,240,255,0.3)] hover:border-[#00f0ff]/50">
+    <div className="fixed top-20 right-4 sm:top-4 sm:right-4 z-50 glass-panel border border-[#00f0ff]/30 bg-[#030712]/90 backdrop-blur-xl p-4 rounded-xl text-sm mono text-[#00f0ff] flex flex-col gap-3 w-60 sm:w-64 shadow-[0_0_30px_rgba(0,240,255,0.2)] transition-all duration-500 hover:shadow-[0_0_45px_rgba(0,240,255,0.4)] hover:border-[#00f0ff]/70 group">
       <div className="flex justify-between items-center border-b border-[#00f0ff]/20 pb-2 mb-1">
         <span className="opacity-70 flex items-center gap-1"><Activity size={14} className="animate-pulse" /> SYS.STATUS</span>
         <span className="text-green-400 font-bold glitch-anim inline-block">OPTIMAL</span>

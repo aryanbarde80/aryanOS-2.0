@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌌 ARYAN BARDE // AI-OS PORTFOLIO
 
-## Getting Started
+> **"Discipline and Consistency is all what is needed!"**
 
-First, run the development server:
+A high-performance, aesthetically premium portfolio built with a futuristic "Agentic OS" philosophy. This project leverages cutting-edge web technologies to deliver a cinematic 3D experience synchronized with a terminal-driven interface.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Portfolio Preview](/public/aryan-avatar-3d.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ CORE SYSTEMS
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Celestial 3D Engine**: Powered by `React-Three-Fiber`, featuring a dynamic "Divine Canvas" with star-field simulations and a Khabib-inspired animated avatar entrance.
+- **Agentic Terminal**: A real-time typing interface that simulates system boot sequences and diagnostic operations.
+- **Glassmorphic OS Shell**: A custom-built windowing system with draggable panels, real-time diagnostic stats (CPU/Memory simulation), and premium typography.
+- **Neural Matrix Overlay**: Interactive background effects that react to cursor movement and system states.
+- **Divine Audio**: Ambient cosmic loops and interactive hover sounds (Damru inspired) for deep immersion.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠 TECH STACK
 
-## Learn More
+- **Framework**: [Next.js 16.2 (Turbopack)](https://nextjs.org/)
+- **3D Graphics**: [Three.js](https://threejs.org/) + [@react-three/fiber](https://github.com/pmndrs/react-three-fiber)
+- **Animations**: [GSAP](https://greensock.com/gsap/) + [Framer Motion](https://www.framer.com/motion/)
+- **Styling**: [Vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) + [Tailwind CSS 4.0](https://tailwindcss.com/)
+- **Sound**: [Howler.js](https://howlerjs.com/)
+- **State**: [Zustand](https://github.com/pmndrs/zustand)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 GETTING STARTED
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the Uplink**:
+   ```bash
+   git clone https://github.com/aryanbarde80/demo-portfolio.git
+   cd demo-portfolio
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Initialize Dependencies**:
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Boot the System**:
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧘 PHILOSOPHY
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This portfolio is not just a showcase of code; it is a manifestation of **Technical Writing** and **Architectural Logic**. Every component is treated as a "Node" in a larger system, reflecting the interconnectivity of modern full-stack development and AI systems.
+
+---
+
+**© 2026 ARYAN BARDE**. Registered Agent of the Cosmic Network.

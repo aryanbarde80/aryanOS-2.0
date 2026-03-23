@@ -48,46 +48,36 @@ export default function TerminalHero() {
         </div>
       </div>
 
-      <div className="p-4 sm:p-6 relative">
-        <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 relative z-10">
-          <div className="relative group/avatar">
-            <img 
-              src="/aryan-avatar-3d.png" 
-              alt="Aryan Barde AI 3D Avatar" 
-              className="avatar-img w-24 h-24 sm:w-32 sm:h-32 rounded-xl border-2 border-[#00f0ff]/50 shadow-[0_0_30px_rgba(0,240,255,0.4)] shrink-0 object-cover transform transition-transform duration-500 hover:scale-105"
-            />
-            {/* Action Highlight Glow */}
-            <div className="absolute top-2 right-4 w-3 h-3 bg-[#00f0ff] rounded-full blur-[6px] animate-pulse opacity-80 pointer-events-none"></div>
-            <div className="absolute -inset-2 bg-[#00f0ff]/5 blur-xl group-hover/avatar:bg-[#00f0ff]/10 transition-colors pointer-events-none"></div>
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="mono text-sm sm:text-base md:text-lg neon-text whitespace-pre-line min-h-[100px] sm:min-h-[140px] leading-relaxed relative">
+      <div className="p-6 sm:p-10 relative">
+        <div className="flex flex-col items-start gap-8 relative z-10">
+          <div className="flex-1 w-full">
+            <div className="mono text-base sm:text-xl md:text-2xl neon-text whitespace-pre-line min-h-[120px] sm:min-h-[160px] leading-relaxed relative font-bold">
               {text}
-              <span className="inline-block w-2.5 h-[1em] bg-[#00f0ff] animate-pulse ml-0.5 align-middle shadow-[0_0_8px_rgba(0,240,255,0.8)]"></span>
+              <span className="inline-block w-3 h-[1em] bg-[#00f0ff] animate-pulse ml-1 align-middle shadow-[0_0_12px_rgba(0,240,255,1)]"></span>
             </div>
-            <p className="text-gray-500 text-[10px] sm:text-xs mono italic mt-2">&quot;Discipline and Consistency is all what is needed!&quot;</p>
-            <div className="flex flex-wrap gap-2 mt-3">
-              <span className="text-[8px] sm:text-[10px] mono bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-[#00f0ff] px-1.5 py-0.5 rounded">89 REPOS</span>
-              <span className="text-[8px] sm:text-[10px] mono bg-[#ff003c]/10 border border-[#ff003c]/30 text-[#ff003c] px-1.5 py-0.5 rounded">35 FOLLOWERS</span>
-              <span className="text-[8px] sm:text-[10px] mono bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-[#00f0ff] px-1.5 py-0.5 rounded">HACKTOBERFEST 2024</span>
+            <p className="text-gray-400 text-xs sm:text-sm mono italic mt-6 border-l-2 border-[#ff003c] pl-4 py-1 bg-[#ff003c]/5 overflow-hidden">&quot;Discipline and Consistency is all what is needed!&quot;</p>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <span className="text-[10px] sm:text-xs mono bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-[#00f0ff] px-3 py-1 rounded-full font-black tracking-widest uppercase">89 REPOS</span>
+              <span className="text-[10px] sm:text-xs mono bg-[#ff003c]/10 border border-[#ff003c]/30 text-[#ff003c] px-3 py-1 rounded-full font-black tracking-widest uppercase">35 FOLLOWERS</span>
+              <span className="text-[10px] sm:text-xs mono bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-[#00f0ff] px-3 py-1 rounded-full font-black tracking-widest uppercase">HACKTOBERFEST 2024</span>
             </div>
           </div>
         </div>
         
         {isReady && (
-          <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4 animate-in fade-in duration-700 justify-between items-center relative z-10">
-            <div className="flex flex-wrap gap-4">
-              <button className="relative overflow-hidden px-6 py-2 border border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff]/20 transition-all duration-300 mono text-sm flex items-center gap-2 shadow-[0_0_10px_rgba(0,240,255,0.2)] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] group">
-                <span className="absolute inset-0 w-full h-[200%] bg-gradient-to-b from-transparent via-[#00f0ff]/30 to-transparent -translate-y-full group-hover:animate-[scanner_1.5s_ease-in-out_infinite]"></span>
-                <span className="relative z-10">[ EXECUTE: VIEW_SKILLS ]</span>
+          <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-6 animate-in fade-in slide-in-from-bottom-5 duration-1000 justify-between items-center relative z-10">
+            <div className="flex flex-wrap gap-6 w-full sm:w-auto">
+              <button className="flex-1 sm:flex-none relative overflow-hidden px-8 py-3 border-2 border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff]/20 transition-all duration-500 mono text-sm sm:text-base font-black flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_40px_rgba(0,240,255,0.5)] group uppercase tracking-widest">
+                <span className="absolute inset-0 w-full h-[300%] bg-gradient-to-b from-transparent via-[#00f0ff]/30 to-transparent -translate-y-full group-hover:animate-[scanner_2s_ease-in-out_infinite]"></span>
+                <span className="relative z-10">[ VIEW_SKILLS ]</span>
               </button>
-              <button className="relative overflow-hidden px-6 py-2 border border-[#ff003c] text-[#ff003c] hover:bg-[#ff003c]/20 transition-all duration-300 mono text-sm shadow-[0_0_10px_rgba(255,0,60,0.2)] hover:shadow-[0_0_20px_rgba(255,0,60,0.4)] group">
-                <span className="absolute inset-0 w-full h-[200%] bg-gradient-to-b from-transparent via-[#ff003c]/30 to-transparent -translate-y-full group-hover:animate-[scanner_1.5s_ease-in-out_infinite]"></span>
-                <span className="relative z-10">[ EXECUTE: INITIATE_CONTACT ]</span>
+              <button className="flex-1 sm:flex-none relative overflow-hidden px-8 py-3 border-2 border-[#ff003c] text-[#ff003c] hover:bg-[#ff003c]/20 transition-all duration-500 mono text-sm sm:text-base font-black flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(255,0,60,0.2)] hover:shadow-[0_0_40px_rgba(255,0,60,0.5)] group uppercase tracking-widest">
+                <span className="absolute inset-0 w-full h-[300%] bg-gradient-to-b from-transparent via-[#ff003c]/30 to-transparent -translate-y-full group-hover:animate-[scanner_2s_ease-in-out_infinite]"></span>
+                <span className="relative z-10">[ CONTACT_ME ]</span>
               </button>
             </div>
-            <div className="hidden md:flex opacity-20 hover:opacity-100 transition-opacity duration-500 items-center justify-center">
-              <Orbit size={80} className="text-[#00f0ff] animate-[spin_10s_linear_infinite]" />
+            <div className="hidden lg:flex opacity-30 hover:opacity-80 transition-opacity duration-1000 items-center justify-center scale-150 mr-8">
+              <Orbit size={60} className="text-[#00f0ff] animate-[spin-slow_15s_linear_infinite]" />
             </div>
           </div>
         )}

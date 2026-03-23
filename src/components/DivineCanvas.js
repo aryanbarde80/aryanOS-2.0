@@ -7,63 +7,69 @@ import * as THREE from 'three';
 // Placeholder or actual Avatar model
 function AvatarModel({ mousePosition, isInteracting, commandState }) {
   const group = useRef();
-  
-  // High-fidelity fallback AI sprite if GLB missing
-  // useTexture handles the loading state via Suspense automatically
+  const avatarRef = useRef();
+  const armRef = useRef();
+  const [animationState, setAnimationState] = useState('far'); // far, walking, standing, pointing
+
   const spriteTexture = useTexture('/aryan-avatar.png');
-  
-  // ==========================================
-  // 🔴 USER ACTION REQUIRED: ADD YOUR 3D AVATAR
-  // 1. Export your GLB from Ready Player Me
-  // 2. Save it to: public/models/aryan-avatar.glb
-  // 3. Uncomment the line below to activate it!
-  // ==========================================
-  
-  // const { scene } = useGLTF('/models/aryan-avatar.glb');
-  const scene = null; 
+  const pointTexture = useTexture('/pointing-gesture.png'); // Hypothetical or reuse
+
+  useEffect(() => {
+    // Sequence: Far -> Walking -> Standing -> Pointing
+    const tl = gsap.timeline({ delay: 1 });
+    tl.to(group.current.position, { z: 5, duration: 3, ease: "power2.inOut", onStart: () => setAnimationState('walking') })
+      .to(group.current.position, { z: 2, duration: 1.5, ease: "power3.out", onComplete: () => setAnimationState('standing') })
+      .to({}, { duration: 0.5, onComplete: () => setAnimationState('pointing') });
+  }, []);
 
   useFrame((state) => {
     if (!group.current) return;
     
-    const speed = commandState === 'unstable' ? 0.2 : 0.05;
-    const targetX = (mousePosition.current.x * Math.PI) / 8;
-    const targetY = (mousePosition.current.y * Math.PI) / 8;
-    
-    group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetX, speed);
-    group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetY, speed);
+    // Smooth Mouse Follow
+    const targetX = (mousePosition.current.x * Math.PI) / 10;
+    const targetY = (mousePosition.current.y * Math.PI) / 10;
+    group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetX, 0.05);
+    group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetY, 0.05);
 
-    if (commandState === 'unstable') {
-      group.current.position.x = Math.sin(state.clock.elapsedTime * 20) * 0.1;
+    // Walking Bobbing
+    if (animationState === 'walking') {
+      group.current.position.y = -1 + Math.sin(state.clock.elapsedTime * 8) * 0.15;
+      group.current.rotation.z = Math.sin(state.clock.elapsedTime * 4) * 0.05;
+    } else if (animationState === 'pointing') {
+      group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, -0.8, 0.1);
     } else {
-      group.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1 - 1;
+      group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, -1, 0.05);
     }
   });
 
   return (
-    <group ref={group} position={[0, -1, 0]} scale={2.5}>
-      {scene ? (
-        <primitive object={scene} />
-      ) : (
-        <group>
-          {/* High-quality Sprite Fallback */}
-          <sprite scale={[1.2, 1.2, 1]}>
-            <spriteMaterial map={spriteTexture} transparent opacity={0.9} />
-          </sprite>
-          {/* Subtle Backglow */}
-          <mesh position={[0, 0, -0.1]}>
-            <circleGeometry args={[0.6, 32]} />
-            <meshStandardMaterial color="#00f0ff" transparent opacity={0.1} />
-          </mesh>
-        </group>
-      )}
-      
-      {/* Third Eye Glow */}
-      <pointLight 
-        position={[0, 0.4, 0.5]} 
-        color="#ffaa44" 
-        intensity={isInteracting || commandState === 'unstable' ? 8 : 2} 
-        distance={2} 
-      />
+    <group ref={group} position={[0, -5, -20]} scale={2}>
+      <group ref={avatarRef}>
+        <sprite scale={[1.5, 1.5, 1]}>
+          <spriteMaterial map={spriteTexture} transparent opacity={1} />
+        </sprite>
+        
+        {/* Khabib Gesture Overlay (Animated) */}
+        {animationState === 'pointing' && (
+          <motion.group 
+            initial={{ scale: 0, opacity: 0, y: 0.5 }}
+            animate={{ scale: 1, opacity: 1, y: 0.8 }}
+            transition={{ type: "spring", stiffness: 200 }}
+          >
+            <sprite position={[0.4, 0.6, 0.1]} scale={[0.5, 0.5, 1]}>
+              <spriteMaterial map={pointTexture} transparent opacity={1} color="#00f0ff" />
+            </sprite>
+            {/* Divine Light behind the finger */}
+            <pointLight position={[0.4, 0.8, 0.2]} color="#00f0ff" intensity={5} distance={2} />
+          </motion.group>
+        )}
+      </group>
+
+      {/* Subtle Platform */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.8, 0]}>
+        <ringGeometry args={[0.5, 0.7, 32]} />
+        <meshBasicMaterial color="#00f0ff" transparent opacity={0.15} />
+      </mesh>
     </group>
   );
 }
@@ -177,14 +183,7 @@ export default function DivineCanvas({ commandState = 'stable' }) {
     <div className="fixed inset-0 w-full h-full z-0 pointer-events-none opacity-80" aria-hidden="true">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
         <color attach="background" args={['#030712']} />
-        <ambientLight intensity={0.2} />
-        <Environment preset="night" />
-        <CursorLight mousePosition={mousePosition} />
-        <SoundWaves active={isInteracting} />
-        <SriYantra />
-        
-        {/* Cosmic Particles */}
-        <Stars radius={120} depth={60} count={7000} factor={6} saturation={0.5} fade speed={2} />
+        <Stars radius={100} depth={50} count={typeof window !== 'undefined' && window.innerWidth < 768 ? 2000 : 4000} factor={4} saturation={0.5} fade speed={1.5} />
         
         <Suspense fallback={null}>
           <AvatarModel 

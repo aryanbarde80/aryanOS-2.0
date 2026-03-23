@@ -31,16 +31,16 @@ export default function SkillsGrid() {
         {skillsConfig.map((group, idx) => (
           <div key={idx} className="border border-[#00f0ff]/20 bg-[#030712]/40 p-4 rounded relative overflow-hidden group hover:border-[#00f0ff]/60 transition-colors">
             {/* Folder tab look */}
-            <div className="text-xs text-[#00f0ff] mono mb-3 opacity-70">
+            <div className="text-sm font-black text-[#00f0ff] mono mb-4 opacity-100 tracking-[0.2em] uppercase border-b border-[#00f0ff]/10 pb-2">
               {'>'} {group.category}
             </div>
-            <div className="flex flex-wrap gap-3 relative z-10">
+            <div className="flex flex-wrap gap-3 sm:gap-4 relative z-10">
               {group.items.map((skill, i) => (
                 <div 
                   key={i} 
-                  className="group/skill relative px-3 py-1.5 bg-[#030712]/80 border border-[#00f0ff]/20 hover:border-[#00f0ff] overflow-hidden transition-all duration-300 cursor-crosshair shadow-[0_0_0px_rgba(0,240,255,0)] hover:shadow-[0_0_15px_rgba(0,240,255,0.4)]"
+                  className="group/skill relative px-4 py-2 bg-[#030712]/80 border border-[#00f0ff]/20 hover:border-[#00f0ff] overflow-hidden transition-all duration-300 cursor-crosshair shadow-[0_0_0px_rgba(0,240,255,0)] hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] rounded-sm"
                 >
-                  <div className="absolute inset-0 w-full h-[200%] bg-gradient-to-b from-transparent via-[#00f0ff]/20 to-transparent -translate-y-full group-hover/skill:animate-[scanner_1.5s_ease-in-out_infinite]"></div>
+                  <div className="absolute inset-0 w-full h-[300%] bg-gradient-to-b from-transparent via-[#00f0ff]/20 to-transparent -translate-y-full group-hover/skill:animate-[scanner_2s_ease-in-out_infinite]"></div>
                   <div className="absolute bottom-0 left-0 h-[2px] bg-[#00f0ff] w-0 group-hover/skill:w-full transition-all duration-500 ease-out z-0"></div>
                   <span className="text-gray-300 group-hover/skill:text-white text-sm mono relative z-10 transition-colors group-hover/skill:text-shadow-[0_0_5px_rgba(0,240,255,0.8)]">{skill}</span>
                 </div>
