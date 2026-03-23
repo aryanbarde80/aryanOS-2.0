@@ -31,6 +31,7 @@ import MagneticCursor from "@/components/MagneticCursor";
 import NeuralMatrix from "@/components/NeuralMatrix";
 import DiagnosticLog from "@/components/DiagnosticLog";
 import KnowledgeGraph from "@/components/KnowledgeGraph";
+import OSWindow from "@/components/OSWindow";
 import { ShieldAlert, Terminal, Cpu, Zap, Activity, Info, Book } from "lucide-react";
 
 export default function Home() {
