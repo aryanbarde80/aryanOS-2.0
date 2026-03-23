@@ -13,6 +13,7 @@ import LeadershipNode from "@/components/LeadershipNode";
 import AnalyticsDashboard from "@/components/AnalyticsDashboard";
 import TechnicalWritingNode from "@/components/TechnicalWritingNode";
 import ReferenceVault from "@/components/ReferenceVault";
+import GitHubStatsNode from "@/components/GitHubStatsNode";
 import BootSequence from "@/components/BootSequence";
 import SystemHUD from "@/components/SystemHUD";
 import { ShieldAlert, Terminal } from "lucide-react";
@@ -41,26 +42,37 @@ export default function Home() {
 
           <TerminalHero />
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full max-w-7xl mx-auto">
+          {/* Section: Analytics */}
+          <div id="analytics" className="mt-6">
+            <AnalyticsDashboard />
+          </div>
+
+          {/* Section: GitHub Live */}
+          <div id="github" className="mt-6">
+            <GitHubStatsNode />
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 w-full max-w-7xl mx-auto mt-6">
             {/* Main Content Column (Left/Center) */}
-            <div className="lg:col-span-8 flex flex-col gap-6">
-              <AnalyticsDashboard />
+            <div className="lg:col-span-8 flex flex-col gap-4 sm:gap-6">
               <ExperienceList />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <AchievementsNode />
                 <LeadershipNode />
-                <TechnicalWritingNode />
               </div>
               <ProjectsShowcase />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <TechnicalWritingNode />
+                <ReferenceVault />
+              </div>
             </div>
             
             {/* Sidebar Column (Right) */}
-            <div className="lg:col-span-4 flex flex-col gap-6">
+            <div className="lg:col-span-4 flex flex-col gap-4 sm:gap-6">
               <BioMatrix />
               <SkillsGrid />
-              <AchievementsNode />
               <CertificationsNode />
               <EducationNode />
-              <ReferenceVault />
               <ContactNode />
             </div>
           </div>

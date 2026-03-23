@@ -17,9 +17,9 @@ export default function ProjectsShowcase() {
     },
     {
       id: "TLB-03",
-      name: "TalentBloom Job Platform",
+      name: "Scalable Job Portal Engine",
       tech: "WordPress, PHP, MySQL",
-      desc: "Developed a comprehensive job portal featuring custom user roles, bespoke post types, and a streamlined candidate application workflow."
+      desc: "Developed a comprehensive job recruitment platform featuring complex user role hierarchies and automated candidate application workflows."
     },
     {
       id: "TGS-04",
@@ -35,15 +35,15 @@ export default function ProjectsShowcase() {
     },
     {
       id: "RMI-06",
-      name: "RoomieQ Matching Engine",
+      name: "Real-time P2P Matching Engine",
       tech: "MERN, Socket.io, Redis",
-      desc: "MERN stack application matching users in real-time. Reduced matching latency by 40% via optimized DB queries and active caching."
+      desc: "High-concurrency application matching users in real-time. Reduced matching latency by 40% via optimized DB queries and active caching layers."
     },
     {
       id: "PGD-07",
-      name: "PostgreStore RDBMS Console",
+      name: "Cloud Database Support Console",
       tech: "PERN, NeonDB, JWT",
-      desc: "Cloud-native PostgreSQL management console with strict RBAC, active query optimization, and dynamic API protection."
+      desc: "Cloud-native PostgreSQL management interface with strict RBAC, active query optimization, and dynamic API protection protocols."
     },
     {
       id: "CNS-08",
@@ -55,7 +55,7 @@ export default function ProjectsShowcase() {
 
   return (
     <OSWindow title="ARCHIVES/PROJECTS.BIN" icon={<FolderGit2 size={16} className="text-[#00f0ff] animate-pulse" />} width="max-w-5xl">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {projects.map((proj, idx) => (
           <div key={idx} className="group relative flex flex-col justify-between border-l-2 border-[#ff003c]/40 hover:border-[#ff003c] p-4 bg-[#030712]/60 hover:bg-[#ff003c]/5 transition-all overflow-hidden h-full shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_25px_rgba(255,0,60,0.15)] rounded-r-lg">
             {/* Scanner Line */}
