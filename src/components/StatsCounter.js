@@ -84,7 +84,7 @@ export default function StatsCounter() {
                 <AnimatedCounter target={stat.value} />{stat.suffix}
               </p>
               
-              <p className="text-[7px] sm:text-[9px] mono text-gray-500 mt-1 uppercase tracking-wider leading-tight">
+              <p className="text-[9px] sm:text-[10px] mono text-gray-500 mt-1 uppercase tracking-wider leading-tight">
                 {stat.label}
               </p>
               

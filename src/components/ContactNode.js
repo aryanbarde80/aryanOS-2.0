@@ -118,7 +118,7 @@ export default function ContactNode() {
                 
                 {/* Hover Connect Badge */}
                 <div className="absolute bottom-2 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
-                  <span className="text-[7px] sm:text-[8px] mono text-[#00f0ff] flex items-center gap-1">
+                  <span className="text-[8px] sm:text-[9px] mono text-[#00f0ff] flex items-center gap-1">
                     <span>CONNECT</span>
                     <span className="text-[10px]">→</span>
                   </span>
@@ -129,7 +129,7 @@ export default function ContactNode() {
         </div>
 
         {/* Footer with Contact Info */}
-        <div className="mt-4 pt-3 border-t border-[#00f0ff]/20 flex flex-col sm:flex-row justify-between items-center gap-3 text-[8px] sm:text-[9px] mono">
+        <div className="mt-4 pt-3 border-t border-[#00f0ff]/20 flex flex-col sm:flex-row justify-between items-center gap-3 text-[9px] sm:text-[10px] mono">
           <div className="flex items-center gap-3 flex-wrap justify-center">
             <span className="flex items-center gap-1">
               <Satellite size={8} className="text-[#00f0ff]" />

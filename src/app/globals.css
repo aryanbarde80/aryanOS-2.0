@@ -75,9 +75,9 @@ h1, h2, h3, h4, .mono {
   height: 100vh;
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
   background-size: 100% 4px;
-  z-index: 9999;
+  z-index: 50;
   pointer-events: none;
-  opacity: 0.3;
+  opacity: 0.15;
   animation: scanlines 0.5s linear infinite;
 }
 
@@ -195,6 +195,35 @@ html {
 *:focus-visible {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+/* Skip to content link for keyboard users */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100000;
+  padding: 0.5rem 1rem;
+  background: var(--bg-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
 }
 
 /* Gradient text utility */

@@ -88,7 +88,7 @@ export default function AnalyticsDashboard() {
 
             <div className="absolute bottom-2 left-2 flex items-center gap-2">
               <Radar size={12} className="text-[#00f0ff]" />
-              <span className="text-[8px] sm:text-[9px] mono text-[#00f0ff]/60 uppercase tracking-widest">8D Competency Mapping</span>
+              <span className="text-[9px] sm:text-[10px] mono text-[#00f0ff]/60 uppercase tracking-widest">8D Competency Mapping</span>
             </div>
           </div>
 
@@ -139,7 +139,7 @@ export default function AnalyticsDashboard() {
                     <IconComp size={14} className="text-[#00f0ff] group-hover:scale-110 transition-transform" />
                     <div className="flex-1 min-w-0">
                       <p className="text-[11px] font-mono text-gray-200 font-bold truncate">{skill.name}</p>
-                      <p className="text-[8px] text-gray-500 truncate">{skill.desc}</p>
+                      <p className="text-[9px] text-gray-500 truncate">{skill.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export default function AnalyticsDashboard() {
         </div>
 
         {/* Footer Stats */}
-        <div className="flex flex-wrap justify-between gap-3 pt-3 border-t border-[#00f0ff]/10 text-[8px] mono text-gray-500">
+        <div className="flex flex-wrap justify-between gap-3 pt-3 border-t border-[#00f0ff]/10 text-[9px] sm:text-[10px] mono text-gray-500">
           <div className="flex items-center gap-3">
             <span>⚡ TOTAL_SKILLS: {domainStats.length + automationSkills.length + cloudSkills.length}</span>
             <span>🔧 AGENTIC_READY: TRUE</span>

@@ -127,12 +127,14 @@ export default function ProjectsShowcase() {
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-2">
+        <div role="tablist" aria-label="Filter projects by category" className="flex flex-wrap gap-2">
           {categories.map(cat => (
             <button
               key={cat}
+              role="tab"
+              aria-selected={activeFilter === cat}
               onClick={() => setActiveFilter(cat)}
-              className={`text-[9px] sm:text-[10px] mono px-3 py-1.5 rounded-md border transition-all duration-300 ${
+              className={`text-[10px] sm:text-[11px] mono px-3 py-1.5 rounded-md border transition-all duration-300 ${
                 activeFilter === cat
                   ? 'bg-[#00f0ff]/20 border-[#00f0ff]/60 text-[#00f0ff] shadow-[0_0_10px_rgba(0,240,255,0.2)]'
                   : 'border-gray-800 text-gray-500 hover:border-[#00f0ff]/30 hover:text-gray-300'
@@ -168,7 +170,7 @@ export default function ProjectsShowcase() {
                       </div>
                     </div>
                     <span
-                      className="text-[7px] sm:text-[8px] mono px-1.5 py-0.5 rounded font-bold"
+                      className="text-[8px] sm:text-[9px] mono px-1.5 py-0.5 rounded font-bold"
                       style={{ backgroundColor: `${project.color}20`, color: project.color, border: `1px solid ${project.color}30` }}
                     >
                       {project.status}
@@ -181,19 +183,19 @@ export default function ProjectsShowcase() {
                   </h4>
 
                   {/* Description */}
-                  <p className="text-[9px] sm:text-[10px] text-gray-500 leading-relaxed mb-3 flex-1">
+                  <p className="text-[10px] sm:text-[11px] text-gray-500 leading-relaxed mb-3 flex-1">
                     {project.desc}
                   </p>
 
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-1 mb-3">
                     {project.tech.slice(0, 4).map((t, i) => (
-                      <span key={i} className="text-[7px] sm:text-[8px] mono px-1.5 py-0.5 bg-gray-900 text-gray-400 rounded border border-gray-800">
+                      <span key={i} className="text-[8px] sm:text-[9px] mono px-1.5 py-0.5 bg-gray-900 text-gray-400 rounded border border-gray-800">
                         {t}
                       </span>
                     ))}
                     {project.tech.length > 4 && (
-                      <span className="text-[7px] sm:text-[8px] mono px-1.5 py-0.5 text-gray-600">
+                      <span className="text-[8px] sm:text-[9px] mono px-1.5 py-0.5 text-gray-600">
                         +{project.tech.length - 4}
                       </span>
                     )}
@@ -211,7 +213,7 @@ export default function ProjectsShowcase() {
                         <ExternalLink size={12} />
                       </a>
                     )}
-                    <span className="text-[7px] mono text-gray-700 ml-auto">{project.category}</span>
+                    <span className="text-[8px] sm:text-[9px] mono text-gray-700 ml-auto">{project.category}</span>
                   </div>
                 </div>
               </div>

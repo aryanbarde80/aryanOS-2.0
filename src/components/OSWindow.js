@@ -36,6 +36,8 @@ export default function OSWindow({ title, children, width = "max-w-4xl", icon = 
       layout
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      role="region"
+      aria-label={title}
       className={`
         glass-panel mx-auto w-full ${width} relative group transition-all duration-500 
         hover:shadow-[0_0_40px_rgba(0,240,255,0.25)] mb-4 sm:mb-6 rounded-lg 
@@ -110,7 +112,6 @@ export default function OSWindow({ title, children, width = "max-w-4xl", icon = 
       {/* Body */}
       <motion.div 
         animate={{ 
-          height: isExpanded ? 'auto' : 'auto',
           opacity: 1
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}

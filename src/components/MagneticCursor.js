@@ -2,28 +2,36 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 export default function MagneticCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [targetPosition, setTargetPosition] = useState({ x: 0, y: 0 });
   const [isPointer, setIsPointer] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const cursorRef = useRef(null);
+  const hoverRingRef = useRef(null);
   const animationRef = useRef(null);
+  const posRef = useRef({ x: 0, y: 0 });
+  const targetRef = useRef({ x: 0, y: 0 });
+  const animateFnRef = useRef(null);
 
   useEffect(() => {
     const animate = () => {
-      setPosition(prev => ({
-        x: prev.x + (targetPosition.x - prev.x) * 0.2,
-        y: prev.y + (targetPosition.y - prev.y) * 0.2
-      }));
+      posRef.current = {
+        x: posRef.current.x + (targetRef.current.x - posRef.current.x) * 0.2,
+        y: posRef.current.y + (targetRef.current.y - posRef.current.y) * 0.2
+      };
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px) translate(-50%, -50%)`;
+      }
+      if (hoverRingRef.current) {
+        hoverRingRef.current.style.transform = `translate(${targetRef.current.x}px, ${targetRef.current.y}px) translate(-50%, -50%)`;
+      }
       animationRef.current = requestAnimationFrame(animate);
     };
-    
+    animateFnRef.current = animate;
     animationRef.current = requestAnimationFrame(animate);
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [targetPosition]);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -56,7 +64,7 @@ export default function MagneticCursor() {
         setIsHovering(false);
       }
       
-      setTargetPosition({ x, y });
+      targetRef.current = { x, y };
     };
 
     const handleMouseDown = () => setIsClicking(true);
@@ -89,11 +97,11 @@ export default function MagneticCursor() {
     <>
       <div 
         ref={cursorRef}
-        className="fixed top-0 left-0 pointer-events-none z-[9999] hidden sm:block"
-        style={{ 
-          transform: `translate(${position.x}px, ${position.y}px) translate(-50%, -50%)`,
-          transition: 'transform 0.05s ease-out'
-        }}
+          className="fixed top-0 left-0 pointer-events-none z-[9999] hidden sm:block"
+          style={{ 
+            transform: `translate(0px, 0px) translate(-50%, -50%)`,
+            willChange: 'transform'
+          }}
       >
         <div 
           className={`
@@ -113,16 +121,17 @@ export default function MagneticCursor() {
         </div>
       </div>
 
-      {isHovering && (
-        <div 
-          className="fixed pointer-events-none z-[9998] hidden sm:block"
-          style={{
-            transform: `translate(${targetPosition.x}px, ${targetPosition.y}px) translate(-50%, -50%)`,
-          }}
-        >
-          <div className="w-16 h-16 rounded-full bg-[#ffaa44]/20 animate-ping" />
-        </div>
-      )}
+      <div 
+        ref={hoverRingRef}
+        className="fixed pointer-events-none z-[9998] hidden sm:block"
+        style={{
+          transform: 'translate(0px, 0px) translate(-50%, -50%)',
+          willChange: 'transform',
+          opacity: isHovering ? 1 : 0,
+        }}
+      >
+        <div className="w-16 h-16 rounded-full bg-[#ffaa44]/20 animate-ping" />
+      </div>
     </>
   );
 }

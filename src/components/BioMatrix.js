@@ -103,7 +103,7 @@ export default function BioMatrix() {
                         style={{ width: `${l.progress}%`, backgroundColor: l.color, boxShadow: `0 0 8px ${l.color}80` }}
                       />
                     </div>
-                    <p className="text-[8px] text-gray-600">{l.desc}</p>
+                    <p className="text-[9px] text-gray-600">{l.desc}</p>
                   </div>
                 ))}
               </div>
@@ -139,7 +139,7 @@ export default function BioMatrix() {
                 >
                   <IconComp size={18} className="text-[#ffaa44] mx-auto mb-2 group-hover:scale-110 transition-transform" />
                   <p className="text-[10px] sm:text-[11px] font-mono text-gray-300 font-bold">{item.value}</p>
-                  <p className="text-[8px] sm:text-[9px] text-gray-500 uppercase tracking-wider">{item.label}</p>
+                  <p className="text-[9px] sm:text-[10px] text-gray-500 uppercase tracking-wider">{item.label}</p>
                 </div>
               );
             })}
@@ -151,7 +151,7 @@ export default function BioMatrix() {
               <span className="flex items-center gap-1"><Award size={10} className="text-[#ffaa44]" /> TCS CodeVita AIR 4905</span>
               <span className="flex items-center gap-1"><Zap size={10} className="text-[#00f0ff]" /> 3x College Topper</span>
             </div>
-            <span className="text-[8px] text-gray-700">PROFILE_LAST_SYNC: 2026</span>
+            <span className="text-[9px] text-gray-700">PROFILE_LAST_SYNC: 2026</span>
           </div>
         </div>
       </div>

@@ -77,7 +77,7 @@ export default function MantraCLI({ onCommand }) {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 2, duration: 0.8 }}
-      className="fixed bottom-0 left-0 w-full z-50 pointer-events-none"
+      className="fixed bottom-0 left-0 w-full z-50 pointer-events-none hidden sm:block"
     >
       <div className="max-w-4xl mx-auto pointer-events-auto mb-4 px-4">
         <div className="glass-panel border-t border-l border-r border-[#00f0ff]/30 bg-black/80 backdrop-blur-md rounded-t-lg overflow-hidden shadow-[0_-5px_30px_rgba(0,240,255,0.15)] relative group">
@@ -132,6 +132,7 @@ export default function MantraCLI({ onCommand }) {
               placeholder="ENTER MANTRA COMMAND..."
               spellCheck="false"
               autoComplete="off"
+              aria-label="Enter terminal command"
             />
           </form>
         </div>

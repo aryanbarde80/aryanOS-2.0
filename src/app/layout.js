@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`font-sans antialiased relative`}>
+        <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <CursorGlow>
           <div className="bg-orb animate-pulse-slow"></div>
           <div className="scanlines-overlay"></div>

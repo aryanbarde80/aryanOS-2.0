@@ -72,18 +72,9 @@ export default function NeuralMatrix() {
       attributeFilter: ['class', 'style']
     });
 
-    const animateConnections = () => {
-      updateConnections();
-      animationRef.current = requestAnimationFrame(animateConnections);
-    };
-    
-    animationRef.current = requestAnimationFrame(animateConnections);
-
     return () => {
       observer.disconnect();
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      cancelAnimationFrame(initialFrame);
     };
   }, [updateConnections]);
 
