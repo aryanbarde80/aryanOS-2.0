@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useEffect, Suspense, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Stars, useGLTF, Environment, useTexture } from '@react-three/drei';
+import { Stars, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
@@ -11,9 +11,31 @@ function AvatarModel({ mousePosition, isInteracting, commandState }) {
   const group = useRef();
   const avatarRef = useRef();
   const [animationState, setAnimationState] = useState('far'); // far, walking, standing, coding
+  const [textureLoaded, setTextureLoaded] = useState(false);
 
-  const spriteTexture = useTexture('/aryan-avatar.png');
-  const codeTexture = useTexture('/code-particles.png'); // Tech overlay texture
+  // Load textures with fallback
+  const spriteTexture = useTexture('/aryan-avatar.png', 
+    () => setTextureLoaded(true),
+    () => console.warn('Avatar texture not found, using fallback')
+  );
+  
+  // Create a canvas-generated texture as fallback
+  const fallbackTexture = React.useMemo(() => {
+    if (typeof window === 'undefined') return null;
+    const canvas = document.createElement('canvas');
+    canvas.width = 128;
+    canvas.height = 128;
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      ctx.fillStyle = '#00f0ff';
+      ctx.fillRect(0, 0, 128, 128);
+      ctx.fillStyle = '#030712';
+      ctx.font = 'bold 40px monospace';
+      ctx.fillText('AB', 40, 80);
+    }
+    const texture = new THREE.CanvasTexture(canvas);
+    return texture;
+  }, []);
 
   useEffect(() => {
     // Sequence: Far -> Walking -> Standing -> Coding Gesture
@@ -43,31 +65,30 @@ function AvatarModel({ mousePosition, isInteracting, commandState }) {
     }
   });
 
+  const finalTexture = textureLoaded ? spriteTexture : fallbackTexture;
+
   return (
     <group ref={group} position={[0, -5, -20]} scale={2}>
       <group ref={avatarRef}>
-        <sprite scale={[1.5, 1.5, 1]}>
-          <spriteMaterial map={spriteTexture} transparent opacity={1} />
-        </sprite>
+        {finalTexture && (
+          <sprite scale={[1.5, 1.5, 1]}>
+            <spriteMaterial map={finalTexture} transparent opacity={1} />
+          </sprite>
+        )}
         
-        {/* Coding Gesture Overlay with Tech Particles */}
+        {/* Coding Gesture Overlay - No external texture needed */}
         {animationState === 'coding' && (
           <motion.group 
             initial={{ scale: 0, opacity: 0, y: 0.5 }}
             animate={{ scale: 1, opacity: 1, y: 0.8 }}
             transition={{ type: "spring", stiffness: 200 }}
           >
-            <sprite position={[0.4, 0.6, 0.1]} scale={[0.5, 0.5, 1]}>
-              <spriteMaterial map={codeTexture} transparent opacity={0.8} color="#00f0ff" />
-            </sprite>
             {/* Tech Light Effect */}
             <pointLight position={[0.4, 0.8, 0.2]} color="#00f0ff" intensity={3} distance={2} />
+            
+            {/* Code Particles - Procedural */}
+            <ParticleSystem count={30} position={[0.5, 0.7, 0.3]} />
           </motion.group>
-        )}
-        
-        {/* Code Particles Effect */}
-        {animationState === 'coding' && (
-          <ParticleSystem count={50} position={[0.5, 0.7, 0.3]} />
         )}
       </group>
 
@@ -85,15 +106,15 @@ function AvatarModel({ mousePosition, isInteracting, commandState }) {
 }
 
 // Particle System for Coding Effect
-function ParticleSystem({ count = 50, position = [0, 0, 0] }) {
+function ParticleSystem({ count = 30, position = [0, 0, 0] }) {
   const particles = useRef([]);
   const groupRef = useRef();
 
   useFrame((state) => {
     particles.current.forEach((particle, i) => {
       if (particle) {
-        particle.position.x += Math.sin(state.clock.elapsedTime * 5 + i) * 0.005;
-        particle.position.y += Math.cos(state.clock.elapsedTime * 5 + i) * 0.005;
+        particle.position.x += Math.sin(state.clock.elapsedTime * 5 + i) * 0.008;
+        particle.position.y += Math.cos(state.clock.elapsedTime * 5 + i) * 0.008;
         particle.material.opacity = 0.5 + Math.sin(state.clock.elapsedTime * 8 + i) * 0.3;
       }
     });
@@ -102,8 +123,8 @@ function ParticleSystem({ count = 50, position = [0, 0, 0] }) {
   return (
     <group ref={groupRef} position={position}>
       {Array.from({ length: count }).map((_, i) => (
-        <mesh key={i} ref={el => particles.current[i] = el} position={[(Math.random() - 0.5) * 0.8, (Math.random() - 0.5) * 0.8, (Math.random() - 0.5) * 0.5]}>
-          <sphereGeometry args={[0.01, 4, 4]} />
+        <mesh key={i} ref={el => particles.current[i] = el} position={[(Math.random() - 0.5) * 0.6, (Math.random() - 0.5) * 0.6, (Math.random() - 0.5) * 0.4]}>
+          <sphereGeometry args={[0.012, 4, 4]} />
           <meshBasicMaterial color={i % 2 === 0 ? "#00f0ff" : "#ff003c"} transparent opacity={0.6} />
         </mesh>
       ))}
@@ -111,31 +132,7 @@ function ParticleSystem({ count = 50, position = [0, 0, 0] }) {
   );
 }
 
-function SoundWaves({ active }) {
-  const rings = useRef([]);
-
-  useFrame((state) => {
-    rings.current.forEach((ring, i) => {
-      if (!ring) return;
-      const t = (state.clock.elapsedTime + i * 0.5) % 2;
-      ring.scale.set(1 + t * 5, 1 + t * 5, 1);
-      ring.material.opacity = (1 - t / 2) * 0.3;
-    });
-  });
-
-  return (
-    <group position={[0, -0.5, -0.5]}>
-      {[0, 1, 2].map(i => (
-        <mesh key={i} ref={el => rings.current[i] = el}>
-          <ringGeometry args={[1, 1.02, 64]} />
-          <meshBasicMaterial color="#00f0ff" transparent opacity={0} />
-        </mesh>
-      ))}
-    </group>
-  );
-}
-
-// Tech Mandala - Abstract geometric pattern instead of Sri Yantra
+// Tech Mandala - Abstract geometric pattern
 function TechMandala() {
   const meshRef = useRef();
   
@@ -230,7 +227,7 @@ export default function TechCanvas({ commandState = 'stable' }) {
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
         <color attach="background" args={['#030712']} />
         
-        {/* Enhanced Stars with more depth */}
+        {/* Enhanced Stars */}
         <Stars 
           radius={100} 
           depth={50} 
