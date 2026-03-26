@@ -9,6 +9,7 @@ export default function SystemMonitorNode() {
   const [memUsage, setMemUsage] = useState(42);
   const [networkLatency, setNetworkLatency] = useState(12);
   const [throughput, setThroughput] = useState(1024);
+  const [lastUpdate, setLastUpdate] = useState("--:--:--");
   const waveRef = useRef(null);
   const secondWaveRef = useRef(null);
 
@@ -18,6 +19,7 @@ export default function SystemMonitorNode() {
       setMemUsage(prev => Math.min(75, Math.max(35, prev + (Math.random() - 0.5) * 4)));
       setNetworkLatency(prev => Math.min(25, Math.max(8, prev + (Math.random() - 0.5) * 2)));
       setThroughput(prev => Math.min(2500, Math.max(800, prev + (Math.random() - 0.5) * 80)));
+      setLastUpdate(new Date().toLocaleTimeString());
     }, 2000);
 
     // Animate wave patterns
@@ -239,7 +241,7 @@ export default function SystemMonitorNode() {
         <div className="flex justify-between items-center text-[7px] sm:text-[8px] mono text-gray-600 pt-2 border-t border-[#00f0ff]/10">
           <span>SAMPLE_RATE: 2Hz</span>
           <span>BUFFER: 1024KB</span>
-          <span>LAST_UPDATE: {new Date().toLocaleTimeString()}</span>
+          <span>LAST_UPDATE: {lastUpdate}</span>
         </div>
       </div>
 

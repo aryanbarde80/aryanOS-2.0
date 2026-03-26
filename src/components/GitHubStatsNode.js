@@ -63,7 +63,7 @@ export default function GitHubStatsNode() {
                 <Github size={10} /> @{profile.login}
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-gray-400 italic">"{profile.bio || "Discipline and Consistency is all what is needed!"}"</p>
+            <p className="text-xs sm:text-sm text-gray-400 italic">&ldquo;{profile.bio || "Discipline and Consistency is all what is needed!"}&rdquo;</p>
             {profile.company && (
               <p className="text-[10px] sm:text-[11px] text-[#ff003c] mono flex items-center gap-1 justify-center md:justify-start">
                 <Code size={10} /> {profile.company}

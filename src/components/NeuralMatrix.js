@@ -1,151 +1,165 @@
 "use client";
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 
-export default function MagneticCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [targetPosition, setTargetPosition] = useState({ x: 0, y: 0 });
-  const [isPointer, setIsPointer] = useState(false);
-  const [isClicking, setIsClicking] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-  const cursorRef = useRef(null);
-  const animationRef = useRef(null);
+export default function NeuralMatrix() {
+  const [connections, setConnections] = useState([]);
+  const containerRef = useRef(null);
+  const animationRef = useRef();
+  const lastUpdateRef = useRef(0);
 
-  // Smooth follow animation
-  useEffect(() => {
-    const animate = () => {
-      setPosition(prev => ({
-        x: prev.x + (targetPosition.x - prev.x) * 0.2,
-        y: prev.y + (targetPosition.y - prev.y) * 0.2
-      }));
-      animationRef.current = requestAnimationFrame(animate);
-    };
+  const updateConnections = useCallback(() => {
+    const now = Date.now();
+    if (now - lastUpdateRef.current < 200) return;
+    lastUpdateRef.current = now;
+
+    const windows = document.querySelectorAll('.glass-panel');
+    const newConnections = [];
     
-    animationRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
-  }, [targetPosition]);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      let x = e.clientX;
-      let y = e.clientY;
-      
-      const target = e.target;
-      const clickableElement = target.closest('button, a, .cursor-pointer, [role="button"]');
-      const isClickable = !!clickableElement;
-      setIsPointer(isClickable);
-      
-      // Magnetic effect: if close to a button, pull the cursor slightly
-      if (isClickable && clickableElement) {
-        const rect = clickableElement.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const distX = e.clientX - centerX;
-        const distY = e.clientY - centerY;
-        const dist = Math.sqrt(distX * distX + distY * distY);
-        const maxDist = 80;
+    for (let i = 0; i < windows.length; i++) {
+      for (let j = i + 1; j < Math.min(i + 3, windows.length); j++) {
+        const rectA = windows[i].getBoundingClientRect();
+        const rectB = windows[j].getBoundingClientRect();
         
-        if (dist < maxDist) {
-          // Magnetic pull strength based on distance
-          const strength = 1 - (dist / maxDist) * 0.5;
-          x = centerX + distX * (1 - strength);
-          y = centerY + distY * (1 - strength);
-          setIsHovering(true);
-        } else {
-          setIsHovering(false);
+        if (rectA.width > 0 && rectA.height > 0 && rectB.width > 0 && rectB.height > 0) {
+          newConnections.push({
+            x1: rectA.left + rectA.width / 2,
+            y1: rectA.top + rectA.height / 2,
+            x2: rectB.left + rectB.width / 2,
+            y2: rectB.top + rectB.height / 2,
+            id: `${i}-${j}`
+          });
         }
-      } else {
-        setIsHovering(false);
       }
-      
-      setTargetPosition({ x, y });
-    };
-
-    const handleMouseDown = () => setIsClicking(true);
-    const handleMouseUp = () => setIsClicking(false);
+    }
     
-    // Hide default cursor
-    const style = document.createElement('style');
-    style.textContent = `
-      * { cursor: none !important; }
-      @media (max-width: 768px) {
-        * { cursor: auto !important; }
-      }
-    `;
-    document.head.appendChild(style);
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
-      document.head.removeChild(style);
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
+    setConnections(newConnections);
   }, []);
 
-  // Don't render on mobile
-  if (typeof window !== 'undefined' && window.innerWidth < 768) return null;
+  useEffect(() => {
+    let timeoutId;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        updateConnections();
+      }, 100);
+    };
+
+    const handleScroll = () => {
+      updateConnections();
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeoutId);
+    };
+  }, [updateConnections]);
+
+  useEffect(() => {
+    // Initial update deferred to animation frame to avoid direct setState in effect
+    const initialFrame = requestAnimationFrame(() => updateConnections());
+
+    const observer = new MutationObserver(() => {
+      updateConnections();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class', 'style']
+    });
+
+    const animateConnections = () => {
+      updateConnections();
+      animationRef.current = requestAnimationFrame(animateConnections);
+    };
+    
+    animationRef.current = requestAnimationFrame(animateConnections);
+
+    return () => {
+      observer.disconnect();
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [updateConnections]);
 
   return (
-    <>
-      {/* Main Cursor Ring */}
-      <div 
-        ref={cursorRef}
-        className="fixed top-0 left-0 pointer-events-none z-[9999] hidden sm:block"
-        style={{ 
-          transform: `translate(${position.x}px, ${position.y}px) translate(-50%, -50%)`,
-          transition: 'transform 0.05s ease-out'
-        }}
-      >
-        {/* Outer Ring */}
-        <div 
-          className={`
-            w-8 h-8 rounded-full border-2 transition-all duration-300
-            ${isClicking ? 'scale-75' : isPointer ? 'scale-150' : 'scale-100'}
-            ${isPointer ? 'border-[#ffaa44] bg-[#ffaa44]/10' : 'border-[#00f0ff] bg-[#00f0ff]/10'}
-            shadow-[0_0_15px_rgba(0,240,255,0.3)]
-          `}
-        >
-          {/* Inner Dot */}
-          <div 
-            className={`
-              absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-              w-1.5 h-1.5 rounded-full transition-all duration-200
-              ${isPointer ? 'bg-[#ffaa44] w-2 h-2' : 'bg-[#00f0ff]'}
-            `}
+    <svg 
+      ref={containerRef}
+      className="fixed inset-0 w-full h-full pointer-events-none z-[5] opacity-20"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="neural-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00f0ff" stopOpacity="0.1">
+            <animate attributeName="stopOpacity" values="0.1;0.6;0.1" dur="3s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="50%" stopColor="#ff44aa" stopOpacity="0.4">
+            <animate attributeName="stopOpacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#00f0ff" stopOpacity="0.1">
+            <animate attributeName="stopOpacity" values="0.1;0.6;0.1" dur="3s" repeatCount="indefinite" />
+          </stop>
+        </linearGradient>
+        
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      
+      {connections.map((conn, idx) => (
+        <g key={conn.id}>
+          <line 
+            x1={conn.x1}
+            y1={conn.y1}
+            x2={conn.x2}
+            y2={conn.y2}
+            stroke="url(#neural-gradient)"
+            strokeWidth="0.8"
+            strokeDasharray="4,4"
+            filter="url(#glow)"
+            className="neural-line"
           />
-        </div>
-      </div>
-
-      {/* Secondary Glow Effect for Hover */}
-      {isHovering && (
-        <div 
-          className="fixed pointer-events-none z-[9998] hidden sm:block"
-          style={{
-            transform: `translate(${targetPosition.x}px, ${targetPosition.y}px) translate(-50%, -50%)`,
-          }}
-        >
-          <div className="w-16 h-16 rounded-full bg-[#ffaa44]/20 animate-ping" />
-        </div>
-      )}
-
-      {/* Custom styles for cursor hiding */}
-      <style jsx global>{`
-        @media (min-width: 768px) {
-          * {
-            cursor: none !important;
-          }
-          
-          a:hover, button:hover, [role="button"]:hover {
-            cursor: none !important;
-          }
+          <circle
+            cx={(conn.x1 + conn.x2) / 2}
+            cy={(conn.y1 + conn.y2) / 2}
+            r="2"
+            fill="#ff44aa"
+            fillOpacity="0.4"
+          >
+            <animate 
+              attributeName="r" 
+              values="2;4;2" 
+              dur={`${2 + (idx % 3)}s`} 
+              repeatCount="indefinite" 
+            />
+            <animate 
+              attributeName="fillOpacity" 
+              values="0.4;0.8;0.4" 
+              dur={`${2 + (idx % 3)}s`} 
+              repeatCount="indefinite" 
+            />
+          </circle>
+        </g>
+      ))}
+      
+      <style jsx>{`
+        @keyframes shimmer {
+          0% { stroke-dashoffset: 0; }
+          100% { stroke-dashoffset: 20; }
+        }
+        .neural-line {
+          animation: shimmer 8s linear infinite;
         }
       `}</style>
-    </>
+    </svg>
   );
 }
