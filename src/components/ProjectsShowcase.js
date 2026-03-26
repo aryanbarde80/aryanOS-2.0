@@ -17,7 +17,7 @@ export default function ProjectsShowcase() {
       desc: "Futuristic portfolio with Three.js 3D canvas, terminal emulator, glassmorphic UI, boot sequence, and immersive audio. Built as an Agentic OS interface.",
       tech: ["Next.js", "Three.js", "GSAP", "Tailwind CSS", "Framer Motion", "Howler.js"],
       category: "FRONTEND",
-      color: "#00f0ff",
+      color: "#818cf8",
       icon: Globe,
       status: "LIVE",
       link: "https://github.com/aryanbarde80/aryanOS-2.0",
@@ -28,7 +28,7 @@ export default function ProjectsShowcase() {
       desc: "Real-time IoT monitoring platform with sub-100ms telemetry, live sensor visualization, and alert system. Reduced API latency by 40% via Redis caching.",
       tech: ["React.js", "Node.js", "Socket.io", "Redis", "MQTT", "ESP32"],
       category: "FULLSTACK",
-      color: "#ff003c",
+      color: "#f472b6",
       icon: Cpu,
       status: "PRODUCTION",
       github: "https://github.com/aryanbarde80"
@@ -38,7 +38,7 @@ export default function ProjectsShowcase() {
       desc: "YOLOv8-based manufacturing quality control pipeline achieving 95% defect detection accuracy. Deployed for real-time visual inspection in production lines.",
       tech: ["Python", "YOLOv8", "OpenCV", "FastAPI", "Docker"],
       category: "AI/ML",
-      color: "#ffaa44",
+      color: "#fb923c",
       icon: Bot,
       status: "DEPLOYED",
       github: "https://github.com/aryanbarde80"
@@ -48,7 +48,7 @@ export default function ProjectsShowcase() {
       desc: "Full-stack accommodation platform with 40% query optimization. Features advanced search, real-time chat, and booking management system.",
       tech: ["Next.js", "PostgreSQL", "Node.js", "Redis", "Tailwind CSS"],
       category: "FULLSTACK",
-      color: "#00f0ff",
+      color: "#818cf8",
       icon: Database,
       status: "LIVE",
       github: "https://github.com/aryanbarde80"
@@ -58,7 +58,7 @@ export default function ProjectsShowcase() {
       desc: "Autonomous AI agent orchestration using CrewAI and LangChain. RAG pipelines for intelligent document processing and decision-making workflows.",
       tech: ["Python", "LangChain", "CrewAI", "RAG", "OpenAI API"],
       category: "AI/ML",
-      color: "#ff003c",
+      color: "#f472b6",
       icon: Bot,
       status: "ACTIVE",
       github: "https://github.com/aryanbarde80"
@@ -68,7 +68,7 @@ export default function ProjectsShowcase() {
       desc: "Automated SEO optimization platform that improved organic traffic by 30% and search rankings by 40 positions for client websites.",
       tech: ["Next.js", "Python", "Node.js", "Analytics API"],
       category: "FULLSTACK",
-      color: "#ffaa44",
+      color: "#fb923c",
       icon: Globe,
       status: "PRODUCTION",
       github: "https://github.com/aryanbarde80"
@@ -78,7 +78,7 @@ export default function ProjectsShowcase() {
       desc: "Cross-platform mobile application with real-time data synchronization, push notifications, and offline-first architecture.",
       tech: ["React Native", "Firebase", "Redux", "Node.js"],
       category: "MOBILE",
-      color: "#00f0ff",
+      color: "#818cf8",
       icon: Smartphone,
       status: "SHIPPED",
       github: "https://github.com/aryanbarde80"
@@ -88,7 +88,7 @@ export default function ProjectsShowcase() {
       desc: "ML prediction model achieving 100% accuracy on user success prediction from 409K behavioral events. Feature engineering and ensemble methods.",
       tech: ["Python", "Scikit-learn", "Pandas", "XGBoost"],
       category: "AI/ML",
-      color: "#ffaa44",
+      color: "#fb923c",
       icon: Zap,
       status: "WINNER",
       github: "https://github.com/aryanbarde80"
@@ -112,17 +112,17 @@ export default function ProjectsShowcase() {
   }, [activeFilter]);
 
   return (
-    <OSWindow title="EXT_ARCHIVES/PROJECTS.SYS" icon={<Layers size={16} className="text-[#00f0ff] animate-pulse" />} width="max-w-6xl">
+    <OSWindow title="Projects" icon={<Layers size={16} className="text-[#818cf8]" />} width="max-w-6xl">
       <div className="space-y-5">
         {/* Header */}
-        <div className="flex flex-wrap justify-between items-center gap-3 pb-3 border-b border-[#00f0ff]/20">
+        <div className="flex flex-wrap justify-between items-center gap-3 pb-3 border-b border-[#818cf8]/20">
           <div className="flex items-center gap-2">
-            <Code size={12} className="text-[#00f0ff]" />
-            <span className="text-[9px] sm:text-[10px] mono text-gray-500">PROJECT_REGISTRY</span>
+            <Code size={12} className="text-[#818cf8]" />
+            <span className="text-[9px] sm:text-[10px] mono text-[#6b6b80]">Project Registry</span>
           </div>
           <div className="flex gap-2 text-[9px] sm:text-[10px] mono">
-            <span className="text-[#00f0ff] bg-[#00f0ff]/10 px-2 py-0.5 rounded">{projects.length} PROJECTS</span>
-            <span className="text-[#ffaa44] bg-[#ffaa44]/10 px-2 py-0.5 rounded">{filtered.length} SHOWING</span>
+            <span className="text-[#818cf8] bg-[#818cf8]/10 px-2 py-0.5 rounded">{projects.length} Projects</span>
+            <span className="text-[#fb923c] bg-[#fb923c]/10 px-2 py-0.5 rounded">{filtered.length} Showing</span>
           </div>
         </div>
 
@@ -136,8 +136,8 @@ export default function ProjectsShowcase() {
               onClick={() => setActiveFilter(cat)}
               className={`text-[10px] sm:text-[11px] mono px-3 py-1.5 rounded-md border transition-all duration-300 ${
                 activeFilter === cat
-                  ? 'bg-[#00f0ff]/20 border-[#00f0ff]/60 text-[#00f0ff] shadow-[0_0_10px_rgba(0,240,255,0.2)]'
-                  : 'border-gray-800 text-gray-500 hover:border-[#00f0ff]/30 hover:text-gray-300'
+                  ? 'bg-[#818cf8]/20 border-[#818cf8]/60 text-[#818cf8] shadow-[0_0_10px_rgba(0,240,255,0.2)]'
+                  : 'border-gray-800 text-gray-500 hover:border-[#818cf8]/30 hover:text-gray-300'
               }`}
             >
               [{cat}]
@@ -152,16 +152,9 @@ export default function ProjectsShowcase() {
             return (
               <div
                 key={idx}
-                className="project-card group relative p-4 border border-gray-800 hover:border-[#00f0ff]/50 rounded-xl bg-gradient-to-br from-[#030712] to-[#0a0f1a] hover:bg-[#00f0ff]/5 transition-all duration-300 overflow-hidden cursor-default flex flex-col"
+                className="project-card group relative p-4 border border-[#818cf8]/10 hover:border-[#818cf8]/25 rounded-xl bg-[#12121a]/60 transition-all duration-300 overflow-hidden cursor-default flex flex-col"
               >
-                {/* Glow effect */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: `radial-gradient(circle at 30% 40%, ${project.color}10, transparent 70%)` }}
-                />
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                <div className="relative z-10 flex flex-col flex-1">
+                <div className="flex flex-col flex-1">
                   {/* Header */}
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
@@ -178,7 +171,7 @@ export default function ProjectsShowcase() {
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-sm font-bold text-gray-200 group-hover:text-[#00f0ff] transition-colors mb-2">
+                  <h4 className="text-sm font-bold text-gray-200 group-hover:text-white transition-colors mb-2">
                     {project.title}
                   </h4>
 
@@ -204,12 +197,12 @@ export default function ProjectsShowcase() {
                   {/* Links */}
                   <div className="flex items-center gap-2 pt-2 border-t border-gray-800/50">
                     {project.github && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#00f0ff] transition-colors p-1">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#818cf8] transition-colors p-1">
                         <Github size={12} />
                       </a>
                     )}
                     {project.link && (
-                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#ffaa44] transition-colors p-1">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#fb923c] transition-colors p-1">
                         <ExternalLink size={12} />
                       </a>
                     )}
@@ -222,20 +215,20 @@ export default function ProjectsShowcase() {
         </div>
 
         {/* Footer */}
-        <div className="mt-3 pt-3 border-t border-[#00f0ff]/20 flex flex-wrap justify-between items-center gap-3 text-[8px] sm:text-[9px] mono">
+        <div className="mt-3 pt-3 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-3 text-[8px] sm:text-[9px] mono">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
-              <GitBranch size={10} className="text-[#00f0ff]" />
-              <span className="text-gray-500">TOTAL_REPOS: {projects.length}+</span>
+              <GitBranch size={10} className="text-[#818cf8]" />
+              <span className="text-gray-500">Total Repos: {projects.length}+</span>
             </span>
             <span className="flex items-center gap-1">
-              <Star size={10} className="text-[#ffaa44]" />
-              <span className="text-gray-500">DOMAINS: {categories.length - 1}</span>
+              <Star size={10} className="text-[#fb923c]" />
+              <span className="text-gray-500">Domains: {categories.length - 1}</span>
             </span>
           </div>
           <div className="flex items-center gap-2">
             <Eye size={10} className="text-gray-600" />
-            <span className="text-gray-600">ALL_PROJECTS_OPERATIONAL</span>
+            <span className="text-gray-600">All projects operational</span>
           </div>
         </div>
       </div>

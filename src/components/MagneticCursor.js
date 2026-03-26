@@ -107,7 +107,7 @@ export default function MagneticCursor() {
           className={`
             w-8 h-8 rounded-full border-2 transition-all duration-300
             ${isClicking ? 'scale-75' : isPointer ? 'scale-150' : 'scale-100'}
-            ${isPointer ? 'border-[#ffaa44] bg-[#ffaa44]/10' : 'border-[#00f0ff] bg-[#00f0ff]/10'}
+            ${isPointer ? 'border-[#fb923c] bg-[#fb923c]/10' : 'border-[#818cf8] bg-[#818cf8]/10'}
             shadow-[0_0_15px_rgba(0,240,255,0.3)]
           `}
         >
@@ -115,7 +115,7 @@ export default function MagneticCursor() {
             className={`
               absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
               w-1.5 h-1.5 rounded-full transition-all duration-200
-              ${isPointer ? 'bg-[#ffaa44] w-2 h-2' : 'bg-[#00f0ff]'}
+              ${isPointer ? 'bg-[#fb923c] w-2 h-2' : 'bg-[#818cf8]'}
             `}
           />
         </div>
@@ -130,7 +130,7 @@ export default function MagneticCursor() {
           opacity: isHovering ? 1 : 0,
         }}
       >
-        <div className="w-16 h-16 rounded-full bg-[#ffaa44]/20 animate-ping" />
+        <div className="w-16 h-16 rounded-full bg-[#fb923c]/20 animate-ping" />
       </div>
     </>
   );

@@ -39,16 +39,16 @@ export default function LeadershipNode() {
   ];
 
   return (
-    <OSWindow title="COMMAND_DECK/LEADERSHIP.LOG" icon={<Flag size={16} className="text-[#00f0ff] animate-pulse" />}>
+    <OSWindow title="COMMAND_DECK/LEADERSHIP.LOG" icon={<Flag size={16} className="text-[#818cf8] animate-pulse" />}>
       <div className="space-y-6">
         
         {/* Header */}
-        <div className="flex justify-between items-center pb-2 border-b border-[#00f0ff]/20">
+        <div className="flex justify-between items-center pb-2 border-b border-[#818cf8]/20">
           <div className="flex items-center gap-2">
-            <Users size={12} className="text-[#ffaa44]" />
+            <Users size={12} className="text-[#fb923c]" />
             <span className="text-[9px] sm:text-[10px] mono text-gray-500">LEADERSHIP_TIMELINE</span>
           </div>
-          <div className="text-[9px] sm:text-[10px] mono text-[#00f0ff] bg-[#00f0ff]/10 px-2 py-0.5 rounded">
+          <div className="text-[9px] sm:text-[10px] mono text-[#818cf8] bg-[#818cf8]/10 px-2 py-0.5 rounded">
             {leadership.length} POSITIONS
           </div>
         </div>
@@ -60,16 +60,16 @@ export default function LeadershipNode() {
             return (
               <div key={idx} className="group relative">
                 {/* Timeline Line */}
-                <div className="absolute left-[7px] top-0 bottom-0 w-px bg-gradient-to-b from-[#ff003c] via-[#ff003c]/40 to-transparent group-hover:from-[#00f0ff] group-hover:via-[#00f0ff]/60 transition-all"></div>
+                <div className="absolute left-[7px] top-0 bottom-0 w-px bg-gradient-to-b from-[#f472b6] via-[#f472b6]/40 to-transparent group-hover:from-[#818cf8] group-hover:via-[#818cf8]/60 transition-all"></div>
                 
                 {/* Timeline Dot */}
-                <div className="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-[#030712] border-2 border-[#ff003c] group-hover:border-[#00f0ff] group-hover:scale-110 transition-all duration-300 z-10"></div>
+                <div className="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-[#030712] border-2 border-[#f472b6] group-hover:border-[#818cf8] group-hover:scale-110 transition-all duration-300 z-10"></div>
                 
                 {/* Content */}
                 <div className="pl-7 pb-4">
                   <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                     <div className="flex items-center gap-2">
-                      <IconComponent size={14} className="text-[#ffaa44] group-hover:text-[#00f0ff] transition-colors" />
+                      <IconComponent size={14} className="text-[#fb923c] group-hover:text-[#818cf8] transition-colors" />
                       <h4 className="text-sm sm:text-base font-bold text-gray-100 group-hover:text-white transition-colors">
                         {item.role}
                       </h4>
@@ -80,7 +80,7 @@ export default function LeadershipNode() {
                     </span>
                   </div>
                   
-                  <p className="text-[#ff003c] mono text-[10px] sm:text-[11px] mb-2 font-semibold flex items-center gap-1">
+                  <p className="text-[#f472b6] mono text-[10px] sm:text-[11px] mb-2 font-semibold flex items-center gap-1">
                     <span>{item.org}</span>
                   </p>
                   
@@ -92,7 +92,7 @@ export default function LeadershipNode() {
                   {item.achievements && (
                     <div className="flex flex-wrap gap-1.5 mt-2">
                       {item.achievements.map((ach, i) => (
-                        <span key={i} className="text-[7px] sm:text-[8px] mono px-1.5 py-0.5 bg-gray-900/80 border border-gray-800 rounded text-gray-500 group-hover:border-[#00f0ff]/30 transition-all">
+                        <span key={i} className="text-[7px] sm:text-[8px] mono px-1.5 py-0.5 bg-gray-900/80 border border-gray-800 rounded text-gray-500 group-hover:border-[#818cf8]/30 transition-all">
                           🏆 {ach}
                         </span>
                       ))}
@@ -105,8 +105,8 @@ export default function LeadershipNode() {
         </div>
 
         {/* Professional Affiliations Section */}
-        <div className="mt-6 pt-4 border-t border-[#00f0ff]/20">
-          <h4 className="flex items-center gap-2 text-[#00f0ff] mono text-[10px] sm:text-[11px] mb-4 font-bold uppercase tracking-wider">
+        <div className="mt-6 pt-4 border-t border-[#818cf8]/20">
+          <h4 className="flex items-center gap-2 text-[#818cf8] mono text-[10px] sm:text-[11px] mb-4 font-bold uppercase tracking-wider">
             <Globe size={14} /> PROFESSIONAL_AFFILIATIONS
           </h4>
           
@@ -114,12 +114,12 @@ export default function LeadershipNode() {
             {affiliations.map((aff, idx) => (
               <div 
                 key={idx} 
-                className="group relative p-3 bg-gradient-to-r from-[#00f0ff]/5 to-transparent border border-[#00f0ff]/20 rounded-lg hover:border-[#00f0ff]/60 hover:bg-[#00f0ff]/10 transition-all duration-300"
+                className="group relative p-3 bg-gradient-to-r from-[#818cf8]/5 to-transparent border border-[#818cf8]/20 rounded-lg hover:border-[#818cf8]/60 hover:bg-[#818cf8]/10 transition-all duration-300"
               >
                 <div className="flex flex-wrap justify-between items-start gap-2">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <Award size={12} className="text-[#ffaa44]" />
+                      <Award size={12} className="text-[#fb923c]" />
                       <p className="text-gray-300 text-[11px] sm:text-xs font-mono font-semibold">
                         {aff.name}
                       </p>
@@ -129,7 +129,7 @@ export default function LeadershipNode() {
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="text-[8px] sm:text-[9px] mono text-[#00f0ff] bg-[#00f0ff]/10 px-2 py-0.5 rounded">
+                    <span className="text-[8px] sm:text-[9px] mono text-[#818cf8] bg-[#818cf8]/10 px-2 py-0.5 rounded">
                       {aff.id}
                     </span>
                     <p className="text-[7px] sm:text-[8px] text-gray-600 mt-1 flex items-center gap-1">
@@ -143,14 +143,14 @@ export default function LeadershipNode() {
         </div>
 
         {/* Footer - Summary Stats */}
-        <div className="mt-4 pt-3 border-t border-[#00f0ff]/20 flex flex-wrap justify-between items-center gap-2 text-[8px] sm:text-[9px] mono">
+        <div className="mt-4 pt-3 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-2 text-[8px] sm:text-[9px] mono">
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1">
-              <Users size={10} className="text-[#00f0ff]" />
+              <Users size={10} className="text-[#818cf8]" />
               <span className="text-gray-500">TOTAL_ROLES: {leadership.length}</span>
             </span>
             <span className="flex items-center gap-1">
-              <Sparkles size={10} className="text-[#ffaa44]" />
+              <Sparkles size={10} className="text-[#fb923c]" />
               <span className="text-gray-500">ACTIVE_SINCE: 2023</span>
             </span>
           </div>

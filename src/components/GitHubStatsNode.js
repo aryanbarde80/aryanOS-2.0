@@ -64,17 +64,17 @@ export default function GitHubStatsNode() {
 
   // Key achievements from GitHub profile
   const achievements = [
-    { name: "TCS CodeVita 2025", value: "AIR 4900+", icon: Trophy, color: "#ffaa44" },
-    { name: "TechSynergy IoT", value: "2nd Place", icon: Award, color: "#00f0ff" },
-    { name: "Hacktoberfest 2024", value: "4 PRs Merged", icon: GitFork, color: "#ff003c" },
-    { name: "Code360 Leaderboard", value: "3x College Topper", icon: Zap, color: "#ffaa44" }
+    { name: "TCS CodeVita 2025", value: "AIR 4900+", icon: Trophy, color: "#fb923c" },
+    { name: "TechSynergy IoT", value: "2nd Place", icon: Award, color: "#818cf8" },
+    { name: "Hacktoberfest 2024", value: "4 PRs Merged", icon: GitFork, color: "#f472b6" },
+    { name: "Code360 Leaderboard", value: "3x College Topper", icon: Zap, color: "#fb923c" }
   ];
 
   if (isLoading) {
     return (
-      <OSWindow title="NETWORK/GITHUB.SYS" icon={<Github size={16} className="text-[#00f0ff] animate-pulse" />}>
+      <OSWindow title="GitHub" icon={<Github size={16} className="text-[#818cf8]" />}>
         <div className="flex justify-center items-center h-64">
-          <div className="text-[#00f0ff] mono animate-pulse">FETCHING_GITHUB_DATA...</div>
+          <div className="text-[#818cf8] mono animate-pulse">Fetching GitHub data...</div>
         </div>
       </OSWindow>
     );
@@ -83,20 +83,20 @@ export default function GitHubStatsNode() {
   if (!profile) return null;
 
   return (
-    <OSWindow title="NETWORK/GITHUB.SYS" icon={<Github size={16} className="text-[#00f0ff] animate-pulse" />} width="max-w-5xl">
+    <OSWindow title="GitHub" icon={<Github size={16} className="text-[#818cf8]" />} width="max-w-5xl">
       <div className="space-y-6">
         
         {/* Data Source Indicator */}
         {!isLive && (
           <div className="flex items-center gap-2 text-[9px] mono text-gray-500 bg-gray-900/50 px-3 py-1.5 rounded-md border border-gray-800">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#ffaa44]"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-[#fb923c]"></div>
             CACHED_DATA — GitHub API rate-limited. Showing last known stats.
           </div>
         )}
 
         {/* Profile Header */}
-        <div className="flex flex-col md:flex-row items-center gap-5 p-5 border border-[#00f0ff]/20 bg-gradient-to-r from-[#030712] to-[#0a0f1a] rounded-xl">
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#00f0ff] shadow-[0_0_25px_rgba(0,240,255,0.4)] overflow-hidden">
+        <div className="flex flex-col md:flex-row items-center gap-5 p-5 border border-[#818cf8]/20 bg-gradient-to-r from-[#030712] to-[#0a0f1a] rounded-xl">
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#818cf8] shadow-[0_0_15px_rgba(129,140,248,0.3)] overflow-hidden">
             <Image 
               src={profile.avatar_url} 
               alt="GitHub Avatar" 
@@ -108,13 +108,13 @@ export default function GitHubStatsNode() {
           <div className="flex-1 text-center md:text-left space-y-2">
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
               <h3 className="text-xl sm:text-2xl font-bold text-white">{profile.name || profile.login}</h3>
-              <span className="text-[10px] mono px-2 py-1 bg-[#00f0ff]/10 text-[#00f0ff] rounded-full flex items-center gap-1">
+              <span className="text-[10px] mono px-2 py-1 bg-[#818cf8]/10 text-[#818cf8] rounded-full flex items-center gap-1">
                 <Github size={10} /> @{profile.login}
               </span>
             </div>
             <p className="text-xs sm:text-sm text-gray-400 italic">&ldquo;{profile.bio || "Discipline and Consistency is all what is needed!"}&rdquo;</p>
             {profile.company && (
-              <p className="text-[10px] sm:text-[11px] text-[#ff003c] mono flex items-center gap-1 justify-center md:justify-start">
+              <p className="text-[10px] sm:text-[11px] text-[#f472b6] mono flex items-center gap-1 justify-center md:justify-start">
                 <Code size={10} /> {profile.company}
               </p>
             )}
@@ -122,16 +122,16 @@ export default function GitHubStatsNode() {
           
           {/* Stats Cards */}
           <div className="grid grid-cols-3 gap-2 sm:gap-3">
-            <div className="p-2 sm:p-3 border border-[#00f0ff]/20 rounded-lg text-center hover:border-[#00f0ff]/60 transition-all hover:bg-[#00f0ff]/5">
-              <p className="text-xl sm:text-2xl font-bold text-[#00f0ff]">{profile.public_repos}</p>
+            <div className="p-2 sm:p-3 border border-[#818cf8]/20 rounded-lg text-center hover:border-[#818cf8]/60 transition-all hover:bg-[#818cf8]/5">
+              <p className="text-xl sm:text-2xl font-bold text-[#818cf8]">{profile.public_repos}</p>
               <p className="text-[8px] sm:text-[9px] mono text-gray-500">REPOS</p>
             </div>
-            <div className="p-2 sm:p-3 border border-[#00f0ff]/20 rounded-lg text-center hover:border-[#00f0ff]/60 transition-all hover:bg-[#00f0ff]/5">
-              <p className="text-xl sm:text-2xl font-bold text-[#00f0ff]">{profile.followers}</p>
+            <div className="p-2 sm:p-3 border border-[#818cf8]/20 rounded-lg text-center hover:border-[#818cf8]/60 transition-all hover:bg-[#818cf8]/5">
+              <p className="text-xl sm:text-2xl font-bold text-[#818cf8]">{profile.followers}</p>
               <p className="text-[8px] sm:text-[9px] mono text-gray-500">FOLLOWERS</p>
             </div>
-            <div className="p-2 sm:p-3 border border-[#00f0ff]/20 rounded-lg text-center hover:border-[#00f0ff]/60 transition-all hover:bg-[#00f0ff]/5">
-              <p className="text-xl sm:text-2xl font-bold text-[#00f0ff]">{profile.following}</p>
+            <div className="p-2 sm:p-3 border border-[#818cf8]/20 rounded-lg text-center hover:border-[#818cf8]/60 transition-all hover:bg-[#818cf8]/5">
+              <p className="text-xl sm:text-2xl font-bold text-[#818cf8]">{profile.following}</p>
               <p className="text-[8px] sm:text-[9px] mono text-gray-500">FOLLOWING</p>
             </div>
           </div>
@@ -142,7 +142,7 @@ export default function GitHubStatsNode() {
           {achievements.map((ach, idx) => {
             const IconComp = ach.icon;
             return (
-              <div key={idx} className="p-2 sm:p-3 border border-gray-800 rounded-lg text-center group hover:border-[#00f0ff]/40 transition-all hover:bg-[#00f0ff]/5">
+              <div key={idx} className="p-2 sm:p-3 border border-gray-800 rounded-lg text-center group hover:border-[#818cf8]/40 transition-all hover:bg-[#818cf8]/5">
                 <IconComp size={18} className="mx-auto mb-1" style={{ color: ach.color }} />
                 <p className="text-[10px] sm:text-[11px] font-bold text-white">{ach.value}</p>
                 <p className="text-[8px] sm:text-[9px] text-gray-500">{ach.name}</p>
@@ -153,8 +153,8 @@ export default function GitHubStatsNode() {
 
         {/* Recent Repos */}
         <div>
-          <h4 className="text-[#ff003c] mono text-xs sm:text-sm font-bold mb-3 flex items-center gap-2">
-            <BookOpen size={14} /> RECENT_REPOSITORIES.LOG
+          <h4 className="text-[#f472b6] mono text-xs sm:text-sm font-bold mb-3 flex items-center gap-2">
+            <BookOpen size={14} /> Recent Repositories
             <span className="text-[8px] text-gray-500 ml-2">({repos.length} active)</span>
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -164,13 +164,13 @@ export default function GitHubStatsNode() {
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-3 border border-gray-800 hover:border-[#00f0ff]/50 rounded-lg bg-[#030712]/40 group transition-all hover:bg-[#00f0ff]/5"
+                className="block p-3 border border-gray-800 hover:border-[#818cf8]/50 rounded-lg bg-[#030712]/40 group transition-all hover:bg-[#818cf8]/5"
               >
                 <div className="flex justify-between items-start mb-2">
-                  <h5 className="text-sm font-bold text-gray-200 group-hover:text-[#00f0ff] transition-colors truncate pr-2">
+                  <h5 className="text-sm font-bold text-gray-200 group-hover:text-[#818cf8] transition-colors truncate pr-2">
                     {repo.name.replace(/-/g, ' ')}
                   </h5>
-                  <ExternalLink size={12} className="text-gray-600 group-hover:text-[#00f0ff] shrink-0" />
+                  <ExternalLink size={12} className="text-gray-600 group-hover:text-[#818cf8] shrink-0" />
                 </div>
                 {repo.description && (
                   <p className="text-[10px] text-gray-500 line-clamp-2 mb-2">{repo.description.slice(0, 80)}</p>
@@ -181,7 +181,7 @@ export default function GitHubStatsNode() {
                       <span className="w-2 h-2 rounded-full" style={{ 
                         background: repo.language === 'JavaScript' ? '#f7df1e' : 
                                     repo.language === 'Python' ? '#3776ab' : 
-                                    repo.language === 'C++' ? '#f34b7d' : '#00f0ff'
+                                    repo.language === 'C++' ? '#f34b7d' : '#818cf8'
                       }}></span>
                       {repo.language}
                     </span>
@@ -200,20 +200,20 @@ export default function GitHubStatsNode() {
           href="https://github.com/aryanbarde80" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="block text-center py-2.5 border border-gray-700 hover:border-[#00f0ff] text-gray-400 hover:text-[#00f0ff] transition-all mono text-xs sm:text-sm uppercase tracking-wider rounded-lg bg-[#030712]/40"
+          className="block text-center py-2.5 border border-gray-700 hover:border-[#818cf8] text-gray-400 hover:text-[#818cf8] transition-all mono text-xs sm:text-sm uppercase tracking-wider rounded-lg bg-[#030712]/40"
         >
-          [ VIEW_FULL_PROFILE() ]
+          View Full Profile
         </a>
 
         {/* Footer Stats */}
-        <div className="flex flex-wrap justify-between items-center gap-2 pt-2 text-[8px] sm:text-[9px] mono text-gray-600 border-t border-[#00f0ff]/10">
+        <div className="flex flex-wrap justify-between items-center gap-2 pt-2 text-[8px] sm:text-[9px] mono text-gray-600 border-t border-[#818cf8]/10">
           <span className="flex items-center gap-1">
-            <Users size={10} className="text-[#00f0ff]" />
-            JOINED: {new Date(profile.created_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+            <Users size={10} className="text-[#818cf8]" />
+            Joined: {new Date(profile.created_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
           </span>
           <span className="flex items-center gap-1">
-            <Zap size={10} className="text-[#ffaa44]" />
-            TOTAL_CONTRIBUTIONS: {profile.public_repos + profile.public_gists} repos
+            <Zap size={10} className="text-[#fb923c]" />
+            Contributions: {profile.public_repos + profile.public_gists} repos
           </span>
         </div>
       </div>

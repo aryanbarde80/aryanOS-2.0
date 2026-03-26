@@ -2,8 +2,8 @@ import "./globals.css";
 import CursorGlow from "@/components/CursorGlow";
 
 export const metadata = {
-  title: "Aryan Barde | High-Impact Systems & AI Engineer",
-  description: "AI & Agentic Portfolio for Aryan Barde - Full-Stack & IoT Systems Engineer with proven performance optimizations.",
+  title: "Aryan Barde | Systems & AI Engineer",
+  description: "Portfolio of Aryan Barde - Full-Stack, IoT & AI Engineer building high-performance systems.",
   icons: {
     icon: '/favicon.png',
   },
@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased relative`}>
+      <body className="font-sans antialiased relative">
         <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <CursorGlow>
           <div className="bg-orb animate-pulse-slow"></div>

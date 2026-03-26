@@ -80,14 +80,14 @@ export default function MantraCLI({ onCommand }) {
       className="fixed bottom-0 left-0 w-full z-50 pointer-events-none hidden sm:block"
     >
       <div className="max-w-4xl mx-auto pointer-events-auto mb-4 px-4">
-        <div className="glass-panel border-t border-l border-r border-[#00f0ff]/30 bg-black/80 backdrop-blur-md rounded-t-lg overflow-hidden shadow-[0_-5px_30px_rgba(0,240,255,0.15)] relative group">
+        <div className="glass-panel border-t border-l border-r border-[#818cf8]/30 bg-black/80 backdrop-blur-md rounded-t-lg overflow-hidden shadow-[0_-5px_30px_rgba(0,240,255,0.15)] relative group">
           
           {/* Neon Border Glow */}
-          <div className="absolute inset-0 border-t-2 border-[#00f0ff] opacity-0 group-hover:opacity-100 transition-opacity blur-sm pointer-events-none"></div>
+          <div className="absolute inset-0 border-t-2 border-[#818cf8] opacity-0 group-hover:opacity-100 transition-opacity blur-sm pointer-events-none"></div>
 
           {/* Status Bar */}
-          <div className="flex justify-between items-center bg-[#030712] px-4 py-1.5 border-b border-[#00f0ff]/20">
-            <div className="flex items-center gap-2 text-[10px] mono text-[#00f0ff]/80 font-bold uppercase tracking-widest">
+          <div className="flex justify-between items-center bg-[#030712] px-4 py-1.5 border-b border-[#818cf8]/20">
+            <div className="flex items-center gap-2 text-[10px] mono text-[#818cf8]/80 font-bold uppercase tracking-widest">
               <Terminal size={12} /> MANTRA_CLI // ACTIVE
             </div>
             {/* Live Stats */}
@@ -96,24 +96,24 @@ export default function MantraCLI({ onCommand }) {
                 <Activity size={10} className="text-green-500" /> PING: <span className="text-green-500">12ms</span>
               </span>
               <span className="flex items-center gap-1 font-bold">
-                <Zap size={10} className={cpuLoad > 50 ? 'text-[#ff003c]' : 'text-[#ffaa44]'} /> 
-                CPU_LOAD: <span className={cpuLoad > 50 ? 'text-[#ff003c]' : 'text-[#ffaa44]'}>{cpuLoad}%</span>
+                <Zap size={10} className={cpuLoad > 50 ? 'text-[#f472b6]' : 'text-[#fb923c]'} /> 
+                CPU_LOAD: <span className={cpuLoad > 50 ? 'text-[#f472b6]' : 'text-[#fb923c]'}>{cpuLoad}%</span>
               </span>
-              <span className="text-[#00f0ff] font-bold overflow-hidden whitespace-nowrap hidden lg:block">
+              <span className="text-[#818cf8] font-bold overflow-hidden whitespace-nowrap hidden lg:block">
                 LAST_COMMIT: <span className="opacity-70 text-gray-400 capitalize">{lastCommit}</span>
               </span>
             </div>
           </div>
 
           {/* Log Window */}
-          <div className="h-28 overflow-y-auto p-3 space-y-1 scrollbar-thin scrollbar-thumb-[#00f0ff]/20 flex flex-col justify-end">
+          <div className="h-28 overflow-y-auto p-3 space-y-1 scrollbar-thin scrollbar-thumb-[#818cf8]/20 flex flex-col justify-end">
             <AnimatePresence>
               {history.map((msg, idx) => (
                 <motion.div 
                   initial={{ opacity: 0, x: -10 }} 
                   animate={{ opacity: 1, x: 0 }} 
                   key={idx} 
-                  className={`text-[11px] mono whitespace-pre-line ${msg.type === 'user' ? 'text-gray-300' : 'text-[#00f0ff]'} pb-1`}
+                  className={`text-[11px] mono whitespace-pre-line ${msg.type === 'user' ? 'text-gray-300' : 'text-[#818cf8]'} pb-1`}
                 >
                   {msg.text}
                 </motion.div>
@@ -122,13 +122,13 @@ export default function MantraCLI({ onCommand }) {
           </div>
 
           {/* Input Form */}
-          <form onSubmit={handleCommand} className="flex border-t border-[#00f0ff]/20 bg-black p-2 items-center gap-2">
+          <form onSubmit={handleCommand} className="flex border-t border-[#818cf8]/20 bg-black p-2 items-center gap-2">
             <span className="text-[#ff44aa] text-[11px] mono font-bold ml-2 shrink-0">{'>'} GUEST@ARYAN_CORE:~$</span>
             <input 
               type="text" 
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className="bg-transparent border-none outline-none text-[#00f0ff] text-[11px] mono w-full py-1 caret-[#00f0ff]"
+              className="bg-transparent border-none outline-none text-[#818cf8] text-[11px] mono w-full py-1 caret-[#818cf8]"
               placeholder="ENTER MANTRA COMMAND..."
               spellCheck="false"
               autoComplete="off"

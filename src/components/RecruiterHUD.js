@@ -7,10 +7,10 @@ export default function RecruiterHUD() {
   const [isOpen, setIsOpen] = useState(false);
 
   const highlights = [
-    { label: "Competitive Programming", value: "TCS CodeVita AIR 4900+ (Top 5%)", icon: Award, color: "#ff003c" },
-    { label: "Systems Optimization", value: "40% Latency Reduction (Redis/IoT)", icon: Zap, color: "#00f0ff" },
-    { label: "AI Excellence", value: "95% YOLOv8 Defect Detection Accuracy", icon: Award, color: "#ff003c" },
-    { label: "Data Mastery", value: "100% Accuracy on 409K Events (Zerve)", icon: Zap, color: "#00f0ff" },
+    { label: "Competitive Programming", value: "TCS CodeVita AIR 4900+ (Top 5%)", icon: Award, color: "#f472b6" },
+    { label: "Systems Optimization", value: "40% Latency Reduction (Redis/IoT)", icon: Zap, color: "#818cf8" },
+    { label: "AI Excellence", value: "95% YOLOv8 Defect Detection Accuracy", icon: Award, color: "#f472b6" },
+    { label: "Data Mastery", value: "100% Accuracy on 409K Events (Zerve)", icon: Zap, color: "#818cf8" },
   ];
 
   const toggleHUD = () => {
@@ -25,12 +25,12 @@ export default function RecruiterHUD() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {isOpen && (
-        <div className="hud-content w-72 sm:w-80 glass-panel p-4 border-[#00f0ff]/30 shadow-[0_0_30px_rgba(0,240,255,0.2)] mb-2 relative overflow-hidden group">
-          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent animate-scanner"></div>
+        <div className="hud-content w-72 sm:w-80 glass-panel p-4 border-[#818cf8]/30 shadow-[0_0_30px_rgba(0,240,255,0.2)] mb-2 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#818cf8] to-transparent animate-scanner"></div>
           
           <div className="flex justify-between items-center mb-4 border-b border-gray-800 pb-2">
              <div className="flex items-center gap-2">
-               <Briefcase size={14} className="text-[#00f0ff]" />
+               <Briefcase size={14} className="text-[#818cf8]" />
                <span className="text-[10px] mono font-bold text-gray-200 uppercase tracking-widest">Recruiter_FastTrack.v1</span>
              </div>
              <button onClick={toggleHUD} className="p-1 hover:bg-gray-800 rounded transition-colors">
@@ -54,15 +54,15 @@ export default function RecruiterHUD() {
           </div>
 
           <div className="grid grid-cols-3 gap-2">
-            <a href="https://github.com/aryanbarde80" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#00f0ff]/10 border border-gray-800 hover:border-[#00f0ff]/30 transition-all">
+            <a href="https://github.com/aryanbarde80" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#818cf8]/10 border border-gray-800 hover:border-[#818cf8]/30 transition-all">
               <Github size={16} className="text-gray-400" />
               <span className="text-[9px] mono">GITHUB</span>
             </a>
-            <a href="https://linkedin.com/in/aryanbarde80" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#00f0ff]/10 border border-gray-800 hover:border-[#00f0ff]/30 transition-all">
+            <a href="https://linkedin.com/in/aryanbarde80" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#818cf8]/10 border border-gray-800 hover:border-[#818cf8]/30 transition-all">
               <Linkedin size={16} className="text-gray-400" />
               <span className="text-[9px] mono">LINKEDIN</span>
             </a>
-            <a href="mailto:aryanbarde80@gmail.com" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#ff003c]/10 border border-gray-800 hover:border-[#ff003c]/30 transition-all">
+            <a href="mailto:aryanbarde80@gmail.com" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#f472b6]/10 border border-gray-800 hover:border-[#f472b6]/30 transition-all">
               <Mail size={16} className="text-gray-400" />
               <span className="text-[9px] mono">EMAIL</span>
             </a>
@@ -72,14 +72,14 @@ export default function RecruiterHUD() {
 
       <button 
         onClick={toggleHUD}
-        className={`group flex items-center gap-3 px-5 py-3 rounded-full bg-black/80 border transition-all duration-300 ${isOpen ? 'border-[#00f0ff] scale-95 shadow-[0_0_20px_rgba(0,240,255,0.4)]' : 'border-gray-800 hover:border-[#00f0ff] hover:shadow-[0_0_15px_rgba(0,240,255,0.2)]'}`}
+        className={`group flex items-center gap-3 px-5 py-3 rounded-full bg-black/80 border transition-all duration-300 ${isOpen ? 'border-[#818cf8] scale-95 shadow-[0_0_20px_rgba(0,240,255,0.4)]' : 'border-gray-800 hover:border-[#818cf8] hover:shadow-[0_0_15px_rgba(0,240,255,0.2)]'}`}
       >
         <div className="relative">
-          <Briefcase size={20} className={`transition-colors duration-300 ${isOpen ? 'text-[#00f0ff]' : 'text-gray-400 group-hover:text-[#00f0ff]'}`} />
-          {!isOpen && <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#ff003c] rounded-full animate-ping"></div>}
+          <Briefcase size={20} className={`transition-colors duration-300 ${isOpen ? 'text-[#818cf8]' : 'text-gray-400 group-hover:text-[#818cf8]'}`} />
+          {!isOpen && <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#f472b6] rounded-full animate-ping"></div>}
         </div>
         <span className="text-xs font-bold mono tracking-widest text-gray-200">RECRUITER_PANEL</span>
-        <ChevronRight size={14} className={`transition-transform duration-300 ${isOpen ? 'rotate-90 text-[#00f0ff]' : 'text-gray-600 group-hover:translate-x-1'}`} />
+        <ChevronRight size={14} className={`transition-transform duration-300 ${isOpen ? 'rotate-90 text-[#818cf8]' : 'text-gray-600 group-hover:translate-x-1'}`} />
       </button>
     </div>
   );

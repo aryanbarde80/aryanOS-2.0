@@ -44,18 +44,18 @@ function AnimatedCounter({ target, duration = 2000 }) {
 
 export default function StatsCounter() {
   const stats = [
-    { icon: Briefcase, label: "PROJECTS DELIVERED", value: 25, suffix: "+", color: "#00f0ff" },
-    { icon: Code2, label: "LINES OF CODE", value: 85000, suffix: "+", color: "#ff003c" },
-    { icon: Globe, label: "LIVE DEPLOYMENTS", value: 20, suffix: "+", color: "#ffaa44" },
-    { icon: Trophy, label: "CERTIFICATIONS", value: 18, suffix: "+", color: "#00f0ff" },
-    { icon: GitPullRequest, label: "OPEN SOURCE PRs", value: 4, suffix: "", color: "#ff003c" },
-    { icon: Rocket, label: "TECH STACK", value: 35, suffix: "+", color: "#ffaa44" },
-    { icon: Users, label: "TEAM LEAD", value: 5, suffix: "+", color: "#00f0ff" },
-    { icon: Zap, label: "LATENCY REDUCTION", value: 40, suffix: "%", color: "#ff003c" },
-    { icon: Award, label: "ACHIEVEMENTS", value: 12, suffix: "+", color: "#ffaa44" },
-    { icon: Cpu, label: "IoT PROJECTS", value: 8, suffix: "+", color: "#00f0ff" },
-    { icon: Database, label: "DB OPTIMIZATION", value: 40, suffix: "%", color: "#ff003c" },
-    { icon: Cloud, label: "CLOUD DEPLOYMENTS", value: 15, suffix: "+", color: "#ffaa44" }
+    { icon: Briefcase, label: "Projects Delivered", value: 25, suffix: "+", color: "#818cf8" },
+    { icon: Code2, label: "Lines of Code", value: 85000, suffix: "+", color: "#f472b6" },
+    { icon: Globe, label: "Live Deployments", value: 20, suffix: "+", color: "#fb923c" },
+    { icon: Trophy, label: "Certifications", value: 18, suffix: "+", color: "#818cf8" },
+    { icon: GitPullRequest, label: "Open Source PRs", value: 4, suffix: "", color: "#f472b6" },
+    { icon: Rocket, label: "Tech Stack", value: 35, suffix: "+", color: "#fb923c" },
+    { icon: Users, label: "Team Lead", value: 5, suffix: "+", color: "#818cf8" },
+    { icon: Zap, label: "Latency Reduction", value: 40, suffix: "%", color: "#f472b6" },
+    { icon: Award, label: "Achievements", value: 12, suffix: "+", color: "#fb923c" },
+    { icon: Cpu, label: "IoT Projects", value: 8, suffix: "+", color: "#818cf8" },
+    { icon: Database, label: "DB Optimization", value: 40, suffix: "%", color: "#f472b6" },
+    { icon: Cloud, label: "Cloud Deployments", value: 15, suffix: "+", color: "#fb923c" }
   ];
 
   return (
@@ -66,49 +66,39 @@ export default function StatsCounter() {
           return (
             <div 
               key={idx} 
-              className="group relative p-3 sm:p-4 text-center border border-[#00f0ff]/20 rounded-xl bg-gradient-to-br from-[#030712] to-[#0a0f1a] hover:border-[#00f0ff]/60 hover:shadow-[0_0_25px_rgba(0,240,255,0.2)] transition-all duration-300 cursor-default overflow-hidden"
+              className="group relative p-3 sm:p-4 text-center border border-[#818cf8]/10 rounded-xl bg-[#12121a]/60 hover:border-[#818cf8]/25 hover:bg-[#12121a]/80 transition-all duration-300 cursor-default overflow-hidden"
             >
-              {/* Animated Background Glow */}
-              <div className="absolute inset-0 bg-gradient-to-b from-[#00f0ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              {/* Top Accent Line */}
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              
               <Icon 
-                size={20} 
-                className="mx-auto mb-2 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(0,240,255,0.8)]" 
+                size={18} 
+                className="mx-auto mb-2 transition-all duration-300 group-hover:scale-110 opacity-70 group-hover:opacity-100" 
                 style={{ color: stat.color }} 
               />
               
-              <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white group-hover:text-[#00f0ff] transition-colors">
+              <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white transition-colors">
                 <AnimatedCounter target={stat.value} />{stat.suffix}
               </p>
               
-              <p className="text-[9px] sm:text-[10px] mono text-gray-500 mt-1 uppercase tracking-wider leading-tight">
+              <p className="text-[9px] sm:text-[10px] mono text-[#6b6b80] mt-1 tracking-wide leading-tight">
                 {stat.label}
               </p>
-              
-              {/* Bottom Glow */}
-              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent opacity-0 group-hover:opacity-50 transition-opacity" />
             </div>
           );
         })}
       </div>
       
-      {/* Footer Stats Summary */}
-      <div className="mt-5 pt-3 text-center border-t border-[#00f0ff]/20">
-        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-[8px] sm:text-[9px] mono text-gray-500">
+      <div className="mt-4 pt-3 text-center border-t border-[#818cf8]/8">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-[9px] mono text-[#6b6b80]">
           <span className="flex items-center gap-1">
-            <Zap size={10} className="text-[#ff003c]" />
-            TOTAL_IMPACT: 40%+ OPTIMIZATION
+            <Zap size={10} className="text-[#f472b6]" />
+            40%+ Optimization
           </span>
           <span className="flex items-center gap-1">
-            <Award size={10} className="text-[#ffaa44]" />
-            TCX_CODEVITA: AIR 4905
+            <Award size={10} className="text-[#fb923c]" />
+            CodeVita AIR 4905
           </span>
           <span className="flex items-center gap-1">
-            <Rocket size={10} className="text-[#00f0ff]" />
-            ACTIVE_SINCE: 2023
+            <Rocket size={10} className="text-[#818cf8]" />
+            Active since 2023
           </span>
         </div>
       </div>

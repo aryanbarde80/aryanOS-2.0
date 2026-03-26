@@ -15,7 +15,7 @@ export default function HackathonWins() {
       event: "TCS CodeVita Season 13",
       result: "AIR 4905 · Round 2",
       icon: "🚀",
-      color: "#ff003c",
+      color: "#f472b6",
       detail: "Ranked 4905 in Round 2 of TCS CodeVita Season 13, a national-level competitive programming contest with 500,000+ participants across India.",
       date: "Dec 2025"
     },
@@ -23,7 +23,7 @@ export default function HackathonWins() {
       event: "TechSynergy IoT Showcase",
       result: "2nd Place Winner",
       icon: "🏆",
-      color: "#00f0ff",
+      color: "#818cf8",
       detail: "Secured Second Place at Gyanotsav 2025, GGITS with a real-time IoT monitoring platform featuring sub-100ms telemetry and live dashboard visualization.",
       date: "Jan 2025"
     },
@@ -31,7 +31,7 @@ export default function HackathonWins() {
       event: "Code360 College Leaderboard",
       result: "3-Time College Topper",
       icon: "👑",
-      color: "#ffaa44",
+      color: "#fb923c",
       detail: "Achieved 3-Time College Topper status on Code360 Leaderboard (February 2025), ranking #1 in college coding leaderboard across multiple semesters.",
       date: "Feb 2025"
     },
@@ -39,7 +39,7 @@ export default function HackathonWins() {
       event: "Intern of the Month",
       result: "Ouranos Robotics",
       icon: "⭐",
-      color: "#00f0ff",
+      color: "#818cf8",
       detail: "Awarded Intern of the Month at Ouranos Robotics (September 2024) for outstanding contribution to IoT dashboard development and team mentoring.",
       date: "Sep 2024"
     },
@@ -47,7 +47,7 @@ export default function HackathonWins() {
       event: "Internship Performance Rating",
       result: "5/5 - Excellent",
       icon: "💎",
-      color: "#ff003c",
+      color: "#f472b6",
       detail: "Achieved a perfect 5/5 rating - Excellent for internship performance at Ouranos Robotics (October 2025), recognized for exceptional technical contributions.",
       date: "Oct 2025"
     },
@@ -55,7 +55,7 @@ export default function HackathonWins() {
       event: "Hacktoberfest 2024",
       result: "4 PRs Merged",
       icon: "🔓",
-      color: "#ffaa44",
+      color: "#fb923c",
       detail: "Successfully contributed to 4 open-source projects during Hacktoberfest 2024 with 4 accepted pull requests, including bug fixes and feature enhancements.",
       date: "Oct 2024"
     }
@@ -77,18 +77,18 @@ export default function HackathonWins() {
   const totalAwards = wins.length;
 
   return (
-    <OSWindow title="RECORDS/HACKATHON_WINS.LOG" icon={<Trophy size={16} className="text-[#00f0ff] animate-pulse" />} width="max-w-5xl">
+    <OSWindow title="RECORDS/HACKATHON_WINS.LOG" icon={<Trophy size={16} className="text-[#818cf8] animate-pulse" />} width="max-w-5xl">
       <div className="space-y-4">
         
         {/* Header with Stats */}
-        <div className="flex flex-wrap justify-between items-center gap-3 pb-3 border-b border-[#00f0ff]/20">
+        <div className="flex flex-wrap justify-between items-center gap-3 pb-3 border-b border-[#818cf8]/20">
           <div className="flex items-center gap-2">
-            <Award size={12} className="text-[#ffaa44]" />
+            <Award size={12} className="text-[#fb923c]" />
             <span className="text-[9px] sm:text-[10px] mono text-gray-500">ACHIEVEMENT_DATABASE</span>
           </div>
           <div className="flex gap-2 text-[9px] sm:text-[10px] mono">
-            <span className="text-[#00f0ff] bg-[#00f0ff]/10 px-2 py-0.5 rounded">{totalAwards} WINS</span>
-            <span className="text-[#ffaa44] bg-[#ffaa44]/10 px-2 py-0.5 rounded">✦ ACTIVE</span>
+            <span className="text-[#818cf8] bg-[#818cf8]/10 px-2 py-0.5 rounded">{totalAwards} WINS</span>
+            <span className="text-[#fb923c] bg-[#fb923c]/10 px-2 py-0.5 rounded">✦ ACTIVE</span>
           </div>
         </div>
 
@@ -97,7 +97,7 @@ export default function HackathonWins() {
           {wins.map((w, i) => (
             <div 
               key={i} 
-              className="win-item group flex flex-col sm:flex-row gap-3 p-4 border border-gray-800/60 hover:border-[#00f0ff]/40 rounded-xl bg-gradient-to-r from-[#030712] to-transparent hover:bg-[#00f0ff]/5 transition-all duration-300 cursor-default"
+              className="win-item group flex flex-col sm:flex-row gap-3 p-4 border border-gray-800/60 hover:border-[#818cf8]/40 rounded-xl bg-gradient-to-r from-[#030712] to-transparent hover:bg-[#818cf8]/5 transition-all duration-300 cursor-default"
             >
               {/* Icon */}
               <div className="flex items-center gap-3 sm:gap-4">
@@ -112,7 +112,7 @@ export default function HackathonWins() {
               {/* Content */}
               <div className="flex-1 min-w-0">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                  <h4 className="text-sm sm:text-base font-bold text-gray-200 group-hover:text-[#00f0ff] transition-colors">
+                  <h4 className="text-sm sm:text-base font-bold text-gray-200 group-hover:text-[#818cf8] transition-colors">
                     {w.event}
                   </h4>
                   <div className="flex flex-wrap items-center gap-2">
@@ -136,19 +136,19 @@ export default function HackathonWins() {
         </div>
 
         {/* Footer - Summary Stats */}
-        <div className="mt-4 pt-3 border-t border-[#00f0ff]/20 flex flex-wrap justify-between items-center gap-3 text-[8px] sm:text-[9px] mono">
+        <div className="mt-4 pt-3 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-3 text-[8px] sm:text-[9px] mono">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
-              <Medal size={10} className="text-[#ffaa44]" />
+              <Medal size={10} className="text-[#fb923c]" />
               <span className="text-gray-500">NATIONAL_RANK: 4905</span>
             </span>
             <span className="flex items-center gap-1">
-              <Flame size={10} className="text-[#ff003c]" />
+              <Flame size={10} className="text-[#f472b6]" />
               <span className="text-gray-500">HACKTOBERFEST: 4 PRs</span>
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <Star size={10} className="text-[#00f0ff]" />
+            <Star size={10} className="text-[#818cf8]" />
             <span className="text-gray-600">LAST_UPDATED: 2026</span>
           </div>
         </div>

@@ -27,7 +27,7 @@ function AvatarModel({ mousePosition, isInteracting, commandState }) {
     canvas.height = 128;
     const ctx = canvas.getContext('2d');
     if (ctx) {
-      ctx.fillStyle = '#00f0ff';
+      ctx.fillStyle = '#818cf8';
       ctx.fillRect(0, 0, 128, 128);
       ctx.fillStyle = '#030712';
       ctx.font = 'bold 40px monospace';
@@ -84,7 +84,7 @@ function AvatarModel({ mousePosition, isInteracting, commandState }) {
             transition={{ type: "spring", stiffness: 200 }}
           >
             {/* Tech Light Effect */}
-            <pointLight position={[0.4, 0.8, 0.2]} color="#00f0ff" intensity={3} distance={2} />
+            <pointLight position={[0.4, 0.8, 0.2]} color="#818cf8" intensity={3} distance={2} />
             
             {/* Code Particles - Procedural */}
             <ParticleSystem count={30} position={[0.5, 0.7, 0.3]} />
@@ -95,11 +95,11 @@ function AvatarModel({ mousePosition, isInteracting, commandState }) {
       {/* Tech Platform with Holographic Effect */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.8, 0]}>
         <ringGeometry args={[0.5, 0.8, 32]} />
-        <meshBasicMaterial color="#00f0ff" transparent opacity={0.2} />
+        <meshBasicMaterial color="#818cf8" transparent opacity={0.2} />
       </mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.82, 0]}>
         <ringGeometry args={[0.4, 0.6, 32]} />
-        <meshBasicMaterial color="#ff003c" transparent opacity={0.1} />
+        <meshBasicMaterial color="#f472b6" transparent opacity={0.1} />
       </mesh>
     </group>
   );
@@ -142,7 +142,7 @@ function ParticleSystem({ count = 30, position = [0, 0, 0] }) {
       {positions.map((pos, i) => (
         <mesh key={i} ref={el => particles.current[i] = el} position={pos}>
           <sphereGeometry args={[0.012, 4, 4]} />
-          <meshBasicMaterial color={i % 2 === 0 ? "#00f0ff" : "#ff003c"} transparent opacity={0.6} />
+          <meshBasicMaterial color={i % 2 === 0 ? "#818cf8" : "#f472b6"} transparent opacity={0.6} />
         </mesh>
       ))}
     </group>
@@ -165,33 +165,33 @@ function TechMandala() {
       {/* Outer Rings */}
       <mesh>
         <ringGeometry args={[1, 1.02, 64]} />
-        <meshBasicMaterial color="#00f0ff" transparent opacity={0.08} />
+        <meshBasicMaterial color="#818cf8" transparent opacity={0.08} />
       </mesh>
       <mesh scale={0.85}>
         <ringGeometry args={[1, 1.01, 32]} />
-        <meshBasicMaterial color="#ffaa44" transparent opacity={0.12} />
+        <meshBasicMaterial color="#fb923c" transparent opacity={0.12} />
       </mesh>
       <mesh scale={0.7}>
         <ringGeometry args={[1, 1.01, 16]} />
-        <meshBasicMaterial color="#ff003c" transparent opacity={0.1} />
+        <meshBasicMaterial color="#f472b6" transparent opacity={0.1} />
       </mesh>
       
       {/* Hexagon Grid Pattern */}
       {[0, 1, 2, 3, 4, 5].map(i => (
         <mesh key={i} rotation={[0, 0, (i * Math.PI) / 3]}>
           <ringGeometry args={[0.3, 0.7, 6]} />
-          <meshBasicMaterial color="#00f0ff" transparent opacity={0.05} wireframe />
+          <meshBasicMaterial color="#818cf8" transparent opacity={0.05} wireframe />
         </mesh>
       ))}
       
       {/* Central Core - Tech Node */}
       <mesh>
         <sphereGeometry args={[0.03, 16, 16]} />
-        <meshBasicMaterial color="#00f0ff" />
+        <meshBasicMaterial color="#818cf8" />
       </mesh>
       <mesh>
         <sphereGeometry args={[0.05, 8, 8]} />
-        <meshBasicMaterial color="#ffaa44" transparent opacity={0.5} />
+        <meshBasicMaterial color="#fb923c" transparent opacity={0.5} />
       </mesh>
     </group>
   );
@@ -209,7 +209,7 @@ function CursorLight({ mousePosition }) {
     }
   });
 
-  return <pointLight ref={lightRef} color="#00f0ff" intensity={2.5} distance={5} />;
+  return <pointLight ref={lightRef} color="#818cf8" intensity={2.5} distance={5} />;
 }
 
 export default function TechCanvas({ commandState = 'stable' }) {
@@ -267,7 +267,7 @@ export default function TechCanvas({ commandState = 'stable' }) {
         {/* Tech Grid Overlay */}
         <mesh position={[0, 0, 1]}>
           <planeGeometry args={[20, 20]} />
-          <meshBasicMaterial transparent opacity={0.01} color="#00f0ff" />
+          <meshBasicMaterial transparent opacity={0.01} color="#818cf8" />
         </mesh>
         
         {/* Dynamic Cursor Light */}

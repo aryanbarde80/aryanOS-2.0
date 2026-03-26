@@ -86,13 +86,13 @@ export default function NeuralMatrix() {
     >
       <defs>
         <linearGradient id="neural-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00f0ff" stopOpacity="0.1">
+          <stop offset="0%" stopColor="#818cf8" stopOpacity="0.1">
             <animate attributeName="stopOpacity" values="0.1;0.6;0.1" dur="3s" repeatCount="indefinite" />
           </stop>
           <stop offset="50%" stopColor="#ff44aa" stopOpacity="0.4">
             <animate attributeName="stopOpacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" />
           </stop>
-          <stop offset="100%" stopColor="#00f0ff" stopOpacity="0.1">
+          <stop offset="100%" stopColor="#818cf8" stopOpacity="0.1">
             <animate attributeName="stopOpacity" values="0.1;0.6;0.1" dur="3s" repeatCount="indefinite" />
           </stop>
         </linearGradient>

@@ -4,9 +4,9 @@ import { User, Languages, Brain, CheckCircle2, MapPin, Calendar, Award, Zap, Use
 
 export default function BioMatrix() {
   const languages = [
-    { name: "English", level: "Fluent (Professional)", progress: 95, color: "#00f0ff", desc: "Reading, Writing, Speaking" },
-    { name: "Hindi", level: "Native", progress: 100, color: "#ff003c", desc: "Fluent reading, writing, speaking" },
-    { name: "Marathi", level: "Conversational", progress: 70, color: "#ffaa44", desc: "Basic speaking and understanding" },
+    { name: "English", level: "Fluent (Professional)", progress: 95, color: "#818cf8", desc: "Reading, Writing, Speaking" },
+    { name: "Hindi", level: "Native", progress: 100, color: "#f472b6", desc: "Fluent reading, writing, speaking" },
+    { name: "Marathi", level: "Conversational", progress: 70, color: "#fb923c", desc: "Basic speaking and understanding" },
   ];
 
   const coreCompetencies = [
@@ -30,7 +30,7 @@ export default function BioMatrix() {
   ];
 
   return (
-    <OSWindow title="SYS_BIO/PROFILE.DAT" icon={<User size={16} className="text-[#00f0ff]" />} width="max-w-4xl">
+    <OSWindow title="Profile" icon={<User size={16} className="text-[#818cf8]" />} width="max-w-4xl">
       <div className="space-y-6">
         
         {/* Row 1: Main Bio - Responsive Grid */}
@@ -40,18 +40,18 @@ export default function BioMatrix() {
           <div className="lg:col-span-2 space-y-4">
             <div className="space-y-3">
               <h4 className="text-[10px] sm:text-[11px] mono text-gray-500 uppercase tracking-widest flex items-center gap-2">
-                <Brain size={12} className="text-[#00f0ff]" />
-                PROFESSIONAL_NEURO_SUMMARY
+                <Brain size={12} className="text-[#818cf8]" />
+                Professional Summary
               </h4>
               <p className="text-[13px] sm:text-[14px] text-gray-300 leading-relaxed font-medium">
-                A motivated Computer Science student skilled in <span className="text-[#00f0ff]">full-stack development</span>, 
-                <span className="text-[#ff003c]"> IoT systems</span>, and <span className="text-[#ffaa44]"> cloud computing</span>. 
+                A motivated Computer Science student skilled in <span className="text-[#818cf8]">full-stack development</span>, 
+                <span className="text-[#f472b6]"> IoT systems</span>, and <span className="text-[#fb923c]"> cloud computing</span>. 
                 Experienced in leading development teams and delivering scalable solutions across ERP, CRM, and IoT domains.
               </p>
               <p className="text-[12px] sm:text-[13px] text-gray-400 leading-relaxed">
                 Strong technical proficiency combined with problem-solving and leadership abilities. 
-                Proven track record in reducing API latency by <span className="text-[#00f0ff]">40%</span> through database indexing and Redis caching,
-                and developing computer vision defect detection systems with <span className="text-[#ff003c]">95% accuracy</span>.
+                Proven track record in reducing API latency by <span className="text-[#818cf8]">40%</span> through database indexing and Redis caching,
+                and developing computer vision defect detection systems with <span className="text-[#f472b6]">95% accuracy</span>.
               </p>
             </div>
             
@@ -60,9 +60,9 @@ export default function BioMatrix() {
               {coreCompetencies.map((attr, i) => (
                 <span 
                   key={i} 
-                  className="text-[9px] sm:text-[10px] mono px-2 py-1 bg-gray-900/80 border border-gray-800 text-gray-400 rounded-sm flex items-center gap-1.5 hover:border-[#00f0ff] hover:text-[#00f0ff] hover:bg-[#00f0ff]/5 transition-all duration-300 cursor-default"
+                  className="text-[9px] sm:text-[10px] mono px-2 py-1 bg-gray-900/80 border border-gray-800 text-gray-400 rounded-sm flex items-center gap-1.5 hover:border-[#818cf8] hover:text-[#818cf8] hover:bg-[#818cf8]/5 transition-all duration-300 cursor-default"
                 >
-                  <CheckCircle2 size={10} className="text-[#ff003c]" />
+                  <CheckCircle2 size={10} className="text-[#f472b6]" />
                   {attr}
                 </span>
               ))}
@@ -73,8 +73,8 @@ export default function BioMatrix() {
               {quickStats.map((stat, idx) => {
                 const IconComp = stat.icon;
                 return (
-                  <div key={idx} className="p-2 bg-[#00f0ff]/5 border border-[#00f0ff]/10 rounded-lg text-center group hover:border-[#00f0ff]/40 transition-all">
-                    <IconComp size={14} className="text-[#00f0ff] mx-auto mb-1 group-hover:scale-110 transition-transform" />
+                  <div key={idx} className="p-2 bg-[#818cf8]/5 border border-[#818cf8]/10 rounded-lg text-center group hover:border-[#818cf8]/40 transition-all">
+                    <IconComp size={14} className="text-[#818cf8] mx-auto mb-1 group-hover:scale-110 transition-transform" />
                     <p className="text-[9px] sm:text-[10px] text-gray-500">{stat.label}</p>
                     <p className="text-[10px] sm:text-[11px] font-mono text-gray-300 font-bold">{stat.value}</p>
                   </div>
@@ -87,8 +87,8 @@ export default function BioMatrix() {
           <div className="space-y-5">
             <div className="space-y-4">
               <h4 className="text-[10px] sm:text-[11px] mono text-gray-500 uppercase tracking-widest flex items-center gap-2">
-                <Languages size={12} className="text-[#ff003c]" />
-                LINGUISTIC_STACK
+                <Languages size={12} className="text-[#f472b6]" />
+                Languages
               </h4>
               <div className="space-y-4">
                 {languages.map((l, i) => (
@@ -110,10 +110,10 @@ export default function BioMatrix() {
             </div>
 
             {/* Status Card */}
-            <div className="p-3 bg-gradient-to-r from-[#ff003c]/10 to-transparent border-l-2 border-[#ff003c] rounded-r-lg">
-              <p className="text-[10px] mono text-[#ff003c] font-black uppercase mb-1 flex items-center gap-2">
+            <div className="p-3 bg-gradient-to-r from-[#f472b6]/10 to-transparent border-l-2 border-[#f472b6] rounded-r-lg">
+              <p className="text-[10px] mono text-[#f472b6] font-black uppercase mb-1 flex items-center gap-2">
                 <Zap size={10} className="animate-pulse" />
-                STATUS: ACTIVE_AGENT
+                Status: Active
               </p>
               <p className="text-[9px] sm:text-[10px] text-gray-400 leading-tight">
                 Currently optimizing mission-critical IoT telemetry and leading full-stack development initiatives.
@@ -123,10 +123,10 @@ export default function BioMatrix() {
         </div>
 
         {/* Row 2: Leadership Highlights - New Section from CV */}
-        <div className="border-t border-[#00f0ff]/20 pt-4 mt-2">
-          <h4 className="text-[10px] sm:text-[11px] mono text-[#ffaa44] uppercase tracking-widest flex items-center gap-2 mb-4">
+        <div className="border-t border-[#818cf8]/20 pt-4 mt-2">
+          <h4 className="text-[10px] sm:text-[11px] mono text-[#fb923c] uppercase tracking-widest flex items-center gap-2 mb-4">
             <Users size={12} />
-            LEADERSHIP_&_IMPACT_METRICS
+            Leadership & Impact
           </h4>
           
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -135,9 +135,9 @@ export default function BioMatrix() {
               return (
                 <div 
                   key={idx} 
-                  className="group p-3 bg-[#030712] border border-gray-800 rounded-lg text-center hover:border-[#ffaa44] hover:bg-[#ffaa44]/5 transition-all duration-300"
+                  className="group p-3 bg-[#030712] border border-gray-800 rounded-lg text-center hover:border-[#fb923c] hover:bg-[#fb923c]/5 transition-all duration-300"
                 >
-                  <IconComp size={18} className="text-[#ffaa44] mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                  <IconComp size={18} className="text-[#fb923c] mx-auto mb-2 group-hover:scale-110 transition-transform" />
                   <p className="text-[10px] sm:text-[11px] font-mono text-gray-300 font-bold">{item.value}</p>
                   <p className="text-[9px] sm:text-[10px] text-gray-500 uppercase tracking-wider">{item.label}</p>
                 </div>
@@ -148,10 +148,10 @@ export default function BioMatrix() {
           {/* Additional Achievement Badge */}
           <div className="flex flex-wrap justify-between items-center gap-3 mt-4 pt-2 text-[9px] mono text-gray-600">
             <div className="flex items-center gap-3">
-              <span className="flex items-center gap-1"><Award size={10} className="text-[#ffaa44]" /> TCS CodeVita AIR 4905</span>
-              <span className="flex items-center gap-1"><Zap size={10} className="text-[#00f0ff]" /> 3x College Topper</span>
+              <span className="flex items-center gap-1"><Award size={10} className="text-[#fb923c]" /> TCS CodeVita AIR 4905</span>
+              <span className="flex items-center gap-1"><Zap size={10} className="text-[#818cf8]" /> 3x College Topper</span>
             </div>
-            <span className="text-[9px] text-gray-700">PROFILE_LAST_SYNC: 2026</span>
+            <span className="text-[9px] text-gray-700">Updated 2026</span>
           </div>
         </div>
       </div>
