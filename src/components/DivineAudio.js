@@ -87,7 +87,7 @@ export default function SystemAudio() {
       };
     } catch (e) {
       console.warn('Audio initialization failed:', e);
-      setIsAvailable(false);
+      // isAvailable remains false (initial state)
     }
   }, [isAvailable]);
 

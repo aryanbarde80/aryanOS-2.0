@@ -19,11 +19,11 @@ export default function TerminalHero() {
       }
     }, 35); 
     
-    // Avatar Entrance Animation
+    // Terminal entrance animation
     import('gsap').then(({ gsap }) => {
-      gsap.fromTo(".avatar-img", 
-        { x: -50, opacity: 0, scale: 0.8 }, 
-        { x: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power4.out", delay: 0.5 }
+      gsap.fromTo(".terminal-hero-content", 
+        { y: 20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 1.2, ease: "power4.out", delay: 0.5 }
       );
     });
     
@@ -49,7 +49,7 @@ export default function TerminalHero() {
       </div>
 
       <div className="p-6 sm:p-10 relative">
-        <div className="flex flex-col items-start gap-8 relative z-10">
+        <div className="terminal-hero-content flex flex-col items-start gap-8 relative z-10">
           <div className="flex-1 w-full">
             <div className="mono text-base sm:text-xl md:text-2xl neon-text whitespace-pre-line min-h-[120px] sm:min-h-[160px] leading-relaxed relative font-bold">
               {text}

@@ -110,6 +110,23 @@ function ParticleSystem({ count = 30, position = [0, 0, 0] }) {
   const particles = useRef([]);
   const groupRef = useRef();
 
+  // Pre-compute stable random positions using a seeded approach
+  const positions = React.useMemo(() => {
+    const pos = [];
+    for (let i = 0; i < count; i++) {
+      // Use deterministic pseudo-random based on index
+      const seed1 = Math.sin(i * 12.9898 + 78.233) * 43758.5453;
+      const seed2 = Math.sin(i * 78.233 + 12.9898) * 43758.5453;
+      const seed3 = Math.sin(i * 45.164 + 93.9898) * 43758.5453;
+      pos.push([
+        (seed1 - Math.floor(seed1) - 0.5) * 0.6,
+        (seed2 - Math.floor(seed2) - 0.5) * 0.6,
+        (seed3 - Math.floor(seed3) - 0.5) * 0.4,
+      ]);
+    }
+    return pos;
+  }, [count]);
+
   useFrame((state) => {
     particles.current.forEach((particle, i) => {
       if (particle) {
@@ -122,8 +139,8 @@ function ParticleSystem({ count = 30, position = [0, 0, 0] }) {
 
   return (
     <group ref={groupRef} position={position}>
-      {Array.from({ length: count }).map((_, i) => (
-        <mesh key={i} ref={el => particles.current[i] = el} position={[(Math.random() - 0.5) * 0.6, (Math.random() - 0.5) * 0.6, (Math.random() - 0.5) * 0.4]}>
+      {positions.map((pos, i) => (
+        <mesh key={i} ref={el => particles.current[i] = el} position={pos}>
           <sphereGeometry args={[0.012, 4, 4]} />
           <meshBasicMaterial color={i % 2 === 0 ? "#00f0ff" : "#ff003c"} transparent opacity={0.6} />
         </mesh>
