@@ -54,7 +54,7 @@ export default function StickyNav() {
   return (
     <>
       {/* Sticky Navigation Bar */}
-      <nav className={`fixed top-0 left-0 right-0 z-[80] transition-all duration-500 ${isScrolled ? 'translate-y-0' : '-translate-y-full'}`}>
+      <nav aria-label="Main navigation" className={`fixed top-0 left-0 right-0 z-[80] transition-all duration-500 ${isScrolled ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between py-2 px-4 mt-2 bg-black/80 backdrop-blur-xl border border-[#00f0ff]/20 rounded-full shadow-[0_0_30px_rgba(0,240,255,0.1)]">
             {/* Logo / Brand */}
@@ -72,13 +72,14 @@ export default function StickyNav() {
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className={`flex items-center gap-1 px-2 sm:px-3 py-1.5 rounded-full text-[8px] sm:text-[9px] mono transition-all duration-300 ${
+                    aria-current={isActive ? 'true' : undefined}
+                    className={`flex items-center gap-1 px-2.5 sm:px-3 py-2 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] mono transition-all duration-300 ${
                       isActive 
                         ? 'bg-[#00f0ff]/20 text-[#00f0ff] border border-[#00f0ff]/40' 
                         : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'
                     }`}
                   >
-                    <Icon size={10} />
+                    <Icon size={12} />
                     <span className="hidden md:inline">{item.label}</span>
                   </button>
                 );

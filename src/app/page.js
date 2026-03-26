@@ -68,8 +68,8 @@ export default function Home() {
       {booted && <MagneticCursor />}
       {booted && <NeuralMatrix />}
       
-      <main className={`min-h-screen p-4 md:p-8 flex flex-col font-sans relative z-10 pb-40 pointer-events-none selection:bg-[#00f0ff] selection:text-[#030712] transition-all duration-1000 ${booted ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden absolute inset-0'} ${stabilityMode === 'unstable' ? 'animate-[shake_0.5s_infinite] glitch-filter' : ''}`}>
-        <div className="max-w-6xl mx-auto w-full pointer-events-auto">
+      <main id="main-content" className={`min-h-screen p-4 md:p-8 flex flex-col font-sans relative z-10 pb-40 selection:bg-[#00f0ff] selection:text-[#030712] transition-all duration-1000 ${booted ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden absolute inset-0'} ${stabilityMode === 'unstable' ? 'animate-[shake_0.5s_infinite] glitch-filter' : ''}`}>
+        <div className="max-w-6xl mx-auto w-full">
           {/* Floating Tech Decor */}
           <div className="fixed top-20 left-10 opacity-5 pointer-events-none select-none text-4xl font-mono hidden lg:block text-[#00f0ff]">{'<code>'}</div>
           <div className="fixed bottom-40 right-10 opacity-5 pointer-events-none select-none text-4xl font-mono hidden lg:block text-[#ff44aa]">{'</>'}</div>
@@ -81,9 +81,9 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-4">
               <div className="text-xs text-gray-400 mono hidden md:flex items-center gap-4 mr-4">
-                <a href="#engineering" className="hover:text-[#00f0ff] transition-colors">[ENGINEERING]</a>
-                <a href="#analytics" className="hover:text-[#00f0ff] transition-colors">[ANALYTICS]</a>
-                <a href="#projects" className="hover:text-[#ff003c] transition-colors font-bold">[EXT_ARCHIVES]</a>
+                <a href="#timeline" className="hover:text-[#00f0ff] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#00f0ff] rounded px-1">[ENGINEERING]</a>
+                <a href="#analytics" className="hover:text-[#00f0ff] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#00f0ff] rounded px-1">[ANALYTICS]</a>
+                <a href="#projects-section" className="hover:text-[#ff003c] transition-colors font-bold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#ff003c] rounded px-1">[EXT_ARCHIVES]</a>
               </div>
               <div className="text-xs text-gray-400 mono hidden sm:flex items-center gap-2">
                 <Terminal size={14} className="text-[#00f0ff]" />

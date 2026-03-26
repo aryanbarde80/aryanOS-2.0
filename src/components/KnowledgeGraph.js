@@ -88,9 +88,9 @@ export default function KnowledgeGraph() {
       <div className="flex justify-between items-center pb-2 border-b border-[#00f0ff]/20">
         <div className="flex items-center gap-2">
           <Brain size={12} className="text-[#00f0ff]" />
-          <span className="text-[8px] sm:text-[9px] mono text-gray-500">TECH_STACK_PROFICIENCY</span>
+          <span className="text-[9px] sm:text-[10px] mono text-gray-500">TECH_STACK_PROFICIENCY</span>
         </div>
-        <div className="text-[8px] sm:text-[9px] mono text-[#ffaa44] bg-[#ffaa44]/10 px-2 py-0.5 rounded">
+        <div className="text-[9px] sm:text-[10px] mono text-[#ffaa44] bg-[#ffaa44]/10 px-2 py-0.5 rounded">
           {allSkills.length} TECHNOLOGIES
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function KnowledgeGraph() {
                 {category.title}
               </h4>
               <div className="flex-1 h-px bg-gradient-to-r from-[#00f0ff]/20 to-transparent"></div>
-              <span className="text-[7px] text-gray-600">{category.skills.length} items</span>
+              <span className="text-[8px] sm:text-[9px] text-gray-600">{category.skills.length} items</span>
             </div>
             
             {/* Skills in this category */}
@@ -125,7 +125,7 @@ export default function KnowledgeGraph() {
                           {skill.name}
                         </span>
                       </div>
-                      <span className="text-[7px] sm:text-[8px] mono" style={{ color: category.color }}>
+                      <span className="text-[8px] sm:text-[9px] mono" style={{ color: category.color }}>
                         {skill.val}%
                       </span>
                     </div>
@@ -148,7 +148,7 @@ export default function KnowledgeGraph() {
       </div>
 
       {/* Footer - Summary */}
-      <div className="mt-3 pt-2 border-t border-[#00f0ff]/20 flex flex-wrap justify-between items-center gap-2 text-[7px] sm:text-[8px] mono">
+      <div className="mt-3 pt-2 border-t border-[#00f0ff]/20 flex flex-wrap justify-between items-center gap-2 text-[9px] sm:text-[10px] mono">
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-1">
             <Zap size={8} className="text-[#00f0ff]" />

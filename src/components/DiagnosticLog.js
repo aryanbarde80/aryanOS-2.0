@@ -178,13 +178,13 @@ export default function DiagnosticLog() {
       </div>
       
       {/* Footer - System Info */}
-      <div className="p-2 border-t border-[#00f0ff]/10 bg-black/20 flex justify-between items-center text-[7px] sm:text-[8px] mono text-gray-600">
+      <div className="p-2 border-t border-[#00f0ff]/10 bg-black/20 flex justify-between items-center text-[8px] sm:text-[9px] mono text-gray-600">
         <div className="flex items-center gap-2">
           <span>📊 LOG_COUNT: {logs.length}</span>
           <span>🔧 SYS_VER: 9.1.4</span>
         </div>
         <div className="flex items-center gap-2">
-          <span>⚡ {new Date().toLocaleDateString()}</span>
+          <span className="tabular-nums">SYS_ACTIVE</span>
         </div>
       </div>
 

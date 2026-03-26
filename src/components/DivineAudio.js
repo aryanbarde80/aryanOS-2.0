@@ -111,7 +111,8 @@ export default function SystemAudio() {
   return (
     <button 
       onClick={toggleMute}
-      className={`audio-toggle-btn fixed top-4 right-4 z-[70] p-2 rounded-full border backdrop-blur-sm transition-all duration-300 group ${
+      aria-label={isMuted ? "Enable system audio" : "Mute system audio"}
+      className={`audio-toggle-btn fixed top-4 right-4 z-[70] p-2.5 sm:p-2 rounded-full border backdrop-blur-sm transition-all duration-300 group ${
         isMuted 
           ? 'border-[#ff003c]/30 text-[#ff003c]/50 bg-black/40 hover:border-[#ff003c]/60 hover:text-[#ff003c]/80' 
           : 'border-[#00f0ff]/50 text-[#00f0ff] bg-[#00f0ff]/10 shadow-[0_0_15px_rgba(0,240,255,0.4)] hover:shadow-[0_0_20px_rgba(0,240,255,0.6)]'

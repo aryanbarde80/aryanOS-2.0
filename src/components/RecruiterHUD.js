@@ -54,17 +54,17 @@ export default function RecruiterHUD() {
           </div>
 
           <div className="grid grid-cols-3 gap-2">
-            <a href="https://github.com/aryanbarde80" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#00f0ff]/10 border border-gray-800 hover:border-[#00f0ff]/30 transition-all">
+            <a href="https://github.com/aryanbarde80" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#00f0ff]/10 border border-gray-800 hover:border-[#00f0ff]/30 transition-all">
               <Github size={16} className="text-gray-400" />
-              <span className="text-[8px] mono">GITHUB</span>
+              <span className="text-[9px] mono">GITHUB</span>
             </a>
-            <a href="https://linkedin.com/in/aryanbarde80" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#00f0ff]/10 border border-gray-800 hover:border-[#00f0ff]/30 transition-all">
+            <a href="https://linkedin.com/in/aryanbarde80" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#00f0ff]/10 border border-gray-800 hover:border-[#00f0ff]/30 transition-all">
               <Linkedin size={16} className="text-gray-400" />
-              <span className="text-[8px] mono">LINKEDIN</span>
+              <span className="text-[9px] mono">LINKEDIN</span>
             </a>
             <a href="mailto:aryanbarde80@gmail.com" className="flex flex-col items-center gap-1 p-2 rounded bg-gray-900/50 hover:bg-[#ff003c]/10 border border-gray-800 hover:border-[#ff003c]/30 transition-all">
               <Mail size={16} className="text-gray-400" />
-              <span className="text-[8px] mono">EMAIL</span>
+              <span className="text-[9px] mono">EMAIL</span>
             </a>
           </div>
         </div>

@@ -51,7 +51,7 @@ export default function BootSequence({ onComplete }) {
           <div className="inline-block w-3 h-5 bg-[#00f0ff] animate-pulse mt-2 shadow-[0_0_10px_rgba(0,240,255,0.8)]"></div>
         )}
       </div>
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10 mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E")' }} />
     </div>
   );
 }
