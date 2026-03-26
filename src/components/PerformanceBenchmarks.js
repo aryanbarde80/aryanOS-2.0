@@ -12,12 +12,12 @@ export default function PerformanceBenchmarks() {
   const [animatedValues, setAnimatedValues] = useState({});
 
   const benchmarks = [
-    { label: "API Latency Reduction", value: 40, max: 100, unit: "%", color: "#00f0ff", icon: Zap, category: "Ouranos Robotics", desc: "Redis caching + query optimization" },
-    { label: "YOLOv8 Defect Detection", value: 95, max: 100, unit: "%", color: "#ff003c", icon: Activity, category: "Alfastack Solutions", desc: "Manufacturing QC pipeline accuracy" },
-    { label: "Organic Traffic Growth", value: 30, max: 100, unit: "%", color: "#ffaa44", icon: TrendingUp, category: "Krapto Technologies", desc: "SEO + Next.js optimization" },
-    { label: "DB Query Optimization", value: 40, max: 100, unit: "%", color: "#00f0ff", icon: Database, category: "RoomieQ India", desc: "Indexing & query restructuring" },
-    { label: "Search Ranking Boost", value: 40, max: 100, unit: "pos", color: "#ff003c", icon: Globe, category: "MGGP Foundation", desc: "SEO optimization for NGO site" },
-    { label: "ML Prediction (Zerve)", value: 100, max: 100, unit: "%", color: "#ffaa44", icon: BarChart3, category: "Data Challenge 2026", desc: "409K event user success prediction" },
+    { label: "API Latency Reduction", value: 40, max: 100, unit: "%", color: "#818cf8", icon: Zap, category: "Ouranos Robotics", desc: "Redis caching + query optimization" },
+    { label: "YOLOv8 Defect Detection", value: 95, max: 100, unit: "%", color: "#f472b6", icon: Activity, category: "Alfastack Solutions", desc: "Manufacturing QC pipeline accuracy" },
+    { label: "Organic Traffic Growth", value: 30, max: 100, unit: "%", color: "#fb923c", icon: TrendingUp, category: "Krapto Technologies", desc: "SEO + Next.js optimization" },
+    { label: "DB Query Optimization", value: 40, max: 100, unit: "%", color: "#818cf8", icon: Database, category: "RoomieQ India", desc: "Indexing & query restructuring" },
+    { label: "Search Ranking Boost", value: 40, max: 100, unit: "pos", color: "#f472b6", icon: Globe, category: "MGGP Foundation", desc: "SEO optimization for NGO site" },
+    { label: "ML Prediction (Zerve)", value: 100, max: 100, unit: "%", color: "#fb923c", icon: BarChart3, category: "Data Challenge 2026", desc: "409K event user success prediction" },
   ];
 
   useEffect(() => {
@@ -35,23 +35,23 @@ export default function PerformanceBenchmarks() {
 
   const getPerformanceGrade = (value, max) => {
     const pct = (value / max) * 100;
-    if (pct >= 90) return { grade: "A+", color: "#00f0ff" };
-    if (pct >= 80) return { grade: "A", color: "#00f0ff" };
-    if (pct >= 70) return { grade: "B", color: "#ffaa44" };
-    return { grade: "C", color: "#ff003c" };
+    if (pct >= 90) return { grade: "A+", color: "#818cf8" };
+    if (pct >= 80) return { grade: "A", color: "#818cf8" };
+    if (pct >= 70) return { grade: "B", color: "#fb923c" };
+    return { grade: "C", color: "#f472b6" };
   };
 
   return (
-    <OSWindow title="BENCHMARK/PERFORMANCE_METRICS.SYS" icon={<Gauge size={16} className="text-[#00f0ff] animate-pulse" />} width="max-w-6xl">
+    <OSWindow title="Performance Benchmarks" icon={<Gauge size={16} className="text-[#818cf8]" />} width="max-w-6xl">
       <div className="space-y-5">
         {/* Header */}
-        <div className="flex flex-wrap justify-between items-center gap-3 pb-3 border-b border-[#00f0ff]/20">
+        <div className="flex flex-wrap justify-between items-center gap-3 pb-3 border-b border-[#818cf8]/20">
           <div className="flex items-center gap-2">
-            <Activity size={12} className="text-[#00f0ff]" />
-            <span className="text-[9px] sm:text-[10px] mono text-gray-500">PERFORMANCE_BENCHMARKS</span>
+            <Activity size={12} className="text-[#818cf8]" />
+            <span className="text-[9px] sm:text-[10px] mono text-gray-500">Benchmarks</span>
           </div>
           <div className="flex gap-2 text-[9px] sm:text-[10px] mono">
-            <span className="text-[#00f0ff] bg-[#00f0ff]/10 px-2 py-0.5 rounded">{benchmarks.length} METRICS</span>
+            <span className="text-[#818cf8] bg-[#818cf8]/10 px-2 py-0.5 rounded">{benchmarks.length} Metrics</span>
             <span className="text-green-400 bg-green-400/10 px-2 py-0.5 rounded">ALL PASSING</span>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function PerformanceBenchmarks() {
             );
 
             return (
-              <div key={idx} className="group p-3 border border-gray-800 hover:border-[#00f0ff]/40 rounded-lg bg-gradient-to-r from-[#030712] to-transparent hover:bg-[#00f0ff]/5 transition-all duration-300">
+              <div key={idx} className="group p-3 border border-gray-800 hover:border-[#818cf8]/40 rounded-lg bg-gradient-to-r from-[#030712] to-transparent hover:bg-[#818cf8]/5 transition-all duration-300">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <Icon size={12} style={{ color: b.color }} className="group-hover:scale-110 transition-transform" />
@@ -101,20 +101,20 @@ export default function PerformanceBenchmarks() {
         </div>
 
         {/* Footer */}
-        <div className="mt-3 pt-3 border-t border-[#00f0ff]/20 flex flex-wrap justify-between items-center gap-3 text-[8px] sm:text-[9px] mono">
+        <div className="mt-3 pt-3 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-3 text-[8px] sm:text-[9px] mono">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
-              <Zap size={10} className="text-[#00f0ff]" />
-              <span className="text-gray-500">OVERALL: OPTIMIZED</span>
+              <Zap size={10} className="text-[#818cf8]" />
+              <span className="text-gray-500">Overall: Optimized</span>
             </span>
             <span className="flex items-center gap-1">
-              <TrendingUp size={10} className="text-[#ffaa44]" />
-              <span className="text-gray-500">GRADE: A+</span>
+              <TrendingUp size={10} className="text-[#fb923c]" />
+              <span className="text-gray-500">Grade: A+</span>
             </span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-gray-600">ALL_BENCHMARKS_PASSING</span>
+            <span className="text-gray-600">All Passing</span>
           </div>
         </div>
       </div>

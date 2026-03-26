@@ -36,31 +36,31 @@ export default function OpenSourceNode() {
   };
 
   return (
-    <OSWindow title="CONTRIB/OPEN_SOURCE.GIT" icon={<GitPullRequest size={16} className="text-[#00f0ff] animate-pulse" />}>
+    <OSWindow title="CONTRIB/OPEN_SOURCE.GIT" icon={<GitPullRequest size={16} className="text-[#818cf8] animate-pulse" />}>
       <div className="space-y-5">
         
         {/* Header with Stats */}
-        <div className="flex flex-wrap justify-between items-center gap-3 pb-3 border-b border-[#00f0ff]/20">
+        <div className="flex flex-wrap justify-between items-center gap-3 pb-3 border-b border-[#818cf8]/20">
           <div className="flex items-center gap-2">
-            <Github size={12} className="text-[#00f0ff]" />
+            <Github size={12} className="text-[#818cf8]" />
             <span className="text-[9px] sm:text-[10px] mono text-gray-500">OPEN_SOURCE_CONTRIBUTIONS</span>
           </div>
           <div className="flex gap-2 text-[9px] sm:text-[10px] mono">
-            <span className="text-[#00f0ff] bg-[#00f0ff]/10 px-2 py-0.5 rounded">{stats.totalPRs} PRs</span>
-            <span className="text-[#ffaa44] bg-[#ffaa44]/10 px-2 py-0.5 rounded">Hacktoberfest {stats.hacktoberfestYear}</span>
+            <span className="text-[#818cf8] bg-[#818cf8]/10 px-2 py-0.5 rounded">{stats.totalPRs} PRs</span>
+            <span className="text-[#fb923c] bg-[#fb923c]/10 px-2 py-0.5 rounded">Hacktoberfest {stats.hacktoberfestYear}</span>
           </div>
         </div>
 
         {/* Hacktoberfest Badge */}
         <div className="relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ffaa44]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 bg-gradient-to-r from-[#ffaa44]/5 to-transparent border border-[#ffaa44]/20 rounded-xl hover:border-[#ffaa44]/50 transition-all duration-300">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fb923c]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 bg-gradient-to-r from-[#fb923c]/5 to-transparent border border-[#fb923c]/20 rounded-xl hover:border-[#fb923c]/50 transition-all duration-300">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#ffaa44]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Award size={18} className="text-[#ffaa44]" />
+              <div className="w-10 h-10 rounded-full bg-[#fb923c]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Award size={18} className="text-[#fb923c]" />
               </div>
               <div>
-                <p className="text-xs sm:text-sm font-bold text-[#ffaa44] mono flex items-center gap-2">
+                <p className="text-xs sm:text-sm font-bold text-[#fb923c] mono flex items-center gap-2">
                   HACKTOBERFEST 2024 COMPLETE
                   <Star size={12} className="text-yellow-500 animate-pulse" />
                 </p>
@@ -76,25 +76,25 @@ export default function OpenSourceNode() {
 
         {/* Contributions List */}
         <div className="space-y-3">
-          <h4 className="text-[10px] sm:text-[11px] mono text-[#ff003c] font-bold flex items-center gap-2">
+          <h4 className="text-[10px] sm:text-[11px] mono text-[#f472b6] font-bold flex items-center gap-2">
             <GitBranch size={12} /> MERGED_PULL_REQUESTS.LOG
           </h4>
           
           <div className="space-y-2">
             {contributions.map((c, idx) => (
-              <div key={idx} className="group relative p-3 border border-gray-800 hover:border-[#00f0ff]/40 rounded-lg bg-gradient-to-r from-[#030712] to-transparent hover:bg-[#00f0ff]/5 transition-all duration-300">
+              <div key={idx} className="group relative p-3 border border-gray-800 hover:border-[#818cf8]/40 rounded-lg bg-gradient-to-r from-[#030712] to-transparent hover:bg-[#818cf8]/5 transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3">
                   {/* Icon */}
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-[#00f0ff]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <GitPullRequest size={14} className="text-[#00f0ff]" />
+                    <div className="w-8 h-8 rounded-full bg-[#818cf8]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <GitPullRequest size={14} className="text-[#818cf8]" />
                     </div>
                   </div>
                   
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <p className="text-xs sm:text-sm font-bold text-gray-200 group-hover:text-[#00f0ff] transition-colors truncate">
+                      <p className="text-xs sm:text-sm font-bold text-gray-200 group-hover:text-[#818cf8] transition-colors truncate">
                         {c.repo}
                       </p>
                       <div className="flex items-center gap-2">
@@ -126,19 +126,19 @@ export default function OpenSourceNode() {
         </div>
 
         {/* Contribution Summary */}
-        <div className="mt-4 pt-3 border-t border-[#00f0ff]/20">
+        <div className="mt-4 pt-3 border-t border-[#818cf8]/20">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="p-2 text-center border border-gray-800 rounded-lg hover:border-[#00f0ff]/30 transition-all">
-              <GitPullRequest size={14} className="text-[#00f0ff] mx-auto mb-1" />
+            <div className="p-2 text-center border border-gray-800 rounded-lg hover:border-[#818cf8]/30 transition-all">
+              <GitPullRequest size={14} className="text-[#818cf8] mx-auto mb-1" />
               <p className="text-xs font-bold text-white">{stats.totalPRs}</p>
               <p className="text-[8px] text-gray-500">PULL REQUESTS</p>
             </div>
-            <div className="p-2 text-center border border-gray-800 rounded-lg hover:border-[#00f0ff]/30 transition-all">
-              <Users size={14} className="text-[#ffaa44] mx-auto mb-1" />
+            <div className="p-2 text-center border border-gray-800 rounded-lg hover:border-[#818cf8]/30 transition-all">
+              <Users size={14} className="text-[#fb923c] mx-auto mb-1" />
               <p className="text-xs font-bold text-white">4+</p>
               <p className="text-[8px] text-gray-500">PROJECTS</p>
             </div>
-            <div className="p-2 text-center border border-gray-800 rounded-lg hover:border-[#00f0ff]/30 transition-all">
+            <div className="p-2 text-center border border-gray-800 rounded-lg hover:border-[#818cf8]/30 transition-all">
               <Star size={14} className="text-yellow-500 mx-auto mb-1" />
               <p className="text-xs font-bold text-white">ACCEPTED</p>
               <p className="text-[8px] text-gray-500">ALL MERGED</p>
@@ -149,11 +149,11 @@ export default function OpenSourceNode() {
         {/* Footer */}
         <div className="flex flex-wrap justify-between items-center gap-2 pt-2 text-[8px] sm:text-[9px] mono text-gray-600">
           <span className="flex items-center gap-1">
-            <Github size={10} className="text-[#00f0ff]" />
+            <Github size={10} className="text-[#818cf8]" />
             OPEN_SOURCE_CONTRIBUTOR
           </span>
           <span className="flex items-center gap-1">
-            <Award size={10} className="text-[#ffaa44]" />
+            <Award size={10} className="text-[#fb923c]" />
             HACKTOBERFEST 2024
           </span>
         </div>

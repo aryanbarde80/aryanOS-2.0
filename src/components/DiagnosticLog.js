@@ -106,23 +106,23 @@ export default function DiagnosticLog() {
 
   // System stats
   const systemStats = [
-    { label: "UPTIME", value: "99.98%", icon: Activity, color: "#00f0ff" },
-    { label: "PERFORMANCE", value: `${performanceScore.toFixed(1)}%`, icon: Zap, color: "#ffaa44" },
-    { label: "CONNECTION", value: connectionStatus, icon: Network, color: "#00f0ff" },
-    { label: "AGENTS", value: "8 ACTIVE", icon: Cpu, color: "#ff003c" }
+    { label: "UPTIME", value: "99.98%", icon: Activity, color: "#818cf8" },
+    { label: "PERFORMANCE", value: `${performanceScore.toFixed(1)}%`, icon: Zap, color: "#fb923c" },
+    { label: "CONNECTION", value: connectionStatus, icon: Network, color: "#818cf8" },
+    { label: "AGENTS", value: "8 ACTIVE", icon: Cpu, color: "#f472b6" }
   ];
 
   return (
-    <div className="flex flex-col h-full bg-gradient-to-b from-[#030712] to-transparent rounded-lg border border-[#00f0ff]/10 overflow-hidden">
+    <div className="flex flex-col h-full bg-gradient-to-b from-[#030712] to-transparent rounded-lg border border-[#818cf8]/10 overflow-hidden">
       
       {/* Header with System Stats */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 p-3 border-b border-[#00f0ff]/20 bg-black/30">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 p-3 border-b border-[#818cf8]/20 bg-black/30">
         <div className="flex items-center gap-2">
-          <Activity size={14} className="text-[#00f0ff] animate-pulse" />
-          <span className="text-[10px] sm:text-[11px] mono font-bold text-[#00f0ff] uppercase tracking-wider">
-            SYSTEM_DIAGNOSTIC_LOG
+          <Activity size={14} className="text-[#818cf8] animate-pulse" />
+          <span className="text-[10px] sm:text-[11px] mono font-bold text-[#818cf8] uppercase tracking-wider">
+            System Diagnostics
           </span>
-          <div className="h-4 w-px bg-[#00f0ff]/30 mx-1"></div>
+          <div className="h-4 w-px bg-[#818cf8]/30 mx-1"></div>
           <span className="text-[8px] sm:text-[9px] mono text-green-500 flex items-center gap-1">
             <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
             LIVE
@@ -160,17 +160,17 @@ export default function DiagnosticLog() {
               key={i} 
               className={`
                 text-[9px] sm:text-[10px] font-mono 
-                ${isLatest ? 'text-[#00f0ff] font-bold animate-pulse' : ''}
-                ${hasError ? 'text-[#ff003c]' : ''}
+                ${isLatest ? 'text-[#818cf8] font-bold animate-pulse' : ''}
+                ${hasError ? 'text-[#f472b6]' : ''}
                 ${hasSuccess && !isLatest ? 'text-green-500' : ''}
-                ${hasMetric && !isLatest && !hasError ? 'text-[#ffaa44]' : ''}
+                ${hasMetric && !isLatest && !hasError ? 'text-[#fb923c]' : ''}
                 ${!isLatest && !hasError && !hasSuccess && !hasMetric ? 'text-gray-500' : ''}
                 transition-all duration-300
               `}
             >
               {log}
               {isLatest && (
-                <span className="inline-block ml-2 w-1.5 h-1.5 rounded-full bg-[#00f0ff] animate-ping"></span>
+                <span className="inline-block ml-2 w-1.5 h-1.5 rounded-full bg-[#818cf8] animate-ping"></span>
               )}
             </div>
           );
@@ -178,13 +178,13 @@ export default function DiagnosticLog() {
       </div>
       
       {/* Footer - System Info */}
-      <div className="p-2 border-t border-[#00f0ff]/10 bg-black/20 flex justify-between items-center text-[8px] sm:text-[9px] mono text-gray-600">
+      <div className="p-2 border-t border-[#818cf8]/10 bg-black/20 flex justify-between items-center text-[8px] sm:text-[9px] mono text-gray-600">
         <div className="flex items-center gap-2">
-          <span>📊 LOG_COUNT: {logs.length}</span>
-          <span>🔧 SYS_VER: 9.1.4</span>
+            <span>Logs: {logs.length}</span>
+            <span>v9.1.4</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="tabular-nums">SYS_ACTIVE</span>
+          <span className="tabular-nums">Active</span>
         </div>
       </div>
 

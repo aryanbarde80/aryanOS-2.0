@@ -10,7 +10,7 @@ export default function KnowledgeGraph() {
   const categories = [
     {
       title: "FRONTEND",
-      color: "#00f0ff",
+      color: "#818cf8",
       skills: [
         { name: "React.js", val: 95, icon: Globe },
         { name: "Next.js", val: 92, icon: Rocket },
@@ -22,7 +22,7 @@ export default function KnowledgeGraph() {
     },
     {
       title: "BACKEND",
-      color: "#ff003c",
+      color: "#f472b6",
       skills: [
         { name: "Node.js", val: 92, icon: Server },
         { name: "Express.js", val: 90, icon: Code },
@@ -34,7 +34,7 @@ export default function KnowledgeGraph() {
     },
     {
       title: "DATABASES",
-      color: "#ffaa44",
+      color: "#fb923c",
       skills: [
         { name: "PostgreSQL", val: 88, icon: Database },
         { name: "MySQL", val: 87, icon: Database },
@@ -45,7 +45,7 @@ export default function KnowledgeGraph() {
     },
     {
       title: "CLOUD & DEVOPS",
-      color: "#00f0ff",
+      color: "#818cf8",
       skills: [
         { name: "AWS", val: 85, icon: Cloud },
         { name: "GCP", val: 84, icon: Cloud },
@@ -56,7 +56,7 @@ export default function KnowledgeGraph() {
     },
     {
       title: "AI & AUTOMATION",
-      color: "#ff003c",
+      color: "#f472b6",
       skills: [
         { name: "LangChain", val: 85, icon: Bot },
         { name: "CrewAI", val: 82, icon: Workflow },
@@ -67,7 +67,7 @@ export default function KnowledgeGraph() {
     },
     {
       title: "IOT & EMBEDDED",
-      color: "#ffaa44",
+      color: "#fb923c",
       skills: [
         { name: "ESP32", val: 92, icon: Cpu },
         { name: "MQTT", val: 90, icon: Network },
@@ -85,12 +85,12 @@ export default function KnowledgeGraph() {
     <div className="space-y-4 p-1">
       
       {/* Header */}
-      <div className="flex justify-between items-center pb-2 border-b border-[#00f0ff]/20">
+      <div className="flex justify-between items-center pb-2 border-b border-[#818cf8]/20">
         <div className="flex items-center gap-2">
-          <Brain size={12} className="text-[#00f0ff]" />
+          <Brain size={12} className="text-[#818cf8]" />
           <span className="text-[9px] sm:text-[10px] mono text-gray-500">TECH_STACK_PROFICIENCY</span>
         </div>
-        <div className="text-[9px] sm:text-[10px] mono text-[#ffaa44] bg-[#ffaa44]/10 px-2 py-0.5 rounded">
+        <div className="text-[9px] sm:text-[10px] mono text-[#fb923c] bg-[#fb923c]/10 px-2 py-0.5 rounded">
           {allSkills.length} TECHNOLOGIES
         </div>
       </div>
@@ -105,7 +105,7 @@ export default function KnowledgeGraph() {
               <h4 className="text-[9px] sm:text-[10px] mono font-bold tracking-wider" style={{ color: category.color }}>
                 {category.title}
               </h4>
-              <div className="flex-1 h-px bg-gradient-to-r from-[#00f0ff]/20 to-transparent"></div>
+              <div className="flex-1 h-px bg-gradient-to-r from-[#818cf8]/20 to-transparent"></div>
               <span className="text-[8px] sm:text-[9px] text-gray-600">{category.skills.length} items</span>
             </div>
             
@@ -116,7 +116,7 @@ export default function KnowledgeGraph() {
                 return (
                   <div 
                     key={i} 
-                    className="group flex flex-col gap-1 p-2 border border-gray-800/60 hover:border-[#00f0ff]/40 rounded-lg bg-gradient-to-r from-[#030712] to-transparent hover:bg-[#00f0ff]/5 transition-all duration-300 cursor-default"
+                    className="group flex flex-col gap-1 p-2 border border-gray-800/60 hover:border-[#818cf8]/40 rounded-lg bg-gradient-to-r from-[#030712] to-transparent hover:bg-[#818cf8]/5 transition-all duration-300 cursor-default"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-1.5">
@@ -148,14 +148,14 @@ export default function KnowledgeGraph() {
       </div>
 
       {/* Footer - Summary */}
-      <div className="mt-3 pt-2 border-t border-[#00f0ff]/20 flex flex-wrap justify-between items-center gap-2 text-[9px] sm:text-[10px] mono">
+      <div className="mt-3 pt-2 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-2 text-[9px] sm:text-[10px] mono">
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-1">
-            <Zap size={8} className="text-[#00f0ff]" />
+            <Zap size={8} className="text-[#818cf8]" />
             <span className="text-gray-500">AVG_PROFICIENCY: {avgProficiency}%</span>
           </span>
           <span className="flex items-center gap-1">
-            <Brain size={8} className="text-[#ff003c]" />
+            <Brain size={8} className="text-[#f472b6]" />
             <span className="text-gray-500">PRIMARY_STACK: MERN + IoT</span>
           </span>
         </div>

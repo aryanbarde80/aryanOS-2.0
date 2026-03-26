@@ -12,9 +12,9 @@ export default function CinematicQuote() {
   const words = [
     { text: "Not me,", delay: 0 },
     { text: "but", delay: 0.3, highlight: false },
-    { text: "Discipline", delay: 0.6, highlight: true, color: "#00f0ff" },
+    { text: "Discipline", delay: 0.6, highlight: true, color: "#818cf8" },
     { text: "&", delay: 0.9 },
-    { text: "Consistency", delay: 1.1, highlight: true, color: "#ff003c" },
+    { text: "Consistency", delay: 1.1, highlight: true, color: "#f472b6" },
   ];
 
   useEffect(() => {
@@ -80,23 +80,19 @@ export default function CinematicQuote() {
       ref={containerRef} 
       className="w-full max-w-4xl mx-auto my-12 sm:my-16 py-10 sm:py-16 px-6 relative overflow-hidden"
     >
-      {/* Background vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,240,255,0.03)_0%,transparent_70%)]"></div>
-      
-      {/* Main Quote */}
       <div className="relative z-10 text-center perspective-[1000px]">
         <div className="flex flex-wrap justify-center items-baseline gap-x-3 sm:gap-x-5 gap-y-2">
           {words.map((word, idx) => (
             <span
               key={idx}
-              className={`cinematic-word inline-block font-black tracking-tight will-change-transform ${
+              className={`cinematic-word inline-block font-bold tracking-tight will-change-transform ${
                 word.highlight 
-                  ? 'text-4xl sm:text-5xl md:text-7xl' 
-                  : 'text-2xl sm:text-3xl md:text-5xl text-gray-400'
+                  ? 'text-3xl sm:text-4xl md:text-6xl' 
+                  : 'text-xl sm:text-2xl md:text-4xl text-[#6b6b80]'
               }`}
               style={word.color ? { 
                 color: word.color, 
-                textShadow: `0 0 30px ${word.color}40, 0 0 60px ${word.color}20` 
+                textShadow: `0 0 30px ${word.color}20` 
               } : {}}
             >
               {word.text}
@@ -104,20 +100,12 @@ export default function CinematicQuote() {
           ))}
         </div>
 
-        {/* Divider line */}
-        <div className="cinematic-line h-[2px] w-32 sm:w-48 mx-auto mt-6 sm:mt-8 bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent origin-center"></div>
+        <div className="cinematic-line h-px w-24 sm:w-36 mx-auto mt-6 sm:mt-8 bg-gradient-to-r from-transparent via-[#818cf8]/50 to-transparent origin-center"></div>
 
-        {/* Subtitle */}
-        <p className="cinematic-subtitle text-xs sm:text-sm mono text-gray-500 mt-4 sm:mt-6 tracking-[0.2em] uppercase">
-          — The philosophy that drives every line of code —
+        <p className="cinematic-subtitle text-xs mono text-[#6b6b80] mt-4 sm:mt-6 tracking-[0.15em]">
+          The philosophy that drives every line of code
         </p>
       </div>
-
-      {/* Subtle corner accents */}
-      <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[#00f0ff]/20"></div>
-      <div className="absolute top-4 right-4 w-6 h-6 border-t border-r border-[#00f0ff]/20"></div>
-      <div className="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-[#00f0ff]/20"></div>
-      <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[#00f0ff]/20"></div>
     </div>
   );
 }

@@ -114,8 +114,8 @@ export default function SystemAudio() {
       aria-label={isMuted ? "Enable system audio" : "Mute system audio"}
       className={`audio-toggle-btn fixed top-4 right-4 z-[70] p-2.5 sm:p-2 rounded-full border backdrop-blur-sm transition-all duration-300 group ${
         isMuted 
-          ? 'border-[#ff003c]/30 text-[#ff003c]/50 bg-black/40 hover:border-[#ff003c]/60 hover:text-[#ff003c]/80' 
-          : 'border-[#00f0ff]/50 text-[#00f0ff] bg-[#00f0ff]/10 shadow-[0_0_15px_rgba(0,240,255,0.4)] hover:shadow-[0_0_20px_rgba(0,240,255,0.6)]'
+          ? 'border-[#f472b6]/30 text-[#f472b6]/50 bg-black/40 hover:border-[#f472b6]/60 hover:text-[#f472b6]/80' 
+          : 'border-[#818cf8]/50 text-[#818cf8] bg-[#818cf8]/10 shadow-[0_0_15px_rgba(0,240,255,0.4)] hover:shadow-[0_0_20px_rgba(0,240,255,0.6)]'
       }`}
       title={isMuted ? "Enable System Audio" : "Mute System Audio"}
     >
@@ -124,7 +124,7 @@ export default function SystemAudio() {
       ) : (
         <div className="relative">
           <Volume2 size={18} className="sm:w-5 sm:h-5 animate-pulse" />
-          <div className="absolute inset-0 rounded-full animate-ping opacity-50 bg-[#00f0ff]"></div>
+          <div className="absolute inset-0 rounded-full animate-ping opacity-50 bg-[#818cf8]"></div>
         </div>
       )}
       

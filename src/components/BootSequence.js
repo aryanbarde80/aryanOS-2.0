@@ -1,19 +1,19 @@
 "use client";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function BootSequence({ onComplete }) {
   const [logs, setLogs] = useState([]);
   const [isBooted, setIsBooted] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const bootSequence = [
-    "INIT SYSTEM CORE... [OK]",
-    "LOADING NEURAL WEIGHTS... [OK]",
-    "ESTABLISHING SECURE CONNECTION...",
-    "DECRYPTING PORTFOLIO ASSETS... [OK]",
-    "BYPASSING FIREWALL... [BYPASSED]",
-    "STARTING AGENTIC UI MODULES...",
-    "ACCESS GRANTED."
+    { text: "Initializing system kernel...", status: "OK" },
+    { text: "Loading display modules...", status: "OK" },
+    { text: "Establishing secure connection...", status: "OK" },
+    { text: "Mounting portfolio filesystem...", status: "OK" },
+    { text: "Starting interface services...", status: "OK" },
+    { text: "System ready.", status: "DONE" },
   ];
 
   useEffect(() => {
@@ -21,37 +21,66 @@ export default function BootSequence({ onComplete }) {
     let currentLog = 0;
     const interval = setInterval(() => {
       if (currentLog < bootSequence.length) {
-        // Use a client-side timestamp to avoid hydration mismatch
-        const timestamp = new Date().toISOString().split('T')[1].slice(0, 12);
-        setLogs(prev => [...prev, { text: bootSequence[currentLog], time: timestamp }]);
+        const timestamp = new Date().toISOString().split('T')[1].slice(0, 8);
+        setLogs(prev => [...prev, { text: bootSequence[currentLog].text, status: bootSequence[currentLog].status, time: timestamp }]);
+        setProgress(Math.round(((currentLog + 1) / bootSequence.length) * 100));
         currentLog++;
       } else {
         clearInterval(interval);
         setTimeout(() => {
           setIsBooted(true);
-          setTimeout(onComplete, 500); // fade out time
-        }, 600);
+          setTimeout(onComplete, 600);
+        }, 400);
       }
-    }, 250); // Speed of boot logs
+    }, 300);
 
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onComplete]);
 
   return (
-    <div className={`fixed inset-0 z-[99999] bg-[#030712] flex flex-col justify-end p-8 transition-opacity duration-500 ${isBooted ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-      <div className="max-w-3xl w-full mx-auto space-y-2 mb-20">
-        {logs.map((log, i) => (
-          <div key={i} className="text-[#00f0ff] mono text-sm sm:text-base md:text-lg animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <span className="opacity-50 mr-4">{`[${log.time}]`}</span>
-            <span className={i === bootSequence.length - 1 ? "text-[#ff003c] font-bold text-xl glitch-anim inline-block" : ""}>{log.text}</span>
+    <div className={`fixed inset-0 z-[99999] bg-[#0a0a0f] flex flex-col items-center justify-center transition-opacity duration-700 ${isBooted ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      <div className="max-w-lg w-full px-8">
+        {/* Logo */}
+        <div className="text-center mb-10">
+          <h1 className="text-2xl sm:text-3xl font-bold mono text-white tracking-tight">
+            aryan<span className="text-[#818cf8]">OS</span>
+          </h1>
+          <p className="text-xs mono text-[#6b6b80] mt-1 tracking-widest">v2.0</p>
+        </div>
+
+        {/* Log lines */}
+        <div className="space-y-2 mb-8 min-h-[180px]">
+          {logs.map((log, i) => (
+            <div key={i} className="flex items-center gap-3 mono text-sm animate-fade-in-up">
+              <span className="text-[#6b6b80] text-xs shrink-0">{log.time}</span>
+              <span className="text-[#a1a1b5] flex-1">{log.text}</span>
+              <span className={`text-xs font-medium shrink-0 ${log.status === 'DONE' ? 'text-[#34d399]' : 'text-[#818cf8]'}`}>
+                [{log.status}]
+              </span>
+            </div>
+          ))}
+          {!isBooted && mounted && (
+            <div className="flex items-center gap-2 mt-3">
+              <div className="w-1.5 h-4 bg-[#818cf8] animate-pulse rounded-sm"></div>
+            </div>
+          )}
+        </div>
+
+        {/* Progress bar */}
+        <div className="space-y-2">
+          <div className="flex justify-between text-xs mono text-[#6b6b80]">
+            <span>Loading system</span>
+            <span>{progress}%</span>
           </div>
-        ))}
-        {!isBooted && mounted && (
-          <div className="inline-block w-3 h-5 bg-[#00f0ff] animate-pulse mt-2 shadow-[0_0_10px_rgba(0,240,255,0.8)]"></div>
-        )}
+          <div className="h-1 bg-[#1a1a26] rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-[#818cf8] to-[#a5b4fc] rounded-full transition-all duration-500 ease-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        </div>
       </div>
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10 mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E")' }} />
     </div>
   );
 }
