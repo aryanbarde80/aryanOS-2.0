@@ -32,10 +32,10 @@ export default function CourseworkGrid() {
 
   return (
     <OSWindow title="Coursework" icon={<BookMarked size={16} className="text-[#818cf8]" />}>
-      <div className="space-y-4">
+      <div className="space-y-2">
         
         {/* Header with Stats */}
-        <div className="flex justify-between items-center pb-2 border-b border-[#818cf8]/20">
+        <div className="flex justify-between items-center pb-1.5 border-b border-[#818cf8]/20">
           <div className="flex items-center gap-2">
             <GraduationCap size={12} className="text-[#fb923c]" />
             <span className="text-[9px] sm:text-[10px] mono text-gray-500">B.TECH CSE • CURRICULUM</span>
@@ -48,7 +48,7 @@ export default function CourseworkGrid() {
         {/* Course Categories */}
         {Object.entries(categories).map(([category, categoryCourses]) => (
           categoryCourses.length > 0 && (
-            <div key={category} className="space-y-2">
+            <div key={category} className="space-y-1.5">
               <h4 className="text-[9px] sm:text-[10px] mono text-[#f472b6] tracking-wider flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#f472b6] animate-pulse"></span>
                 {category}
@@ -80,7 +80,7 @@ export default function CourseworkGrid() {
         ))}
 
         {/* Footer - Additional Info */}
-        <div className="mt-3 pt-3 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-2 text-[8px] sm:text-[9px] mono">
+        <div className="mt-2 pt-2 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-2 text-[8px] sm:text-[9px] mono">
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1">
               <div className="w-1.5 h-1.5 rounded-full bg-[#818cf8]"></div>

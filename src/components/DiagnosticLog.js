@@ -113,10 +113,10 @@ export default function DiagnosticLog() {
   ];
 
   return (
-    <div className="flex flex-col h-full bg-gradient-to-b from-[#030712] to-transparent rounded-lg border border-[#818cf8]/10 overflow-hidden">
+    <div className="flex flex-col h-full overflow-hidden">
       
       {/* Header with System Stats */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 p-3 border-b border-[#818cf8]/20 bg-black/30">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5 p-2 border-b border-[#818cf8]/20 bg-black/30">
         <div className="flex items-center gap-2">
           <Activity size={14} className="text-[#818cf8] animate-pulse" />
           <span className="text-[10px] sm:text-[11px] mono font-bold text-[#818cf8] uppercase tracking-wider">
@@ -147,7 +147,7 @@ export default function DiagnosticLog() {
       {/* Logs Container */}
       <div 
         ref={logContainerRef}
-        className="flex-1 p-3 space-y-1 overflow-y-auto max-h-[300px] min-h-[200px] custom-scrollbar"
+        className="flex-1 p-2 space-y-0.5 overflow-y-auto max-h-[250px] min-h-[120px] custom-scrollbar"
       >
         {logs.map((log, i) => {
           const isLatest = i === 0;
@@ -178,7 +178,7 @@ export default function DiagnosticLog() {
       </div>
       
       {/* Footer - System Info */}
-      <div className="p-2 border-t border-[#818cf8]/10 bg-black/20 flex justify-between items-center text-[8px] sm:text-[9px] mono text-gray-600">
+      <div className="p-1.5 border-t border-[#818cf8]/10 bg-black/20 flex justify-between items-center text-[8px] sm:text-[9px] mono text-gray-600">
         <div className="flex items-center gap-2">
             <span>Logs: {logs.length}</span>
             <span>v9.1.4</span>
