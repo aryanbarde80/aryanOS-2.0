@@ -42,6 +42,7 @@ const SectionDivider = lazy(() => import("@/components/SectionDivider"));
 const AmbientParticles = lazy(() => import("@/components/AmbientParticles"));
 const SideDecorations = lazy(() => import("@/components/SideDecorations"));
 const OrbitalFiller = lazy(() => import("@/components/OrbitalFiller"));
+const Filler3D = lazy(() => import("@/components/Filler3D"));
 
 function SectionFallback() {
   return (
@@ -125,36 +126,53 @@ export default function Home() {
             
             {/* Analytics & Timeline - Side by Side */}
             <section aria-label="Analytics and Timeline" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
-              <div id="analytics">
+              <div id="analytics" className="flex flex-col gap-3 sm:gap-4">
                 <Suspense fallback={<SectionFallback />}>
                   <AnalyticsDashboard />
                 </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
+                  <Suspense fallback={null}>
+                    <Filler3D variant="torusKnot" />
+                  </Suspense>
+                </div>
               </div>
-              <div id="timeline">
+              <div id="timeline" className="flex flex-col gap-3 sm:gap-4">
                 <Suspense fallback={<SectionFallback />}>
                   <SystemMonitorNode />
                 </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
+                  <Suspense fallback={null}>
+                    <Filler3D variant="icosahedron" />
+                  </Suspense>
+                </div>
               </div>
             </section>
 
             <Suspense fallback={null}><SectionDivider variant="circuit" /></Suspense>
 
             {/* Knowledge & Diagnostics - Side by Side */}
-            <section aria-label="Knowledge and Diagnostics" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5 items-start">
-              <Suspense fallback={<SectionFallback />}>
-                <OSWindow title="Knowledge Graph" icon={<Book size={14}/>}>
-                  <KnowledgeGraph />
-                </OSWindow>
-              </Suspense>
+            <section aria-label="Knowledge and Diagnostics" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <Suspense fallback={<SectionFallback />}>
+                  <OSWindow title="Knowledge Graph" icon={<Book size={14}/>}>
+                    <KnowledgeGraph />
+                  </OSWindow>
+                </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
+                  <Suspense fallback={null}>
+                    <Filler3D variant="octahedron" />
+                  </Suspense>
+                </div>
+              </div>
               <div className="flex flex-col gap-3 sm:gap-4">
                 <Suspense fallback={<SectionFallback />}>
                   <OSWindow title="Diagnostic Reports" icon={<Terminal size={14}/>}>
                     <DiagnosticLog />
                   </OSWindow>
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[180px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[180px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="rings" />
+                    <Filler3D variant="sphere" />
                   </Suspense>
                 </div>
               </div>
@@ -236,18 +254,23 @@ export default function Home() {
 
             {/* Skills & Education - Side by Side */}
             <section aria-label="Skills and Education" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
-              <div id="skills-section">
+              <div id="skills-section" className="flex flex-col gap-3 sm:gap-4">
                 <Suspense fallback={<SectionFallback />}>
                   <SkillsGrid />
                 </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
+                  <Suspense fallback={null}>
+                    <Filler3D variant="dodecahedron" />
+                  </Suspense>
+                </div>
               </div>
               <div className="flex flex-col gap-3 sm:gap-4">
                 <Suspense fallback={<SectionFallback />}>
                   <EducationNode />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[180px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[180px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="grid" />
+                    <Filler3D variant="torusKnot" />
                   </Suspense>
                 </div>
               </div>
@@ -261,31 +284,45 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <AchievementsNode />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[180px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[180px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="pulse" />
+                    <Filler3D variant="icosahedron" />
                   </Suspense>
                 </div>
               </div>
-              <Suspense fallback={<SectionFallback />}>
-                <ReferenceVault />
-              </Suspense>
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <Suspense fallback={<SectionFallback />}>
+                  <ReferenceVault />
+                </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
+                  <Suspense fallback={null}>
+                    <Filler3D variant="octahedron" />
+                  </Suspense>
+                </div>
+              </div>
             </section>
 
             <Suspense fallback={null}><SectionDivider variant="pulse" /></Suspense>
 
             {/* Certifications & Coursework - Side by Side */}
-            <section aria-label="Certifications and Coursework" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5 items-start">
-              <Suspense fallback={<SectionFallback />}>
-                <CertificationsNode />
-              </Suspense>
+            <section aria-label="Certifications and Coursework" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <Suspense fallback={<SectionFallback />}>
+                  <CertificationsNode />
+                </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
+                  <Suspense fallback={null}>
+                    <Filler3D variant="sphere" />
+                  </Suspense>
+                </div>
+              </div>
               <div className="flex flex-col gap-3 sm:gap-4">
                 <Suspense fallback={<SectionFallback />}>
                   <CourseworkGrid />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[180px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[180px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="helix" />
+                    <Filler3D variant="dodecahedron" />
                   </Suspense>
                 </div>
               </div>
@@ -295,12 +332,26 @@ export default function Home() {
 
             {/* Writing & Leadership - Side by Side */}
             <section aria-label="Technical Writing and Leadership" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
-              <Suspense fallback={<SectionFallback />}>
-                <TechnicalWritingNode />
-              </Suspense>
-              <Suspense fallback={<SectionFallback />}>
-                <LeadershipNode />
-              </Suspense>
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <Suspense fallback={<SectionFallback />}>
+                  <TechnicalWritingNode />
+                </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
+                  <Suspense fallback={null}>
+                    <Filler3D variant="torusKnot" />
+                  </Suspense>
+                </div>
+              </div>
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <Suspense fallback={<SectionFallback />}>
+                  <LeadershipNode />
+                </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
+                  <Suspense fallback={null}>
+                    <Filler3D variant="icosahedron" />
+                  </Suspense>
+                </div>
+              </div>
             </section>
             
             <Suspense fallback={null}><SectionDivider variant="waveform" /></Suspense>
