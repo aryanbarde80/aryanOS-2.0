@@ -2,7 +2,7 @@
 
 > **"Discipline and Consistency is all what is needed!"**
 
-A high-performance, immersive portfolio built with a futuristic **"Agentic OS"** philosophy — a fully interactive digital experience that blurs the line between portfolio and operating system. Leveraging cutting-edge web technologies to deliver cinematic visuals, a terminal-driven interface, and holographic 3D animations throughout.
+A high-performance, immersive portfolio built with a futuristic **"Agentic OS"** philosophy — a fully interactive digital experience that blurs the line between portfolio and operating system. Leveraging cutting-edge web technologies to deliver cinematic visuals, a terminal-driven interface, and rich animations throughout.
 
 ![Portfolio Preview](/public/aryan-avatar-3d.png)
 
@@ -24,13 +24,12 @@ A high-performance, immersive portfolio built with a futuristic **"Agentic OS"**
 
 ## Overview
 
-**AryanOS 2.0** is a portfolio website designed as a self-contained digital operating system. Visitors experience a boot sequence, a responsive terminal hero, glassmorphic OS windows, real-time diagnostics, animated section dividers, holographic 3D fillers, ambient particles, and a neural matrix background — all crafted to create a narrative-driven user journey.
+**AryanOS 2.0** is a portfolio website designed as a self-contained digital operating system. Visitors experience a boot sequence, a responsive terminal hero, glassmorphic OS windows, real-time diagnostics, animated section dividers, ambient particles, and a neural matrix background — all crafted to create a narrative-driven user journey.
 
 ### Key Highlights
 - **OS Boot Sequence** — Cinematic loading animation simulating a system boot
 - **Terminal Hero** — Interactive terminal-style introduction with typewriter effects
 - **Glassmorphic OS Windows** — Every section is wrapped in collapsible OS-style panels
-- **Holographic 3D Fillers** — Animated wireframe cube, DNA helix, atom model, and constellation network fill empty spaces in side-by-side card layouts
 - **Neural Matrix Background** — Interactive canvas-based background reacting to cursor movement
 - **Ambient Particles & Side Decorations** — Floating particle system and OS-themed decorative icons in page margins
 - **Sticky Navigation** — OS-style top navigation bar with section links
@@ -82,7 +81,6 @@ A high-performance, immersive portfolio built with a futuristic **"Agentic OS"**
 | **Neural Matrix** | `NeuralMatrix` | Interactive canvas background with cursor reactivity |
 | **Ambient Particles** | `AmbientParticles` | Floating particle system overlay |
 | **Side Decorations** | `SideDecorations` | Canvas-rendered OS icons (CPU, signal, gear, node, circuit) in margins |
-| **Holographic Fillers** | `HolographicFiller` | 3D wireframe animations (cube, DNA, atom, constellation) for side-by-side card gaps |
 | **Magnetic Cursor** | `MagneticCursor` | Custom cursor glow effect |
 | **Cursor Glow** | `CursorGlow` | Root-level cursor tracking glow |
 | **Divine Audio** | `DivineAudio` | Ambient audio with controls |
@@ -157,7 +155,6 @@ aryanOS-2.0/
 │       ├── DiagnosticLog.js   # Simulated diagnostics
 │       ├── RecruiterHUD.js    # Recruiter quick-access panel
 │       ├── MantraCLI.js       # Hidden CLI interface
-│       ├── HolographicFiller.js # 3D wireframe animations for card gaps
 │       ├── NeuralMatrix.js    # Interactive neural network background
 │       ├── AmbientParticles.js # Floating particles overlay
 │       ├── SideDecorations.js # OS-themed margin decorations
@@ -234,3 +231,4 @@ This project is licensed under the **MIT License**.
 
 **© 2026 Aryan Barde** — Built with Next.js, Three.js, GSAP, Framer Motion & Tailwind CSS.  
 *"The code is the mantra; the execution is the meditation."*
+
