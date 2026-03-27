@@ -5,7 +5,6 @@ import StatsCounter from "@/components/StatsCounter";
 import BootSequence from "@/components/BootSequence";
 import StickyNav from "@/components/StickyNav";
 import OSWindow from "@/components/OSWindow";
-import CinematicQuote from "@/components/CinematicQuote";
 import { Terminal, Book } from "lucide-react";
 
 // Lazy load heavy components for better initial load performance
@@ -114,9 +113,6 @@ export default function Home() {
           <section id="hero" aria-label="Introduction" className="mt-2 sm:mt-4 md:mt-6">
             <TerminalHero />
           </section>
-
-          {/* Quote */}
-          <CinematicQuote />
 
           {/* Stats */}
           <section aria-label="Statistics">
