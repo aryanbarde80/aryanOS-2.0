@@ -2,7 +2,7 @@
 
 > **"Discipline and Consistency is all what is needed!"**
 
-A high-performance, immersive portfolio built with a futuristic **"Agentic OS"** philosophy — a fully interactive digital experience that blurs the line between portfolio and operating system. Leveraging cutting-edge web technologies to deliver cinematic visuals, a terminal-driven interface, and rich animations throughout.
+A high-performance, immersive portfolio built with a futuristic **"Agentic OS"** philosophy — a fully interactive digital experience that blurs the line between portfolio and operating system. Leveraging cutting-edge web technologies to deliver cinematic visuals, a terminal-driven interface, and rich animations throughout.  
 
 ![Portfolio Preview](/public/aryan-avatar-3d.png)
 
