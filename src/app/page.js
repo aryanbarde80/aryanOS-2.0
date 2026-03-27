@@ -42,6 +42,7 @@ const SectionDivider = lazy(() => import("@/components/SectionDivider"));
 const AmbientParticles = lazy(() => import("@/components/AmbientParticles"));
 const SideDecorations = lazy(() => import("@/components/SideDecorations"));
 const OrbitalFiller = lazy(() => import("@/components/OrbitalFiller"));
+const Filler3D = lazy(() => import("@/components/Filler3D"));
 
 function SectionFallback() {
   return (
@@ -129,9 +130,9 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <AnalyticsDashboard />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[140px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="pulse" />
+                    <Filler3D variant="torusKnot" />
                   </Suspense>
                 </div>
               </div>
@@ -139,9 +140,9 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <SystemMonitorNode />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[140px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="rings" />
+                    <Filler3D variant="icosahedron" />
                   </Suspense>
                 </div>
               </div>
@@ -157,9 +158,9 @@ export default function Home() {
                     <KnowledgeGraph />
                   </OSWindow>
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[140px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="grid" />
+                    <Filler3D variant="octahedron" />
                   </Suspense>
                 </div>
               </div>
@@ -169,9 +170,9 @@ export default function Home() {
                     <DiagnosticLog />
                   </OSWindow>
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[180px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[180px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="rings" />
+                    <Filler3D variant="sphere" />
                   </Suspense>
                 </div>
               </div>
@@ -257,9 +258,9 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <SkillsGrid />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[140px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="helix" />
+                    <Filler3D variant="dodecahedron" />
                   </Suspense>
                 </div>
               </div>
@@ -267,9 +268,9 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <EducationNode />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[180px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[180px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="grid" />
+                    <Filler3D variant="torusKnot" />
                   </Suspense>
                 </div>
               </div>
@@ -283,9 +284,9 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <AchievementsNode />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[180px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[180px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="pulse" />
+                    <Filler3D variant="icosahedron" />
                   </Suspense>
                 </div>
               </div>
@@ -293,9 +294,9 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <ReferenceVault />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[140px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="grid" />
+                    <Filler3D variant="octahedron" />
                   </Suspense>
                 </div>
               </div>
@@ -309,9 +310,9 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <CertificationsNode />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[140px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="rings" />
+                    <Filler3D variant="sphere" />
                   </Suspense>
                 </div>
               </div>
@@ -319,9 +320,9 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <CourseworkGrid />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[180px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[180px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="helix" />
+                    <Filler3D variant="dodecahedron" />
                   </Suspense>
                 </div>
               </div>
@@ -335,9 +336,9 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <TechnicalWritingNode />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[140px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="pulse" />
+                    <Filler3D variant="torusKnot" />
                   </Suspense>
                 </div>
               </div>
@@ -345,9 +346,9 @@ export default function Home() {
                 <Suspense fallback={<SectionFallback />}>
                   <LeadershipNode />
                 </Suspense>
-                <div className="hidden lg:block flex-1 min-h-[140px] glass-panel rounded-2xl overflow-hidden">
+                <div className="hidden lg:block flex-1 min-h-[140px] rounded-2xl overflow-hidden">
                   <Suspense fallback={null}>
-                    <OrbitalFiller variant="helix" />
+                    <Filler3D variant="icosahedron" />
                   </Suspense>
                 </div>
               </div>
