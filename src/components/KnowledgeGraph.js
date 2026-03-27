@@ -1,8 +1,7 @@
 "use client";
-import React from 'react';
 import { 
   Brain, Cpu, Globe, Rocket, Database, Cloud, 
-  Shield, Code, Server, GitBranch, Layout, Zap,
+  Code, Server, GitBranch, Layout, Zap,
   Bot, Workflow, Network, Smartphone, Terminal
 } from 'lucide-react';
 
