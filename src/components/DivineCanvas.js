@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, Suspense, useState } from 'react';
+import { useRef, useEffect, Suspense, useState, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Stars, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
@@ -20,7 +20,7 @@ function AvatarModel({ mousePosition, isInteracting, commandState }) {
   );
   
   // Create a canvas-generated texture as fallback
-  const fallbackTexture = React.useMemo(() => {
+  const fallbackTexture = useMemo(() => {
     if (typeof window === 'undefined') return null;
     const canvas = document.createElement('canvas');
     canvas.width = 128;
@@ -111,7 +111,7 @@ function ParticleSystem({ count = 30, position = [0, 0, 0] }) {
   const groupRef = useRef();
 
   // Pre-compute stable random positions using a seeded approach
-  const positions = React.useMemo(() => {
+  const positions = useMemo(() => {
     const pos = [];
     for (let i = 0; i < count; i++) {
       // Use deterministic pseudo-random based on index
