@@ -1,5 +1,5 @@
 import OSWindow from "./OSWindow";
-import { Network } from "lucide-react";
+import { Network, Briefcase, Calendar, MapPin } from "lucide-react";
 
 export default function ExperienceList() {
   const experiences = [
@@ -7,6 +7,8 @@ export default function ExperienceList() {
       period: "Sep 2025 - Dec 2025",
       role: "Frappe Developer Intern",
       company: "Alfastack Solutions Pvt Ltd",
+      location: "On-site",
+      color: "#818cf8",
       details: [
         "Developed Enterprise Supplier Portal using Frappe framework and React Frappe SDK, reducing processing time by 40%.",
         "Built Customer Experience Portal using Frappe REST APIs for streamlined service workflows.",
@@ -19,6 +21,8 @@ export default function ExperienceList() {
       period: "Aug 2024 - Sep 2025",
       role: "Full Stack Developer & Team Lead",
       company: "Ouranos Robotics Private Limited",
+      location: "Remote",
+      color: "#f472b6",
       details: [
         "Led a development team of 5+ members, mentoring juniors and establishing agile processes.",
         "Engineered a real-time IoT monitoring console using React, Node.js, and MQTT.",
@@ -32,44 +36,110 @@ export default function ExperienceList() {
       period: "Jul 2024 - Aug 2024",
       role: "Cybersecurity & Cloud Security Intern",
       company: "AICTE Cisco Virtual Internship",
+      location: "Virtual",
+      color: "#fb923c",
       details: [
         "Mastered cloud security architecture, deploying AWS security configurations including VPC, IAM policies, and encryption protocols.",
-        "Studied and implemented advanced penetration testing methodologies and network defense systems."
+        "Studied and implemented advanced penetration testing methodologies and network defense systems.",
+        "Gained hands-on experience with network infrastructure security and vulnerability assessment."
+      ]
+    },
+    {
+      period: "Jul 2023 - Aug 2023",
+      role: "Cybersecurity Intern",
+      company: "AICTE Cisco Virtual Internship",
+      location: "Virtual",
+      color: "#818cf8",
+      details: [
+        "Completed Cybersecurity Essentials certification track covering threat analysis and mitigation.",
+        "Implemented network defense configurations using Cisco Packet Tracer simulations.",
+        "Studied encryption protocols and secure communication architecture."
       ]
     }
   ];
 
   return (
-    <OSWindow title="Work Experience" icon={<Network size={18} className="text-[#818cf8]" />} width="max-w-5xl">
-      <div className="space-y-12 sm:space-y-20 relative before:absolute before:inset-0 before:ml-[11px] sm:before:ml-[13px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-[#818cf8] before:via-[#818cf8]/40 before:to-transparent">
-        {experiences.map((exp, idx) => (
-          <div key={idx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-            {/* Timeline dot */}
-            <div className="flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-[#030712] bg-[#818cf8] shadow-[0_0_15px_rgba(129,140,248,0.4)] absolute left-0 md:left-1/2 -translate-x-1/2 z-20 transition-transform group-hover:scale-110 duration-300">
-              <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-white animate-pulsion"></div>
-            </div>
-            
-            {/* Content Box */}
-            <div className="w-[calc(100%-3rem)] md:w-[calc(50%-3rem)] ml-12 md:ml-0 p-6 sm:p-8 border border-[#818cf8]/10 bg-[#12121a]/80 hover:border-[#818cf8]/25 transition-all duration-300 backdrop-blur-xl rounded-2xl">
-              <div className="flex flex-col mb-4 sm:mb-6">
-                <span className="text-[#818cf8] mono text-xs sm:text-sm mb-2 font-medium tracking-wide px-3 py-1 bg-[#818cf8]/10 rounded-lg w-fit">{exp.period}</span>
-                <h3 className="text-lg sm:text-2xl font-bold text-white leading-tight mt-1">{exp.role}</h3>
-                <h4 className="text-sm text-[#f472b6] mono mt-2 font-medium flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-[#f472b6] rounded-full"></div>
-                  {exp.company}
-                </h4>
-              </div>
-              <ul className="list-none space-y-3">
-                {exp.details.map((detail, i) => (
-                  <li key={i} className="text-[13px] sm:text-sm text-[#a1a1b5] font-sans leading-relaxed flex gap-3">
-                    <span className="text-[#818cf8]/50 select-none mt-0.5 shrink-0">-</span>
-                    <span>{detail}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+    <OSWindow title="Work Experience" icon={<Network size={18} className="text-[#818cf8]" />} width="max-w-7xl">
+      <div className="space-y-6">
+        {/* Header */}
+        <div className="flex flex-wrap justify-between items-center gap-3 pb-3 border-b border-[#818cf8]/20">
+          <div className="flex items-center gap-2">
+            <Briefcase size={14} className="text-[#818cf8]" />
+            <span className="text-xs mono text-gray-400">Professional Experience</span>
           </div>
-        ))}
+          <div className="text-xs mono text-[#818cf8] bg-[#818cf8]/10 px-3 py-1 rounded">
+            {experiences.length} Roles
+          </div>
+        </div>
+
+        {/* Experience Cards - Full Width Stacked */}
+        <div className="space-y-5">
+          {experiences.map((exp, idx) => (
+            <div
+              key={idx}
+              className="group relative p-6 sm:p-8 border border-gray-800 hover:border-[#818cf8]/30 rounded-2xl bg-gradient-to-r from-[#12121a]/80 to-[#030712]/40 transition-all duration-300 overflow-hidden"
+            >
+              {/* Accent Line */}
+              <div
+                className="absolute top-0 left-0 w-1.5 h-full rounded-l-2xl"
+                style={{ backgroundColor: exp.color }}
+              ></div>
+
+              <div className="pl-4">
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-white leading-tight group-hover:text-[#818cf8] transition-colors">
+                      {exp.role}
+                    </h3>
+                    <h4 className="text-sm font-medium mt-1 flex items-center gap-2" style={{ color: exp.color }}>
+                      <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: exp.color }}></div>
+                      {exp.company}
+                    </h4>
+                  </div>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <span className="text-xs mono px-3 py-1 bg-[#818cf8]/10 text-[#818cf8] rounded-lg flex items-center gap-1.5">
+                      <Calendar size={12} />
+                      {exp.period}
+                    </span>
+                    <span className="text-[10px] mono px-2 py-0.5 border border-gray-700 text-gray-400 rounded flex items-center gap-1">
+                      <MapPin size={10} />
+                      {exp.location}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Details */}
+                <ul className="list-none space-y-2.5 mt-4">
+                  {exp.details.map((detail, i) => (
+                    <li key={i} className="text-sm text-[#a1a1b5] font-sans leading-relaxed flex gap-3">
+                      <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: exp.color, opacity: 0.5 }}></span>
+                      <span className="group-hover:text-gray-300 transition-colors">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <div className="mt-3 pt-3 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-3 text-xs mono">
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-1.5">
+              <Briefcase size={12} className="text-[#818cf8]" />
+              <span className="text-gray-500">{experiences.length} Professional Roles</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Calendar size={12} className="text-[#f472b6]" />
+              <span className="text-gray-500">2+ Years Experience</span>
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+            <span className="text-gray-600">Currently Available</span>
+          </div>
+        </div>
       </div>
     </OSWindow>
   );

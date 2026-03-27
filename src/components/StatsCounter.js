@@ -78,7 +78,7 @@ export default function StatsCounter() {
                 <AnimatedCounter target={stat.value} />{stat.suffix}
               </p>
               
-              <p className="text-[9px] sm:text-[10px] mono text-[#6b6b80] mt-1 tracking-wide leading-tight">
+              <p className="text-xs mono text-[#6b6b80] mt-1 tracking-wide leading-tight">
                 {stat.label}
               </p>
             </div>
@@ -87,7 +87,7 @@ export default function StatsCounter() {
       </div>
       
       <div className="mt-4 pt-3 text-center border-t border-[#818cf8]/8">
-        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-[9px] mono text-[#6b6b80]">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs mono text-[#6b6b80]">
           <span className="flex items-center gap-1">
             <Zap size={10} className="text-[#f472b6]" />
             40%+ Optimization

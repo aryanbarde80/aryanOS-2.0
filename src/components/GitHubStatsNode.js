@@ -151,44 +151,45 @@ export default function GitHubStatsNode() {
           })}
         </div>
 
-        {/* Recent Repos */}
+        {/* Recent Repos - Stacked Vertically */}
         <div>
-          <h4 className="text-[#f472b6] mono text-xs sm:text-sm font-bold mb-3 flex items-center gap-2">
+          <h4 className="text-[#f472b6] mono text-sm font-bold mb-4 flex items-center gap-2">
             <BookOpen size={14} /> Recent Repositories
-            <span className="text-[8px] text-gray-500 ml-2">({repos.length} active)</span>
+            <span className="text-[10px] text-gray-500 ml-2">({repos.length} active)</span>
           </h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="flex flex-col gap-3">
             {repos.slice(0, 6).map((repo) => (
               <a
                 key={repo.id}
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-3 border border-gray-800 hover:border-[#818cf8]/50 rounded-lg bg-[#030712]/40 group transition-all hover:bg-[#818cf8]/5"
+                className="block p-4 border border-gray-800 hover:border-[#818cf8]/50 rounded-lg bg-[#030712]/40 group transition-all hover:bg-[#818cf8]/5"
               >
                 <div className="flex justify-between items-start mb-2">
                   <h5 className="text-sm font-bold text-gray-200 group-hover:text-[#818cf8] transition-colors truncate pr-2">
                     {repo.name.replace(/-/g, ' ')}
                   </h5>
-                  <ExternalLink size={12} className="text-gray-600 group-hover:text-[#818cf8] shrink-0" />
+                  <ExternalLink size={14} className="text-gray-600 group-hover:text-[#818cf8] shrink-0" />
                 </div>
                 {repo.description && (
-                  <p className="text-[10px] text-gray-500 line-clamp-2 mb-2">{repo.description.slice(0, 80)}</p>
+                  <p className="text-xs text-gray-500 line-clamp-2 mb-2">{repo.description}</p>
                 )}
-                <div className="flex flex-wrap items-center gap-3 text-[9px] sm:text-[10px] mono text-gray-500">
+                <div className="flex flex-wrap items-center gap-4 text-xs mono text-gray-500">
                   {repo.language && (
-                    <span className="flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full" style={{ 
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full" style={{ 
                         background: repo.language === 'JavaScript' ? '#f7df1e' : 
                                     repo.language === 'Python' ? '#3776ab' : 
-                                    repo.language === 'C++' ? '#f34b7d' : '#818cf8'
+                                    repo.language === 'C++' ? '#f34b7d' :
+                                    repo.language === 'TypeScript' ? '#3178c6' : '#818cf8'
                       }}></span>
                       {repo.language}
                     </span>
                   )}
-                  <span className="flex items-center gap-1"><Star size={10} /> {repo.stargazers_count}</span>
-                  <span className="flex items-center gap-1"><GitFork size={10} /> {repo.forks_count}</span>
-                  <span className="flex items-center gap-1"><Calendar size={10} /> {new Date(repo.pushed_at).toLocaleDateString()}</span>
+                  <span className="flex items-center gap-1"><Star size={12} /> {repo.stargazers_count}</span>
+                  <span className="flex items-center gap-1"><GitFork size={12} /> {repo.forks_count}</span>
+                  <span className="flex items-center gap-1"><Calendar size={12} /> {new Date(repo.pushed_at).toLocaleDateString()}</span>
                 </div>
               </a>
             ))}

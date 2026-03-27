@@ -18,9 +18,9 @@ import StatsCounter from "@/components/StatsCounter";
 import OpenSourceNode from "@/components/OpenSourceNode";
 import CourseworkGrid from "@/components/CourseworkGrid";
 import ImpactMetrics from "@/components/ImpactMetrics";
-import HackathonWins from "@/components/HackathonWins";
+import AchievementsNode from "@/components/AchievementsNode";
 import SystemArchitectureNode from "@/components/SystemArchitectureNode";
-import PerformanceBenchmarks from "@/components/PerformanceBenchmarks";
+import CareerTrajectory from "@/components/CareerTrajectory";
 import RecruiterHUD from "@/components/RecruiterHUD";
 import BootSequence from "@/components/BootSequence";
 import SystemHUD from "@/components/SystemHUD";
@@ -63,7 +63,7 @@ export default function Home() {
       {booted && <NeuralMatrix />}
       
       <main id="main-content" className={`min-h-screen px-4 md:px-8 py-6 flex flex-col font-sans relative z-10 pb-40 transition-all duration-1000 ${booted ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden absolute inset-0'} ${stabilityMode === 'unstable' ? 'animate-[shake_0.5s_infinite] glitch-filter' : ''}`}>
-        <div className="max-w-6xl mx-auto w-full">
+        <div className="max-w-7xl mx-auto w-full">
 
           {/* Hero */}
           <div id="hero" className="mt-12">
@@ -76,65 +76,93 @@ export default function Home() {
           {/* Stats */}
           <StatsCounter />
           
-          {/* Content Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 w-full mt-8 auto-rows-min">
+          {/* Content - Stacked Vertical Layout */}
+          <div className="flex flex-col gap-6 w-full mt-8">
             
-            {/* Analytics & Timeline */}
-            <div id="analytics" className="md:col-span-7 flex flex-col"><AnalyticsDashboard /></div>
-            <div id="timeline" className="md:col-span-5 flex flex-col"><SystemMonitorNode /></div>
-            
-            {/* Knowledge & Diagnostics */}
-            <div className="md:col-span-5">
+            {/* Analytics & Timeline - Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div id="analytics"><AnalyticsDashboard /></div>
+              <div id="timeline"><SystemMonitorNode /></div>
+            </div>
+
+            {/* Knowledge & Diagnostics - Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <OSWindow title="Knowledge Graph" icon={<Book size={14}/>}>
                 <KnowledgeGraph />
               </OSWindow>
-            </div>
-            <div className="md:col-span-7">
               <OSWindow title="Diagnostic Reports" icon={<Terminal size={14}/>}>
                 <DiagnosticLog />
               </OSWindow>
             </div>
             
-            {/* GitHub & Architecture */}
-            <div id="github" className="md:col-span-5 flex flex-col"><GitHubStatsNode /></div>
-            <div className="md:col-span-7 flex flex-col"><SystemArchitectureNode /></div>
+            {/* Career Trajectory - Full Width */}
+            <div id="career">
+              <CareerTrajectory />
+            </div>
 
-            {/* Performance */}
-            <div className="md:col-span-12 flex flex-col"><PerformanceBenchmarks /></div>
+            {/* GitHub - Full Width */}
+            <div id="github">
+              <GitHubStatsNode />
+            </div>
 
-            {/* Experience & Bio */}
-            <div className="md:col-span-7 flex flex-col"><ExperienceList /></div>
-            <div className="md:col-span-5 flex flex-col"><BioMatrix /></div>
+            {/* System Architecture - Full Width */}
+            <div>
+              <SystemArchitectureNode />
+            </div>
 
-            {/* Impact */}
-            <div className="md:col-span-12 flex flex-col"><ImpactMetrics /></div>
+            {/* Impact Metrics - Full Width */}
+            <div>
+              <ImpactMetrics />
+            </div>
 
-            {/* Skills & Education */}
-            <div id="skills-section" className="md:col-span-7 flex flex-col"><SkillsGrid /></div>
-            <div className="md:col-span-5 flex flex-col"><EducationNode /></div>
+            {/* Experience - Full Width */}
+            <div>
+              <ExperienceList />
+            </div>
 
-            {/* Hackathons & References */}
-            <div className="md:col-span-7 flex flex-col"><HackathonWins /></div>
-            <div className="md:col-span-5 flex flex-col"><ReferenceVault /></div>
+            {/* Bio - Full Width */}
+            <div>
+              <BioMatrix />
+            </div>
 
-            {/* Certifications & Coursework */}
-            <div className="md:col-span-6 flex flex-col"><CertificationsNode /></div>
-            <div className="md:col-span-6 flex flex-col"><CourseworkGrid /></div>
+            {/* Skills & Education - Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div id="skills-section"><SkillsGrid /></div>
+              <div><EducationNode /></div>
+            </div>
 
-            {/* Writing & Leadership */}
-            <div className="md:col-span-6 flex flex-col"><TechnicalWritingNode /></div>
-            <div className="md:col-span-6 flex flex-col"><LeadershipNode /></div>
+            {/* Achievements & References - Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div><AchievementsNode /></div>
+              <div><ReferenceVault /></div>
+            </div>
+
+            {/* Certifications & Coursework - Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div><CertificationsNode /></div>
+              <div><CourseworkGrid /></div>
+            </div>
+
+            {/* Writing & Leadership - Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div><TechnicalWritingNode /></div>
+              <div><LeadershipNode /></div>
+            </div>
             
-            {/* Projects */}
-            <div id="projects-section" className="md:col-span-12 flex flex-col">
+            {/* Projects - Full Width */}
+            <div id="projects-section">
               <ProjectsShowcase />
             </div>
             
-            {/* Open Source */}
-            <div className="md:col-span-12 flex flex-col"><OpenSourceNode /></div>
+            {/* Open Source - Full Width */}
+            <div>
+              <OpenSourceNode />
+            </div>
 
-            {/* Contact */}
-            <div id="contact" className="md:col-span-12"><ContactNode /></div>
+            {/* Contact - Full Width */}
+            <div id="contact">
+              <ContactNode />
+            </div>
           </div>
           
           {/* Footer */}

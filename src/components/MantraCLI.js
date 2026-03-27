@@ -1,36 +1,97 @@
 "use client";
-import { useState, useEffect } from 'react';
-import { Terminal, Activity, Zap, Info } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Terminal, Activity, Zap, MessageCircle, X, Send, Minimize2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function MantraCLI({ onCommand }) {
   const [input, setInput] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
   const [history, setHistory] = useState([
-    { type: 'system', text: 'MANTRA CLI INITIALIZED. AWAITING INPUT_' },
-    { type: 'system', text: 'AVAILABLE COMMANDS: show_skills, bless_me, tandava, decrypt_contact, show_projects' }
+    { type: 'system', text: 'MANTRA CLI v2.0 — AI-Powered Terminal' },
+    { type: 'system', text: 'Ask me anything about Aryan, or try: show_skills, show_projects, decrypt_contact' }
   ]);
   const [cpuLoad, setCpuLoad] = useState(12);
-  const [lastCommit, setLastCommit] = useState("fetching...");
+  const logRef = useRef(null);
 
-  // Fetch real GitHub activity
   useEffect(() => {
-    fetch('https://api.github.com/users/aryanbarde80/events')
-      .then(res => res.json())
-      .then(data => {
-        const pushEvent = data.find(e => e.type === 'PushEvent');
-        if (pushEvent && pushEvent.payload.commits.length > 0) {
-          const msg = pushEvent.payload.commits[0].message;
-          const repo = pushEvent.repo.name.split('/')[1];
-          setLastCommit(`${repo}: ${msg.length > 20 ? msg.substring(0, 17) + '...' : msg}`);
-        }
-      })
-      .catch(() => setLastCommit("upstream_timeout"));
-  }, []);
+    if (logRef.current) {
+      logRef.current.scrollTop = logRef.current.scrollHeight;
+    }
+  }, [history]);
 
-  // Simulate CPU spikes
   const simulateLoad = () => {
     setCpuLoad(Math.floor(Math.random() * 20) + 80);
     setTimeout(() => setCpuLoad(Math.floor(Math.random() * 15) + 10), 1000);
+  };
+
+  const getAIResponse = (userInput) => {
+    const q = userInput.toLowerCase();
+
+    // Built-in commands
+    if (q === "show_skills") {
+      onCommand('show_skills');
+      return "Navigating to Skills section...";
+    }
+    if (q === "show_projects") {
+      onCommand('show_projects');
+      return "Navigating to Projects section...";
+    }
+    if (q === "bless_me") {
+      onCommand('bless_me');
+      return "Blessing sequence initiated. Divine protection enabled.";
+    }
+    if (q === "tandava") {
+      onCommand('tandava');
+      setTimeout(() => onCommand('reset_stability'), 5000);
+      return "TANDAVA OVERDRIVE ENGAGED. System entering unstable mode for 5 seconds...";
+    }
+    if (q === "decrypt_contact" || q.includes("contact") || q.includes("email") || q.includes("phone")) {
+      return "Contact Channels:\nEmail: aryanbarde80@gmail.com\nPhone: +91-7477203433\nLinkedIn: linkedin.com/in/aryanbarde80\nGitHub: github.com/aryanbarde80";
+    }
+    if (q === "clear") {
+      return "__CLEAR__";
+    }
+    if (q === "help") {
+      return "Available commands:\n- show_skills: Navigate to skills\n- show_projects: Navigate to projects\n- decrypt_contact: Show contact info\n- clear: Clear terminal\n\nOr ask me anything about Aryan!";
+    }
+
+    // AI-like contextual responses
+    if (q.includes("who") && (q.includes("aryan") || q.includes("you"))) {
+      return "Aryan Barde is a Computer Science student at GGITS, Jabalpur (CGPA: 8.14). He specializes in full-stack development, IoT systems, and AI/ML. He has worked at Ouranos Robotics as a Full Stack Dev & Team Lead and at Alfastack Solutions as a Frappe Developer Intern.";
+    }
+    if (q.includes("experience") || q.includes("work")) {
+      return "Professional Experience:\n1. Alfastack Solutions (Sep-Dec 2025) — Frappe Developer Intern\n   Built supplier/customer portals, AI defect detection (95% accuracy)\n2. Ouranos Robotics (Aug 2024-Sep 2025) — Full Stack Dev & Team Lead\n   Led 5+ team, built IoT console, reduced API latency by 40%\n3. AICTE Cisco (Jul 2023 & Jul 2024) — Cybersecurity & Cloud Intern";
+    }
+    if (q.includes("skill") || q.includes("tech") || q.includes("stack")) {
+      return "Tech Stack:\nFrontend: React.js, Next.js, React Native, Three.js, Tailwind\nBackend: Node.js, Express, Flask, FastAPI, Frappe\nDatabases: PostgreSQL, MySQL, MongoDB, Redis, Firebase\nCloud: AWS, GCP, Docker, CI/CD\nAI/ML: YOLOv8, OpenCV, LangChain, CrewAI\nIoT: ESP32, MQTT, C++";
+    }
+    if (q.includes("project")) {
+      return "Key Projects:\n- AryanOS Portfolio: Futuristic 3D portfolio with terminal & boot sequence\n- IoT Real-Time Dashboard: Sub-100ms telemetry with Redis caching\n- AI Defect Detection: YOLOv8 pipeline with 95% accuracy\n- RoomieQ India: MERN roommate platform with real-time chat\n- PostgreStore: Cloud RDBMS management system\n- QuickConnect: Real-time chat with Socket.io";
+    }
+    if (q.includes("education") || q.includes("college") || q.includes("degree")) {
+      return "Education:\nB.Tech in CSE — GGITS, Jabalpur (Nov 2022 - Present)\nCGPA: 8.14/10.0\n12th Grade (PCM): 91% — MP Board\n10th Grade: 88% — MP Board";
+    }
+    if (q.includes("certif")) {
+      return "Certifications:\n- Cisco: CCNA (ITN, SRWE, ENSA), DevNet Associate, Cybersecurity\n- Oracle: Java (OCA), SQL Database, Database Design\n- Cloud: AWS Cloud Practitioner (#65058), Alibaba Cloud Developer\n- Red Hat: Linux Fundamentals (RH104)\n- FreeCodeCamp: Responsive Web Design";
+    }
+    if (q.includes("achievement") || q.includes("award") || q.includes("hackathon")) {
+      return "Achievements:\n- TCS CodeVita 2025: AIR 4905 in Round 2 (500K+ participants)\n- Code360: 3-Time College Topper\n- TechSynergy IoT: 2nd Place at Gyanotsav 2025\n- Ouranos Robotics: 5/5 Rating + Intern of the Month\n- Hacktoberfest 2024: 4 PRs Merged";
+    }
+    if (q.includes("freelance") || q.includes("client")) {
+      return "Freelance Projects:\n- Fly with Zara: IATA travel agency digital transformation\n- ClickMyze: Creative tech agency website\n- TalentBloom: WordPress job portal\n- Trisight Global: Next.js corporate site (PageSpeed 95+)\n- Krapto Technologies: E-commerce + SEO (30% traffic boost)\n- MGGP India Foundation: NGO website with multilingual support";
+    }
+    if (q.includes("hello") || q.includes("hi") || q.includes("hey")) {
+      return "Hello! I'm Aryan's AI assistant. Ask me about his skills, experience, projects, certifications, or anything else. I'm here to help!";
+    }
+    if (q.includes("resume") || q.includes("cv") || q.includes("download")) {
+      return "You can explore Aryan's full profile right here on this portfolio. Scroll through the sections to see skills, experience, projects, and more. For direct contact: aryanbarde80@gmail.com";
+    }
+    if (q.includes("hire") || q.includes("available") || q.includes("open to")) {
+      return "Aryan is open to full-time opportunities, internships, and freelance projects. He specializes in Full Stack Development, IoT, and AI/ML. Reach out at aryanbarde80@gmail.com or +91-7477203433.";
+    }
+
+    return `I understand you're asking about "${userInput}". I'm Aryan's portfolio assistant. Try asking about his skills, experience, projects, certifications, achievements, or education. You can also use commands like show_skills, show_projects, or decrypt_contact.`;
   };
 
   const handleCommand = (e) => {
@@ -38,105 +99,131 @@ export default function MantraCLI({ onCommand }) {
     if (!input.trim()) return;
 
     simulateLoad();
-    const cmd = input.trim().toLowerCase();
+    const cmd = input.trim();
     
-    setHistory(prev => [...prev, { type: 'user', text: `> GUEST@ARYAN_CORE:~$ ${cmd}` }]);
-    
-    let response = "COMMAND NOT RECOGNIZED. CONSULT RUNBOOKS.";
-    if (cmd === "show_skills") {
-      response = "EXEC: INITIATING SKILL HIGHLIGHT_";
-      onCommand('show_skills');
-    } else if (cmd === "bless_me") {
-      response = "ॐ: BLESSING SEQUENCE INITIATED. DIVINE_PROTECTION=1";
-      onCommand('bless_me');
-    } else if (cmd === "tandava") {
-      response = "ॐ: TANDAVA OVERDRIVE ENGAGED. SYSTEM UNSTABLE.";
-      onCommand('tandava');
-      // Trigger temporary unstable UI state
-      setTimeout(() => onCommand('reset_stability'), 5000);
-    } else if (cmd === "decrypt_contact") {
-      response = "DECRYPTING SECURE CHANNELS... \nEMAIL: hi.aryanbarde@gmail.com \nPHONE: +91 79872 90159";
-    } else if (cmd === "show_projects") {
-      response = "FILTERING PROJECT ARCHIVES_";
-      onCommand('show_projects');
-    } else if (cmd === "clear") {
-      setHistory([]);
-      setInput('');
-      return;
-    }
+    setHistory(prev => [...prev, { type: 'user', text: `> ${cmd}` }]);
+    setInput('');
+    setIsTyping(true);
 
     setTimeout(() => {
-      setHistory(prev => [...prev, { type: 'system', text: response }]);
-    }, 400);
-
-    setInput('');
+      const response = getAIResponse(cmd);
+      if (response === "__CLEAR__") {
+        setHistory([{ type: 'system', text: 'Terminal cleared. Ready for input.' }]);
+      } else {
+        setHistory(prev => [...prev, { type: 'system', text: response }]);
+      }
+      setIsTyping(false);
+    }, 600 + Math.random() * 800);
   };
 
   return (
-    <motion.div 
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: 2, duration: 0.8 }}
-      className="fixed bottom-0 left-0 w-full z-50 pointer-events-none hidden sm:block"
-    >
-      <div className="max-w-4xl mx-auto pointer-events-auto mb-4 px-4">
-        <div className="glass-panel border-t border-l border-r border-[#818cf8]/30 bg-black/80 backdrop-blur-md rounded-t-lg overflow-hidden shadow-[0_-5px_30px_rgba(0,240,255,0.15)] relative group">
-          
-          {/* Neon Border Glow */}
-          <div className="absolute inset-0 border-t-2 border-[#818cf8] opacity-0 group-hover:opacity-100 transition-opacity blur-sm pointer-events-none"></div>
+    <>
+      {/* Floating Icon Button */}
+      <AnimatePresence>
+        {!isOpen && (
+          <motion.button
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ delay: 2, duration: 0.4, type: "spring" }}
+            onClick={() => setIsOpen(true)}
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#818cf8] hover:bg-[#6366f1] text-white flex items-center justify-center shadow-[0_0_30px_rgba(129,140,248,0.4)] hover:shadow-[0_0_40px_rgba(129,140,248,0.6)] transition-all duration-300 group"
+            aria-label="Open Mantra CLI"
+          >
+            <MessageCircle size={24} className="group-hover:scale-110 transition-transform" />
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse border-2 border-[#0a0a0f]"></span>
+          </motion.button>
+        )}
+      </AnimatePresence>
 
-          {/* Status Bar */}
-          <div className="flex justify-between items-center bg-[#030712] px-4 py-1.5 border-b border-[#818cf8]/20">
-            <div className="flex items-center gap-2 text-[10px] mono text-[#818cf8]/80 font-bold uppercase tracking-widest">
-              <Terminal size={12} /> MANTRA_CLI // ACTIVE
-            </div>
-            {/* Live Stats */}
-            <div className="flex gap-4 text-[9px] mono text-gray-500 hidden sm:flex">
-              <span className="flex items-center gap-1 font-bold">
-                <Activity size={10} className="text-green-500" /> PING: <span className="text-green-500">12ms</span>
-              </span>
-              <span className="flex items-center gap-1 font-bold">
-                <Zap size={10} className={cpuLoad > 50 ? 'text-[#f472b6]' : 'text-[#fb923c]'} /> 
-                CPU_LOAD: <span className={cpuLoad > 50 ? 'text-[#f472b6]' : 'text-[#fb923c]'}>{cpuLoad}%</span>
-              </span>
-              <span className="text-[#818cf8] font-bold overflow-hidden whitespace-nowrap hidden lg:block">
-                LAST_COMMIT: <span className="opacity-70 text-gray-400 capitalize">{lastCommit}</span>
-              </span>
-            </div>
-          </div>
+      {/* CLI Panel */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ y: 300, opacity: 0, scale: 0.9 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: 300, opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}
+            className="fixed bottom-6 right-6 z-50 w-[380px] sm:w-[440px] max-h-[500px] flex flex-col"
+          >
+            <div className="glass-panel border border-[#818cf8]/30 bg-black/90 backdrop-blur-xl rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(129,140,248,0.2)] flex flex-col max-h-[500px]">
+              
+              {/* Header Bar */}
+              <div className="flex justify-between items-center bg-[#030712] px-4 py-2.5 border-b border-[#818cf8]/20 shrink-0">
+                <div className="flex items-center gap-2">
+                  <Terminal size={14} className="text-[#818cf8]" />
+                  <span className="text-xs mono text-[#818cf8] font-bold uppercase tracking-wider">Mantra CLI</span>
+                  <span className="text-[9px] mono px-1.5 py-0.5 bg-green-500/20 text-green-400 rounded">AI</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="hidden sm:flex gap-3 text-[9px] mono text-gray-500 mr-2">
+                    <span className="flex items-center gap-1">
+                      <Activity size={9} className="text-green-500" />
+                      <span className="text-green-500">Online</span>
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Zap size={9} className={cpuLoad > 50 ? 'text-[#f472b6]' : 'text-[#fb923c]'} />
+                      <span className={cpuLoad > 50 ? 'text-[#f472b6]' : 'text-[#fb923c]'}>{cpuLoad}%</span>
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="text-gray-500 hover:text-white transition-colors p-1 rounded hover:bg-white/10"
+                    aria-label="Close CLI"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
+              </div>
 
-          {/* Log Window */}
-          <div className="h-28 overflow-y-auto p-3 space-y-1 scrollbar-thin scrollbar-thumb-[#818cf8]/20 flex flex-col justify-end">
-            <AnimatePresence>
-              {history.map((msg, idx) => (
-                <motion.div 
-                  initial={{ opacity: 0, x: -10 }} 
-                  animate={{ opacity: 1, x: 0 }} 
-                  key={idx} 
-                  className={`text-[11px] mono whitespace-pre-line ${msg.type === 'user' ? 'text-gray-300' : 'text-[#818cf8]'} pb-1`}
+              {/* Log Window */}
+              <div ref={logRef} className="flex-1 overflow-y-auto p-4 space-y-2 min-h-[200px] max-h-[340px]">
+                {history.map((msg, idx) => (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 5 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    key={idx} 
+                    className={`text-xs mono whitespace-pre-line leading-relaxed ${
+                      msg.type === 'user' 
+                        ? 'text-gray-300 bg-[#818cf8]/10 p-2.5 rounded-lg border border-[#818cf8]/20 ml-8' 
+                        : 'text-[#818cf8] bg-[#030712]/60 p-2.5 rounded-lg border border-gray-800/40 mr-8'
+                    }`}
+                  >
+                    {msg.text}
+                  </motion.div>
+                ))}
+                {isTyping && (
+                  <div className="text-[#818cf8] text-xs mono p-2.5 mr-8 bg-[#030712]/60 rounded-lg border border-gray-800/40">
+                    <span className="animate-pulse">Thinking...</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Input Form */}
+              <form onSubmit={handleCommand} className="flex border-t border-[#818cf8]/20 bg-[#030712] p-3 items-center gap-2 shrink-0">
+                <input 
+                  type="text" 
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  className="bg-transparent border border-gray-800 rounded-lg outline-none text-[#818cf8] text-xs mono w-full py-2 px-3 caret-[#818cf8] focus:border-[#818cf8]/50 transition-colors placeholder:text-gray-600"
+                  placeholder="Ask about Aryan or type a command..."
+                  spellCheck="false"
+                  autoComplete="off"
+                  autoFocus
+                  aria-label="Enter message or command"
+                />
+                <button 
+                  type="submit" 
+                  className="p-2 bg-[#818cf8] hover:bg-[#6366f1] rounded-lg text-white transition-colors shrink-0"
+                  aria-label="Send"
                 >
-                  {msg.text}
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {/* Input Form */}
-          <form onSubmit={handleCommand} className="flex border-t border-[#818cf8]/20 bg-black p-2 items-center gap-2">
-            <span className="text-[#ff44aa] text-[11px] mono font-bold ml-2 shrink-0">{'>'} GUEST@ARYAN_CORE:~$</span>
-            <input 
-              type="text" 
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              className="bg-transparent border-none outline-none text-[#818cf8] text-[11px] mono w-full py-1 caret-[#818cf8]"
-              placeholder="ENTER MANTRA COMMAND..."
-              spellCheck="false"
-              autoComplete="off"
-              aria-label="Enter terminal command"
-            />
-          </form>
-        </div>
-      </div>
-    </motion.div>
+                  <Send size={14} />
+                </button>
+              </form>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
