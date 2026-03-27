@@ -39,6 +39,8 @@ const MagneticCursor = lazy(() => import("@/components/MagneticCursor"));
 const NeuralMatrix = lazy(() => import("@/components/NeuralMatrix"));
 const DiagnosticLog = lazy(() => import("@/components/DiagnosticLog"));
 const KnowledgeGraph = lazy(() => import("@/components/KnowledgeGraph"));
+const SectionDivider = lazy(() => import("@/components/SectionDivider"));
+const AmbientParticles = lazy(() => import("@/components/AmbientParticles"));
 
 function SectionFallback() {
   return (
@@ -93,6 +95,11 @@ export default function Home() {
           <NeuralMatrix />
         </Suspense>
       )}
+      {booted && (
+        <Suspense fallback={null}>
+          <AmbientParticles />
+        </Suspense>
+      )}
       
       <main id="main-content" role="main" className={`min-h-screen px-4 sm:px-6 md:px-8 lg:px-12 py-4 sm:py-6 flex flex-col font-sans relative z-10 pb-12 sm:pb-16 transition-all duration-1000 ${booted ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden absolute inset-0'} ${stabilityMode === 'unstable' ? 'animate-[shake_0.5s_infinite] glitch-filter' : ''}`}>
         <div className="max-w-7xl mx-auto w-full">
@@ -127,6 +134,8 @@ export default function Home() {
               </div>
             </section>
 
+            <Suspense fallback={null}><SectionDivider variant="circuit" /></Suspense>
+
             {/* Knowledge & Diagnostics - Side by Side */}
             <section aria-label="Knowledge and Diagnostics" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5 items-start">
               <Suspense fallback={<SectionFallback />}>
@@ -141,12 +150,16 @@ export default function Home() {
               </Suspense>
             </section>
             
+            <Suspense fallback={null}><SectionDivider variant="dataStream" /></Suspense>
+
             {/* Career Trajectory - Full Width */}
             <section id="career" aria-label="Career Trajectory">
               <Suspense fallback={<SectionFallback />}>
                 <CareerTrajectory />
               </Suspense>
             </section>
+
+            <Suspense fallback={null}><SectionDivider variant="pulse" /></Suspense>
 
             {/* GitHub - Full Width */}
             <section id="github" aria-label="GitHub Statistics">
@@ -155,12 +168,16 @@ export default function Home() {
               </Suspense>
             </section>
 
+            <Suspense fallback={null}><SectionDivider variant="waveform" /></Suspense>
+
             {/* System Architecture - Full Width */}
             <section aria-label="System Architecture">
               <Suspense fallback={<SectionFallback />}>
                 <SystemArchitectureNode />
               </Suspense>
             </section>
+
+            <Suspense fallback={null}><SectionDivider variant="matrix" /></Suspense>
 
             {/* Impact Metrics - Full Width */}
             <section aria-label="Impact Metrics">
@@ -169,12 +186,16 @@ export default function Home() {
               </Suspense>
             </section>
 
+            <Suspense fallback={null}><SectionDivider variant="circuit" /></Suspense>
+
             {/* Performance Benchmarks - Full Width */}
             <section aria-label="Performance Benchmarks">
               <Suspense fallback={<SectionFallback />}>
                 <PerformanceBenchmarks />
               </Suspense>
             </section>
+
+            <Suspense fallback={null}><SectionDivider variant="pulse" /></Suspense>
 
             {/* Hackathon Wins - Full Width */}
             <section aria-label="Hackathon Achievements">
@@ -183,6 +204,8 @@ export default function Home() {
               </Suspense>
             </section>
 
+            <Suspense fallback={null}><SectionDivider variant="dataStream" /></Suspense>
+
             {/* Experience - Full Width */}
             <section aria-label="Work Experience">
               <Suspense fallback={<SectionFallback />}>
@@ -190,12 +213,16 @@ export default function Home() {
               </Suspense>
             </section>
 
+            <Suspense fallback={null}><SectionDivider variant="waveform" /></Suspense>
+
             {/* Bio - Full Width */}
             <section aria-label="Professional Bio">
               <Suspense fallback={<SectionFallback />}>
                 <BioMatrix />
               </Suspense>
             </section>
+
+            <Suspense fallback={null}><SectionDivider variant="matrix" /></Suspense>
 
             {/* Skills & Education - Side by Side */}
             <section aria-label="Skills and Education" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
@@ -211,6 +238,8 @@ export default function Home() {
               </div>
             </section>
 
+            <Suspense fallback={null}><SectionDivider variant="circuit" /></Suspense>
+
             {/* Achievements & References - Side by Side */}
             <section aria-label="Achievements and References" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
               <Suspense fallback={<SectionFallback />}>
@@ -220,6 +249,8 @@ export default function Home() {
                 <ReferenceVault />
               </Suspense>
             </section>
+
+            <Suspense fallback={null}><SectionDivider variant="pulse" /></Suspense>
 
             {/* Certifications & Coursework - Side by Side */}
             <section aria-label="Certifications and Coursework" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5 items-start">
@@ -231,6 +262,8 @@ export default function Home() {
               </Suspense>
             </section>
 
+            <Suspense fallback={null}><SectionDivider variant="dataStream" /></Suspense>
+
             {/* Writing & Leadership - Side by Side */}
             <section aria-label="Technical Writing and Leadership" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
               <Suspense fallback={<SectionFallback />}>
@@ -241,6 +274,8 @@ export default function Home() {
               </Suspense>
             </section>
             
+            <Suspense fallback={null}><SectionDivider variant="waveform" /></Suspense>
+
             {/* Projects - Full Width */}
             <section id="projects-section" aria-label="Projects Portfolio">
               <Suspense fallback={<SectionFallback />}>
@@ -248,12 +283,16 @@ export default function Home() {
               </Suspense>
             </section>
             
+            <Suspense fallback={null}><SectionDivider variant="matrix" /></Suspense>
+
             {/* Open Source - Full Width */}
             <section aria-label="Open Source Contributions">
               <Suspense fallback={<SectionFallback />}>
                 <OpenSourceNode />
               </Suspense>
             </section>
+
+            <Suspense fallback={null}><SectionDivider variant="circuit" /></Suspense>
 
             {/* Contact - Full Width */}
             <section id="contact" aria-label="Contact Information">
