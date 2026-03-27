@@ -104,10 +104,10 @@ export default function ImpactMetrics() {
         {/* Header with Stats */}
         <div className="flex flex-wrap justify-between items-center gap-3 pb-3 border-b border-[#818cf8]/20">
           <div className="flex items-center gap-2">
-            <TrendingUp size={12} className="text-[#fb923c]" />
-            <span className="text-[9px] sm:text-[10px] mono text-gray-500">PERFORMANCE_DASHBOARD</span>
+            <TrendingUp size={14} className="text-[#fb923c]" />
+            <span className="text-xs mono text-gray-400">PERFORMANCE_DASHBOARD</span>
           </div>
-          <div className="flex gap-2 text-[9px] sm:text-[10px] mono">
+          <div className="flex gap-2 text-xs mono">
             <span className="text-[#818cf8] bg-[#818cf8]/10 px-2 py-0.5 rounded">{totalMetrics} METRICS</span>
             <span className="text-[#fb923c] bg-[#fb923c]/10 px-2 py-0.5 rounded">+{Math.round(avgImprovement)}% AVG</span>
           </div>
@@ -136,9 +136,9 @@ export default function ImpactMetrics() {
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <Icon size={18} style={{ color: m.color }} className="shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                      <span className="text-[8px] sm:text-[9px] mono text-gray-500 uppercase tracking-wider">{m.impact}</span>
+                      <span className="text-[10px] mono text-gray-500 uppercase tracking-wider">{m.impact}</span>
                     </div>
-                    <span className="text-[7px] sm:text-[8px] px-1.5 py-0.5 rounded bg-gray-900 text-gray-600">LIVE</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 text-gray-600">LIVE</span>
                   </div>
                   
                   {/* Value */}
@@ -147,10 +147,10 @@ export default function ImpactMetrics() {
                   </p>
                   
                   {/* Label */}
-                  <p className="text-[11px] sm:text-xs font-semibold text-gray-300 mt-2 tracking-wide">{m.label}</p>
+                  <p className="text-xs sm:text-sm font-semibold text-gray-300 mt-2 tracking-wide">{m.label}</p>
                   
                   {/* Description */}
-                  <p className="text-[9px] sm:text-[10px] text-gray-500 mt-2 leading-relaxed">{m.desc}</p>
+                  <p className="text-[11px] sm:text-xs text-gray-500 mt-2 leading-relaxed">{m.desc}</p>
                   
                   {/* Hover Indicator */}
                   <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -163,7 +163,7 @@ export default function ImpactMetrics() {
         </div>
 
         {/* Footer - Summary Stats */}
-        <div className="mt-3 pt-3 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-3 text-[8px] sm:text-[9px] mono">
+        <div className="mt-3 pt-3 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-3 text-xs mono">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
               <Cpu size={10} className="text-[#818cf8]" />

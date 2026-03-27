@@ -24,6 +24,26 @@ export default function ProjectsShowcase() {
       github: "https://github.com/aryanbarde80/aryanOS-2.0"
     },
     {
+      title: "Fly with Zara",
+      desc: "Complete digital transformation for an IATA-certified travel agency. Booking system, itinerary management, and customer portal with responsive design.",
+      tech: ["Next.js", "React", "Tailwind CSS", "Node.js"],
+      category: "FREELANCE",
+      color: "#f472b6",
+      icon: Globe,
+      status: "LIVE",
+      github: "https://github.com/aryanbarde80"
+    },
+    {
+      title: "ClickMyze Agency",
+      desc: "High-performance creative tech agency website featuring an 8-step methodology showcase, portfolio gallery, and client testimonials.",
+      tech: ["Next.js", "GSAP", "Tailwind CSS", "Framer Motion"],
+      category: "FREELANCE",
+      color: "#818cf8",
+      icon: Globe,
+      status: "LIVE",
+      github: "https://github.com/aryanbarde80"
+    },
+    {
       title: "IoT Real-Time Dashboard",
       desc: "Real-time IoT monitoring platform with sub-100ms telemetry, live sensor visualization, and alert system. Reduced API latency by 40% via Redis caching.",
       tech: ["React.js", "Node.js", "Socket.io", "Redis", "MQTT", "ESP32"],
@@ -35,7 +55,7 @@ export default function ProjectsShowcase() {
     },
     {
       title: "AI Defect Detection System",
-      desc: "YOLOv8-based manufacturing quality control pipeline achieving 95% defect detection accuracy. Deployed for real-time visual inspection in production lines.",
+      desc: "YOLOv8-based manufacturing quality control pipeline achieving 95% defect detection accuracy. Deployed for real-time visual inspection.",
       tech: ["Python", "YOLOv8", "OpenCV", "FastAPI", "Docker"],
       category: "AI/ML",
       color: "#fb923c",
@@ -44,9 +64,29 @@ export default function ProjectsShowcase() {
       github: "https://github.com/aryanbarde80"
     },
     {
+      title: "TalentBloom Job Portal",
+      desc: "WordPress-based job portal with advanced filtering, employer dashboards, and applicant tracking. Custom theme with responsive design.",
+      tech: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript"],
+      category: "FREELANCE",
+      color: "#fb923c",
+      icon: Globe,
+      status: "LIVE",
+      github: "https://github.com/aryanbarde80"
+    },
+    {
+      title: "Trisight Global Solutions",
+      desc: "Corporate website achieving 95+ Google PageSpeed score. Built with Next.js SSR for optimal SEO and performance.",
+      tech: ["Next.js", "React", "Tailwind CSS", "SEO"],
+      category: "FREELANCE",
+      color: "#818cf8",
+      icon: Globe,
+      status: "LIVE",
+      github: "https://github.com/aryanbarde80"
+    },
+    {
       title: "RoomieQ India Platform",
-      desc: "Full-stack accommodation platform with 40% query optimization. Features advanced search, real-time chat, and booking management system.",
-      tech: ["Next.js", "PostgreSQL", "Node.js", "Redis", "Tailwind CSS"],
+      desc: "Full-stack accommodation platform with 40% query optimization. Features advanced search, real-time chat, and booking management.",
+      tech: ["Next.js", "PostgreSQL", "Node.js", "Redis", "Socket.io"],
       category: "FULLSTACK",
       color: "#818cf8",
       icon: Database,
@@ -54,29 +94,59 @@ export default function ProjectsShowcase() {
       github: "https://github.com/aryanbarde80"
     },
     {
-      title: "Multi-Agent AI System",
-      desc: "Autonomous AI agent orchestration using CrewAI and LangChain. RAG pipelines for intelligent document processing and decision-making workflows.",
-      tech: ["Python", "LangChain", "CrewAI", "RAG", "OpenAI API"],
-      category: "AI/ML",
+      title: "Krapto Technologies",
+      desc: "E-commerce platform with SEO automation that boosted organic traffic by 30% and improved search rankings by 40 positions.",
+      tech: ["Next.js", "Node.js", "MongoDB", "Analytics API"],
+      category: "FREELANCE",
       color: "#f472b6",
-      icon: Bot,
-      status: "ACTIVE",
-      github: "https://github.com/aryanbarde80"
-    },
-    {
-      title: "SEO Automation Engine",
-      desc: "Automated SEO optimization platform that improved organic traffic by 30% and search rankings by 40 positions for client websites.",
-      tech: ["Next.js", "Python", "Node.js", "Analytics API"],
-      category: "FULLSTACK",
-      color: "#fb923c",
       icon: Globe,
       status: "PRODUCTION",
       github: "https://github.com/aryanbarde80"
     },
     {
-      title: "React Native Mobile App",
-      desc: "Cross-platform mobile application with real-time data synchronization, push notifications, and offline-first architecture.",
-      tech: ["React Native", "Firebase", "Redux", "Node.js"],
+      title: "MGGP India Foundation",
+      desc: "NGO website with multilingual support, donation system, and event management. Improved search ranking by 40 positions through SEO.",
+      tech: ["Next.js", "Node.js", "i18n", "SEO"],
+      category: "FREELANCE",
+      color: "#fb923c",
+      icon: Globe,
+      status: "LIVE",
+      github: "https://github.com/aryanbarde80"
+    },
+    {
+      title: "PostgreStore",
+      desc: "Cloud-based RDBMS management system with visual schema designer, query builder, and performance analytics dashboard.",
+      tech: ["React", "Node.js", "PostgreSQL", "Express"],
+      category: "FULLSTACK",
+      color: "#818cf8",
+      icon: Database,
+      status: "ACTIVE",
+      github: "https://github.com/aryanbarde80"
+    },
+    {
+      title: "QuickConnect",
+      desc: "Real-time chat application with Socket.io, message encryption, file sharing, and group chat functionality.",
+      tech: ["React", "Node.js", "Socket.io", "MongoDB"],
+      category: "FULLSTACK",
+      color: "#f472b6",
+      icon: Code,
+      status: "ACTIVE",
+      github: "https://github.com/aryanbarde80"
+    },
+    {
+      title: "Advanced Network Simulation",
+      desc: "Cisco Packet Tracer network simulation with VLAN, OSPF routing, ACL security, and multi-site WAN connectivity.",
+      tech: ["Cisco", "Packet Tracer", "OSPF", "VLAN", "ACL"],
+      category: "IOT",
+      color: "#fb923c",
+      icon: Cpu,
+      status: "COMPLETED",
+      github: "https://github.com/aryanbarde80"
+    },
+    {
+      title: "React Native IoT App",
+      desc: "Cross-platform mobile app for IoT device management with real-time sensor data, push notifications, and offline-first architecture.",
+      tech: ["React Native", "Expo", "Firebase", "Redux"],
       category: "MOBILE",
       color: "#818cf8",
       icon: Smartphone,
@@ -85,7 +155,7 @@ export default function ProjectsShowcase() {
     },
     {
       title: "Zerve Data Challenge 2026",
-      desc: "ML prediction model achieving 100% accuracy on user success prediction from 409K behavioral events. Feature engineering and ensemble methods.",
+      desc: "ML prediction model achieving 100% accuracy on user success prediction from 409K behavioral events using ensemble methods.",
       tech: ["Python", "Scikit-learn", "Pandas", "XGBoost"],
       category: "AI/ML",
       color: "#fb923c",
@@ -95,7 +165,7 @@ export default function ProjectsShowcase() {
     }
   ];
 
-  const categories = ["ALL", "FRONTEND", "FULLSTACK", "AI/ML", "MOBILE"];
+  const categories = ["ALL", "FREELANCE", "FULLSTACK", "AI/ML", "FRONTEND", "MOBILE", "IOT"];
   const filtered = activeFilter === "ALL" ? projects : projects.filter(p => p.category === activeFilter);
 
   useEffect(() => {

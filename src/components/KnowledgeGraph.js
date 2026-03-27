@@ -86,10 +86,10 @@ export default function KnowledgeGraph() {
       {/* Header */}
       <div className="flex justify-between items-center pb-2 border-b border-[#818cf8]/20">
         <div className="flex items-center gap-2">
-          <Brain size={12} className="text-[#818cf8]" />
-          <span className="text-[9px] sm:text-[10px] mono text-gray-500">TECH_STACK_PROFICIENCY</span>
+          <Brain size={14} className="text-[#818cf8]" />
+          <span className="text-xs mono text-gray-400">TECH_STACK_PROFICIENCY</span>
         </div>
-        <div className="text-[9px] sm:text-[10px] mono text-[#fb923c] bg-[#fb923c]/10 px-2 py-0.5 rounded">
+        <div className="text-xs mono text-[#fb923c] bg-[#fb923c]/10 px-2 py-1 rounded">
           {allSkills.length} TECHNOLOGIES
         </div>
       </div>
@@ -101,11 +101,11 @@ export default function KnowledgeGraph() {
             {/* Category Header */}
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-3 rounded-full" style={{ backgroundColor: category.color }}></div>
-              <h4 className="text-[9px] sm:text-[10px] mono font-bold tracking-wider" style={{ color: category.color }}>
+              <h4 className="text-xs mono font-bold tracking-wider" style={{ color: category.color }}>
                 {category.title}
               </h4>
               <div className="flex-1 h-px bg-gradient-to-r from-[#818cf8]/20 to-transparent"></div>
-              <span className="text-[8px] sm:text-[9px] text-gray-600">{category.skills.length} items</span>
+              <span className="text-[10px] text-gray-500">{category.skills.length} items</span>
             </div>
             
             {/* Skills in this category */}
@@ -120,11 +120,11 @@ export default function KnowledgeGraph() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-1.5">
                         <IconComponent size={12} style={{ color: category.color }} className="group-hover:scale-110 transition-transform" />
-                        <span className="text-[9px] sm:text-[10px] font-mono text-gray-400 group-hover:text-white transition-colors">
+                        <span className="text-xs font-mono text-gray-400 group-hover:text-white transition-colors">
                           {skill.name}
                         </span>
                       </div>
-                      <span className="text-[8px] sm:text-[9px] mono" style={{ color: category.color }}>
+                      <span className="text-[10px] mono" style={{ color: category.color }}>
                         {skill.val}%
                       </span>
                     </div>
@@ -147,7 +147,7 @@ export default function KnowledgeGraph() {
       </div>
 
       {/* Footer - Summary */}
-      <div className="mt-3 pt-2 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-2 text-[9px] sm:text-[10px] mono">
+      <div className="mt-3 pt-2 border-t border-[#818cf8]/20 flex flex-wrap justify-between items-center gap-2 text-xs mono">
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-1">
             <Zap size={8} className="text-[#818cf8]" />
