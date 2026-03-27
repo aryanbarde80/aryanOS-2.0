@@ -42,6 +42,7 @@ const KnowledgeGraph = lazy(() => import("@/components/KnowledgeGraph"));
 const SectionDivider = lazy(() => import("@/components/SectionDivider"));
 const AmbientParticles = lazy(() => import("@/components/AmbientParticles"));
 const SideDecorations = lazy(() => import("@/components/SideDecorations"));
+const HolographicFiller = lazy(() => import("@/components/HolographicFiller"));
 
 function SectionFallback() {
   return (
@@ -237,10 +238,15 @@ export default function Home() {
                   <SkillsGrid />
                 </Suspense>
               </div>
-              <div>
+              <div className="flex flex-col gap-3 sm:gap-4">
                 <Suspense fallback={<SectionFallback />}>
                   <EducationNode />
                 </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[200px] glass-panel rounded-2xl overflow-hidden">
+                  <Suspense fallback={<SectionFallback />}>
+                    <HolographicFiller variant="atom" />
+                  </Suspense>
+                </div>
               </div>
             </section>
 
@@ -248,9 +254,16 @@ export default function Home() {
 
             {/* Achievements & References - Side by Side */}
             <section aria-label="Achievements and References" className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
-              <Suspense fallback={<SectionFallback />}>
-                <AchievementsNode />
-              </Suspense>
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <Suspense fallback={<SectionFallback />}>
+                  <AchievementsNode />
+                </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[200px] glass-panel rounded-2xl overflow-hidden">
+                  <Suspense fallback={<SectionFallback />}>
+                    <HolographicFiller variant="cube" />
+                  </Suspense>
+                </div>
+              </div>
               <Suspense fallback={<SectionFallback />}>
                 <ReferenceVault />
               </Suspense>
@@ -263,9 +276,16 @@ export default function Home() {
               <Suspense fallback={<SectionFallback />}>
                 <CertificationsNode />
               </Suspense>
-              <Suspense fallback={<SectionFallback />}>
-                <CourseworkGrid />
-              </Suspense>
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <Suspense fallback={<SectionFallback />}>
+                  <CourseworkGrid />
+                </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[200px] glass-panel rounded-2xl overflow-hidden">
+                  <Suspense fallback={<SectionFallback />}>
+                    <HolographicFiller variant="dna" />
+                  </Suspense>
+                </div>
+              </div>
             </section>
 
             <Suspense fallback={null}><SectionDivider variant="dataStream" /></Suspense>
@@ -275,9 +295,16 @@ export default function Home() {
               <Suspense fallback={<SectionFallback />}>
                 <TechnicalWritingNode />
               </Suspense>
-              <Suspense fallback={<SectionFallback />}>
-                <LeadershipNode />
-              </Suspense>
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <Suspense fallback={<SectionFallback />}>
+                  <LeadershipNode />
+                </Suspense>
+                <div className="hidden lg:block flex-1 min-h-[200px] glass-panel rounded-2xl overflow-hidden">
+                  <Suspense fallback={<SectionFallback />}>
+                    <HolographicFiller variant="constellation" />
+                  </Suspense>
+                </div>
+              </div>
             </section>
             
             <Suspense fallback={null}><SectionDivider variant="waveform" /></Suspense>

@@ -1,129 +1,195 @@
-# 🌌 ARYAN BARDE // AI-OS PORTFOLIO 
+# AryanOS 2.0 — AI-OS Portfolio
 
 > **"Discipline and Consistency is all what is needed!"**
 
-A high-performance, aesthetically premium portfolio built with a futuristic **"Agentic OS"** philosophy — a fully immersive digital experience that blurs the line between portfolio and operating system. This project leverages cutting-edge web technologies to deliver a cinematic 3D environment synchronized with a terminal-driven interface, creating a narrative-driven user journey that reflects the mindset of a disciplined developer and architect.
+A high-performance, immersive portfolio built with a futuristic **"Agentic OS"** philosophy — a fully interactive digital experience that blurs the line between portfolio and operating system. Leveraging cutting-edge web technologies to deliver cinematic visuals, a terminal-driven interface, and holographic 3D animations throughout.
 
 ![Portfolio Preview](/public/aryan-avatar-3d.png)
 
----
-
-## 📖 TABLE OF CONTENTS
-
-- [Overview](#-overview)
-- [Core Systems](#-core-systems)
-- [Tech Stack](#-tech-stack)
-- [Architecture](#-architecture)
-- [Getting Started](#-getting-started)
-- [Project Structure](#-project-structure)
-- [Performance Optimization](#-performance-optimization)
-- [Philosophy & Design Language](#-philosophy--design-language)
-- [Deployment](#-deployment)
-- [License](#-license)
+**Live Site:** [aryanos-2-0.pages.dev](https://aryanos-2-0.pages.dev/)
 
 ---
 
-## 🔭 OVERVIEW
+## Table of Contents
 
-The **AI-OS Portfolio** is a conceptual artifact — a self-contained digital ecosystem that mimics the behavior of an intelligent operating system. Visitors are greeted with a boot sequence, a responsive terminal, draggable system panels, real-time diagnostics, and a deeply integrated 3D avatar that reacts to user engagement.
-
-Built with a **modular component architecture**, this project demonstrates:
-- Advanced **3D rendering pipelines** using Three.js
-- **Real-time state synchronization** across UI, audio, and animation layers
-- **Terminal emulation** with command parsing and dynamic output
-- **Performance-first design** with lazy loading, GPU optimization, and asset streaming
-
----
-
-## ⚙️ CORE SYSTEMS
-
-### 🌌 Celestial 3D Engine
-- Powered by `React-Three-Fiber` and `Three.js` with a custom **"Divine Canvas"** shader system.
-- Features a dynamic **star-field simulation** with parallax depth mapping.
-- **Khabib-inspired animated avatar** with idle animation states, mouth sync for terminal echo, and ambient eye tracking (cursor-reactive).
-- Utilizes **skeletal animation** with `useFrame` hooks for per-frame updates and physics-inspired motion.
-
-### 💻 Agentic Terminal
-- A real-time, **state-driven terminal interface** that simulates system boot sequences, diagnostic operations, and portfolio navigation.
-- Supports **custom commands** (`help`, `about`, `skills`, `clear`, `sudo`) with extensible command registry.
-- Features **typewriter effects**, **blinking cursor**, **command history** (up/down arrow), and **audio feedback** on input.
-
-### 🪟 Glassmorphic OS Shell
-- A custom-built **windowing system** with draggable, resizable panels inspired by modern OS design.
-- Each window is an independent **React component** with its own lifecycle and state management.
-- Real-time **diagnostic stats panel** simulating CPU/Memory/Network usage with dynamic polling.
-- Premium typography using **Geist** and **Inter** with fluid typography scaling.
-
-### 🧠 Neural Matrix Overlay
-- Interactive **canvas-based background effect** that reacts to cursor movement and system states.
-- Uses **WebGL** with custom fragment shaders for real-time noise generation and color modulation.
-- Adapts color schemes based on **time of day** and user interaction intensity.
-
-### 🎧 Divine Audio
-- Ambient **cosmic soundscapes** with seamless loop transitions using `Howler.js`.
-- Interactive **hover sounds** inspired by the damru (Indian ritual instrument), mapped to UI elements.
-- Audio context is **lazy-initialized** on first user interaction for browser compliance.
-- Features a dedicated **sound mixer panel** for volume control and track selection.
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Deployment](#deployment)
+- [License](#license)
 
 ---
 
-## 🛠 TECH STACK
+## Overview
 
-| Category             | Technologies                                                                 |
-|----------------------|------------------------------------------------------------------------------|
-| **Framework**        | Next.js 16.2 (Turbopack) — App Router, Server Components, Edge-ready         |
-| **3D Graphics**      | Three.js, @react-three/fiber, @react-three/drei, @react-three/postprocessing |
-| **Animations**       | GSAP (ScrollTrigger, Timeline), Framer Motion, CSS Keyframes                 |
-| **Styling**          | Tailwind CSS 4.0, Vanilla CSS Modules, CSS Variables for theming              |
-| **Audio**            | Howler.js, Web Audio API                                                      |
-| **State Management** | Zustand (global UI state), React Context (theme, terminal), useReducer        |
-| **Icons**            | Lucide React, Custom SVG assets                                               |
-| **Typography**       | @next/font (Geist, Inter), System Font Stack fallback                         |
-| **Deployment**       | Vercel (Edge Functions, ISR, Analytics)                                       |
+**AryanOS 2.0** is a portfolio website designed as a self-contained digital operating system. Visitors experience a boot sequence, a responsive terminal hero, glassmorphic OS windows, real-time diagnostics, animated section dividers, holographic 3D fillers, ambient particles, and a neural matrix background — all crafted to create a narrative-driven user journey.
+
+### Key Highlights
+- **OS Boot Sequence** — Cinematic loading animation simulating a system boot
+- **Terminal Hero** — Interactive terminal-style introduction with typewriter effects
+- **Glassmorphic OS Windows** — Every section is wrapped in collapsible OS-style panels
+- **Holographic 3D Fillers** — Animated wireframe cube, DNA helix, atom model, and constellation network fill empty spaces in side-by-side card layouts
+- **Neural Matrix Background** — Interactive canvas-based background reacting to cursor movement
+- **Ambient Particles & Side Decorations** — Floating particle system and OS-themed decorative icons in page margins
+- **Sticky Navigation** — OS-style top navigation bar with section links
+- **Recruiter HUD** — Quick-access panel for recruiters
+- **Divine Audio** — Ambient soundscapes with a sound mixer panel
+- **Cinematic Quotes & Section Dividers** — Animated dividers (circuit, data stream, pulse, waveform, matrix) between sections
+- **System HUD** — Real-time clock and session timer overlay
+- **Magnetic Cursor** — Custom cursor glow effect
 
 ---
 
-## 🏛 ARCHITECTURE
+## Features
 
-The project follows a **modular monolith** structure with clear separation of concerns:
+### Sections & Components
+
+| Section | Component | Description |
+|---------|-----------|-------------|
+| **Hero** | `TerminalHero` | Terminal-style intro with typewriter animation |
+| **Stats** | `StatsCounter` | Animated counters for projects, lines of code, deployments, etc. |
+| **Analytics** | `AnalyticsDashboard` | Domain mastery radar chart, tech stack badges, competency mapping |
+| **Timeline** | `SystemMonitorNode` | Career timeline with filterable categories (Work, Projects, Awards, Education) |
+| **Knowledge Graph** | `KnowledgeGraph` | Tech stack proficiency bars organized by category |
+| **Diagnostics** | `DiagnosticLog` | Simulated live system diagnostic terminal output |
+| **Career Trajectory** | `CareerTrajectory` | Full career timeline with milestone markers |
+| **GitHub** | `GitHubStatsNode` | GitHub profile stats, repos, followers, and recent repositories |
+| **Architecture** | `SystemArchitectureNode` | System architecture overview with layer breakdown |
+| **Impact Metrics** | `ImpactMetrics` | Performance dashboard with benchmarks and percentile score |
+| **Benchmarks** | `PerformanceBenchmarks` | Detailed performance metrics visualization |
+| **Hackathons** | `HackathonWins` | Hackathon achievements and participation |
+| **Experience** | `ExperienceList` | Work experience with detailed role descriptions |
+| **Bio** | `BioMatrix` | Professional summary with language proficiencies |
+| **Skills** | `SkillsGrid` | 8-category skills grid (Languages, Frontend, Backend, DB, Cloud, IoT, AI, Tools) |
+| **Education** | `EducationNode` | Academic records (B.Tech CSE, Higher Secondary, Secondary) |
+| **Achievements** | `AchievementsNode` | Awards and recognition timeline |
+| **References** | `ReferenceVault` | Encrypted credential vault with audit trail |
+| **Certifications** | `CertificationsNode` | 22+ verified credentials (Cisco, Cloud, Oracle, Open Source, Internship) |
+| **Coursework** | `CourseworkGrid` | 16 courses organized by category with semester info |
+| **Technical Writing** | `TechnicalWritingNode` | Published blog articles with links to Medium |
+| **Leadership** | `LeadershipNode` | Leadership roles and professional affiliations |
+| **Projects** | `ProjectsShowcase` | Featured projects with tech tags and status |
+| **Open Source** | `OpenSourceNode` | Hacktoberfest and open source contributions |
+| **Contact** | `ContactNode` | Contact information and social links |
+
+### Visual & Interactive Systems
+
+| System | Component | Description |
+|--------|-----------|-------------|
+| **Boot Sequence** | `BootSequence` | OS-style loading animation on page load |
+| **Neural Matrix** | `NeuralMatrix` | Interactive canvas background with cursor reactivity |
+| **Ambient Particles** | `AmbientParticles` | Floating particle system overlay |
+| **Side Decorations** | `SideDecorations` | Canvas-rendered OS icons (CPU, signal, gear, node, circuit) in margins |
+| **Holographic Fillers** | `HolographicFiller` | 3D wireframe animations (cube, DNA, atom, constellation) for side-by-side card gaps |
+| **Magnetic Cursor** | `MagneticCursor` | Custom cursor glow effect |
+| **Cursor Glow** | `CursorGlow` | Root-level cursor tracking glow |
+| **Divine Audio** | `DivineAudio` | Ambient audio with controls |
+| **Divine Canvas** | `DivineCanvas` | 3D scene with Three.js |
+| **Section Dividers** | `SectionDivider` | Animated dividers between sections (5 variants) |
+| **System HUD** | `SystemHUD` | Real-time clock and session timer |
+| **Recruiter HUD** | `RecruiterHUD` | Quick-access recruiter panel |
+| **Mantra CLI** | `MantraCLI` | Hidden CLI for power users |
+
+---
+
+## Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Framework** | Next.js 16.2 (App Router) |
+| **3D Graphics** | Three.js, @react-three/fiber, @react-three/drei |
+| **Animations** | GSAP, Framer Motion, CSS Keyframes, Canvas API |
+| **Styling** | Tailwind CSS 4.0, CSS Variables |
+| **Audio** | Howler.js |
+| **State Management** | Zustand, React Context |
+| **Icons** | Lucide React |
+| **Deployment** | Cloudflare Pages |
+
+---
+
+## Project Structure
 
 ```
-src/
-├── app/                 # Next.js App Router pages and layouts
-├── components/          # Reusable UI components
-│   ├── terminal/        # Terminal emulator core and commands
-│   ├── windows/         # OS window components
-│   ├── 3d/              # Three.js scenes, models, and hooks
-│   └── audio/           # Audio context providers and controls
-├── hooks/               # Custom React hooks (useAudio, useTerminal, useSystemStats)
-├── lib/                 # Utility functions, constants, and command registry
-├── stores/              # Zustand stores (uiStore, terminalStore, audioStore)
-├── styles/              # Global CSS, Tailwind imports, theme variables
-└── types/               # TypeScript type definitions and interfaces
+aryanOS-2.0/
+├── public/
+│   ├── aryan-avatar-3d.png    # 3D avatar image
+│   ├── aryan-avatar.png       # Fallback avatar
+│   ├── favicon.png            # Site favicon
+│   └── robots.txt             # SEO robots file
+├── src/
+│   ├── app/
+│   │   ├── globals.css        # Global styles, Tailwind imports, theme variables
+│   │   ├── layout.js          # Root layout with metadata, JSON-LD, CursorGlow
+│   │   ├── page.js            # Main OS interface — all sections composed here
+│   │   ├── not-found.js       # Custom 404 page
+│   │   └── sitemap.js         # Dynamic sitemap generation
+│   └── components/
+│       ├── TerminalHero.js    # Terminal-style hero section
+│       ├── BootSequence.js    # OS boot animation
+│       ├── StickyNav.js       # Top navigation bar
+│       ├── OSWindow.js        # Reusable OS window wrapper (glassmorphic, collapsible)
+│       ├── StatsCounter.js    # Animated statistics counters
+│       ├── CinematicQuote.js  # Animated quote display
+│       ├── SkillsGrid.js      # Skills organized in 8 categories
+│       ├── ExperienceList.js  # Work experience section
+│       ├── ProjectsShowcase.js # Featured projects
+│       ├── ContactNode.js     # Contact section
+│       ├── EducationNode.js   # Education records
+│       ├── CertificationsNode.js # 22+ certifications
+│       ├── CourseworkGrid.js  # Academic coursework
+│       ├── AchievementsNode.js # Awards timeline
+│       ├── ReferenceVault.js  # Credential vault
+│       ├── TechnicalWritingNode.js # Blog articles
+│       ├── LeadershipNode.js  # Leadership roles
+│       ├── BioMatrix.js       # Professional bio
+│       ├── GitHubStatsNode.js # GitHub profile stats
+│       ├── OpenSourceNode.js  # Open source contributions
+│       ├── HackathonWins.js   # Hackathon achievements
+│       ├── CareerTrajectory.js # Career timeline
+│       ├── AnalyticsDashboard.js # Domain mastery dashboard
+│       ├── SystemMonitorNode.js # Interactive career timeline
+│       ├── SystemArchitectureNode.js # Architecture overview
+│       ├── ImpactMetrics.js   # Performance dashboard
+│       ├── PerformanceBenchmarks.js # Benchmark metrics
+│       ├── KnowledgeGraph.js  # Tech proficiency visualization
+│       ├── DiagnosticLog.js   # Simulated diagnostics
+│       ├── RecruiterHUD.js    # Recruiter quick-access panel
+│       ├── MantraCLI.js       # Hidden CLI interface
+│       ├── HolographicFiller.js # 3D wireframe animations for card gaps
+│       ├── NeuralMatrix.js    # Interactive neural network background
+│       ├── AmbientParticles.js # Floating particles overlay
+│       ├── SideDecorations.js # OS-themed margin decorations
+│       ├── SectionDivider.js  # Animated section dividers
+│       ├── DivineCanvas.js    # Three.js 3D scene
+│       ├── DivineAudio.js     # Ambient audio system
+│       ├── MagneticCursor.js  # Custom cursor effect
+│       ├── CursorGlow.js      # Cursor glow wrapper
+│       └── SystemHUD.js       # Clock and session timer
+├── eslint.config.mjs          # ESLint configuration
+├── jsconfig.json              # Path aliases (@/components, etc.)
+├── next.config.mjs            # Next.js configuration
+├── postcss.config.mjs         # PostCSS with Tailwind
+├── package.json               # Dependencies and scripts
+└── .gitignore
 ```
-
-### Key Architectural Decisions:
-- **Server Components** used for static content and metadata, **Client Components** for interactive features
-- **Zustand** for global state to avoid prop drilling while maintaining performance
-- **Lazy loading** for 3D assets and audio files via dynamic imports
-- **WebGL context loss handling** for resilience during GPU stress
-- **Custom event bus** for cross-component communication without tight coupling
 
 ---
 
-## 🚀 GETTING STARTED
+## Getting Started
 
 ### Prerequisites
 - Node.js 20.x or higher
 - npm 10.x or higher
-- A modern browser with WebGL support
+- A modern browser with WebGL & Canvas support
 
 ### Installation
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/aryanbarde80/demo-portfolio.git
-   cd demo-portfolio
+   git clone https://github.com/aryanbarde80/aryanOS-2.0.git
+   cd aryanOS-2.0
    ```
 
 2. **Install dependencies**:
@@ -131,159 +197,40 @@ src/
    npm install
    ```
 
-3. **Set up environment variables** (optional):
-   ```bash
-   cp .env.example .env.local
-   # Edit .env.local with your configurations
-   ```
-
-4. **Start the development server**:
+3. **Start the development server**:
    ```bash
    npm run dev
    ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-5. **Build for production**:
+4. **Build for production**:
    ```bash
    npm run build
-   npm start
+   ```
+
+5. **Lint**:
+   ```bash
+   npm run lint
    ```
 
 ---
 
-## 📁 PROJECT STRUCTURE (DETAILED)
+## Deployment
 
-```
-demo-portfolio/
-├── public/
-│   ├── models/          # GLTF/GLB 3D models
-│   ├── audio/           # Ambient tracks and SFX
-│   ├── fonts/           # Custom font files
-│   └── images/          # Static assets and fallbacks
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx   # Root layout with providers
-│   │   ├── page.tsx     # Main OS interface
-│   │   └── globals.css  # Global styles and Tailwind
-│   ├── components/
-│   │   ├── terminal/
-│   │   │   ├── Terminal.tsx
-│   │   │   ├── TerminalInput.tsx
-│   │   │   ├── TerminalOutput.tsx
-│   │   │   └── commands/
-│   │   │       ├── registry.ts
-│   │   │       └── handlers/
-│   │   ├── windows/
-│   │   │   ├── Window.tsx
-│   │   │   ├── DiagnosticWindow.tsx
-│   │   │   ├── AboutWindow.tsx
-│   │   │   └── SkillsWindow.tsx
-│   │   ├── 3d/
-│   │   │   ├── Scene.tsx
-│   │   │   ├── Avatar.tsx
-│   │   │   ├── StarField.tsx
-│   │   │   └── hooks/
-│   │   │       └── useModelLoader.ts
-│   │   ├── audio/
-│   │   │   ├── AudioProvider.tsx
-│   │   │   ├── SoundMixer.tsx
-│   │   │   └── useAudio.ts
-│   │   └── ui/
-│   │       ├── Button.tsx
-│   │       ├── GlassPanel.tsx
-│   │       └── TypingEffect.tsx
-│   ├── lib/
-│   │   ├── constants.ts
-│   │   ├── utils.ts
-│   │   └── systemStats.ts
-│   ├── stores/
-│   │   ├── uiStore.ts
-│   │   ├── terminalStore.ts
-│   │   └── audioStore.ts
-│   ├── hooks/
-│   │   ├── useSystemStats.ts
-│   │   ├── useDraggable.ts
-│   │   └── useKeyboardShortcuts.ts
-│   └── types/
-│       └── index.ts
-├── tailwind.config.js
-├── next.config.js
-├── tsconfig.json
-└── package.json
-```
+The project is deployed on **Cloudflare Pages**.
+
+- **Live URL:** [https://aryanos-2-0.pages.dev/](https://aryanos-2-0.pages.dev/)
+- **Build command:** `npm run build`
+- **Output directory:** `.next`
+- **Framework:** Next.js
 
 ---
 
-## ⚡ PERFORMANCE OPTIMIZATION
+## License
 
-| Strategy                  | Implementation                                                                 |
-|---------------------------|--------------------------------------------------------------------------------|
-| **Code Splitting**        | Dynamic imports for 3D components, audio modules, and heavy UI elements        |
-| **Asset Compression**     | GLTF models compressed with Draco, audio in MP3/OGG dual format, WebP images   |
-| **GPU Optimization**      | Reduced draw calls via instanced meshes, level-of-detail (LOD) for avatar      |
-| **Memory Management**     | Dispose of Three.js geometries/materials on unmount, audio context cleanup     |
-| **Bundle Analysis**       | `@next/bundle-analyzer` for monitoring and optimizing chunk sizes              |
-| **Image Optimization**    | Next.js `next/image` with lazy loading and responsive srcset                   |
-| **Font Optimization**     | `@next/font` with subsetting and display swap                                  |
-| **Edge Caching**          | ISR for static pages, Vercel Edge Network for global distribution              |
+This project is licensed under the **MIT License**.
 
 ---
 
-## 🧘 PHILOSOPHY & DESIGN LANGUAGE
-
-This portfolio is not just a showcase of code; it is a manifestation of **Technical Writing** and **Architectural Logic**. Every component is treated as a **"Node"** in a larger system, reflecting the interconnectivity of modern full-stack development and AI systems.
-
-### Design Principles:
-- **Narrative-driven UX**: Every interaction tells a story — from boot sequence to terminal exploration.
-- **Diegetic interface**: UI elements exist within the "OS" metaphor; nothing feels bolted on.
-- **Progressive enhancement**: Core content works without JavaScript; 3D and audio enhance, not replace.
-- **Accessibility**: Keyboard navigable terminal, ARIA labels, focus trapping in modals, reduced motion support.
-
-### Visual Identity:
-- **Color Palette**: Deep cosmic blues, neon cyans, and subtle gold accents inspired by Vedic cosmology.
-- **Typography**: Geist for UI, Inter for body, monospace for terminal — all with fluid scaling.
-- **Motion**: GSAP-powered easing curves that mimic natural physical systems (overshoot, bounce, inertia).
-
----
-
-## 🌐 DEPLOYMENT
-
-The project is optimized for deployment on **Vercel** with the following configuration:
-
-```json
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "installCommand": "npm install",
-  "framework": "nextjs",
-  "regions": ["iad1", "hnd1", "sfo1"]
-}
-```
-
-### Environment Variables:
-| Variable          | Description                          |
-|-------------------|--------------------------------------|
-| `NEXT_PUBLIC_SITE_URL` | Production URL for metadata         |
-| `ANALYTICS_ID`    | Vercel Analytics or custom provider  |
-| `AUDIO_ENABLED`   | Toggle audio features (default: true)|
-
----
-
-## 📄 LICENSE
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 ACKNOWLEDGMENTS
-
-- **Three.js** community for extensive examples and shader resources
-- **Vercel** for seamless deployment and edge infrastructure
-- **Khabib Nurmagomedov** for the unwavering discipline that inspired this project's philosophy
-
----
-
-**© 2026 ARYAN BARDE**. Registered Agent of the Cosmic Network.  
+**© 2026 Aryan Barde** — Built with Next.js, Three.js, GSAP, Framer Motion & Tailwind CSS.  
 *"The code is the mantra; the execution is the meditation."*
-
----
-
